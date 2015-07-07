@@ -1,0 +1,1023 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="maximum-scale=1.0,width=680">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title></title>
+
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="fonts/font-awesome-4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="js/fancybox/jquery.fancybox.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.formstyler.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.scrollbar.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <script type="text/javascript" src="js/jquery-1.11.2.js"></script>
+    <script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="js/fancybox/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript" src="js/jquery.bxslider.js"></script>
+    <script type="text/javascript" src="js/jquery.formstyler.js"></script>
+    <script type="text/javascript" src="js/numeric.js"></script>
+    <script type="text/javascript" src="js/jquery.scrollbar.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+
+</head>
+<body>
+    <div class="wrapper inside">
+
+        <div class="content">
+            <div class="header">
+                <div class="top-wrap">
+                    <div class="top">
+                        <div class="container">
+                            <div class="non-auth-wrap" style="display: none;">
+                                <div class="non-auth-text">
+                                    Здравствуй, посетитель! Для доступа ко всем возможностям сайта мы просим пройти <a href="javascript:void(0)">регистрацию</a> или <a href="javascript:void(0)">авторизироваться</a>
+                                </div>
+                            </div>
+                            <div class="auth-wrap">
+                                <div class="top-user-room">
+                                    <span>Здравствуйте</span>
+                                    <div class="select-wrap">
+                                        <select name="user">
+                                            <option>Константин Сергеевич</option>
+                                            <option>Мои сообщения</option>
+                                            <option>Выход</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="user-room-section">
+                                    <div class="user-row">
+                                        <div class="user-row">
+                                            <a href="javascript:void(0)" class="user-actions">Мои данные</a>
+                                        </div>
+                                        <div class="user-row">
+                                            <a href="javascript:void(0)" class="user-actions">Быстрый заказ</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="user-room-section">
+                                    <div class="user-row">
+                                        <div class="user-row">
+                                            <a href="javascript:void(0)" class="user-actions">События:</a> <span class="room-value">2</span>
+                                        </div>
+                                        <div class="user-row">
+                                            <a href="javascript:void(0)" class="user-actions">Сообщения:</a> <span class="room-value">5</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="user-room-section">
+                                    <div class="user-row">
+                                        <div class="user-room-money">
+                                            <div class="user-row">
+                                                <div class="balance">
+                                                    <span class="room-field">Баланс:</span>
+                                                    <span class="room-value">35231 руб</span>
+                                                </div>
+                                                <div class="points">
+                                                    <span class="room-field">Бонусные баллы:</span>
+                                                    <span class="room-value">500</span>
+                                                </div>
+                                            </div>
+                                            <div class="user-row">
+                                                <a href="javascript:void(0)" class="user-money-actions user-actions">Пополнение</a>
+                                                <a href="javascript:void(0)" class="user-money-actions user-actions">Просмотр операций</a>
+                                                <a href="javascript:void(0)" class="user-money-actions user-actions">Перевод</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="user-room-section">
+                                    <div class="user-room-basket">
+                                        <div class="user-row">
+                                            <div class="basket">
+                                                <span class="room-field">6 товаров:</span>
+                                                <span class="room-value">16200 руб</span>
+                                            </div>
+                                        </div>
+                                        <div class="user-row">
+                                            <a href="javascript:void(0)" class="user-money-actions user-actions">Оформить заказ</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="nav">
+                    <div class="container clearfix">
+                        <a href class="logo">
+                            <img src="images/elements/logo.png">
+                        </a>
+                        <div class="nav-static">
+                            <div class="clearfix">
+                                <div class="header-phone-block">
+                                    <div class="phone-block">
+                                        Есть вопросы? <span>8 (800) 2000-420</span>
+                                    </div>
+                                    <div class="phone-hint">
+                                        Звонок бесплатный из любого города России
+                                    </div>
+                                </div>
+                                <div class="header-chat-block">
+                                    <a href="javascript:void(0)" class="chat-link">Онлайн чат</a>
+                                    <div class="chat-hint">
+                                        консультант на месте
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="menu">
+                                <li>
+                                    <a href="javascript:void(0)">О системе</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">новости</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">продукция</a>
+                                </li>
+                                <li class="submenu">
+                                    <a href="javascript:void(0)">события</a>
+                                    <div class="submenu-block">
+                                        <ul>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Календарь
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Путешествия
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Фотогалерея
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Корпоративы
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Архивы
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Пункт меню
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <ul>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Пункт меню
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Пункт меню
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Пункт меню
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Пункт меню
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Пункт меню
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Пункт меню
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">отзывы</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">контакты</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <div class="nav-right">
+                            <div class="geo-user">
+                                <a href="#modal-region" class="modal-open">Санкт-Петербург</a>
+                            </div>
+                            <div class="search-form-block">
+                                <form method="post" action="" class="search-form clearfix">
+                                    <input type="text" name="search-field" placeholder="поиск на сайте">
+                                    <button type="submit" class="search-btn">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="inside-page"></div>
+            <div class="center-content">
+                <div class="container">
+                    <div class="full-width-content">
+                        <a href="#modal-region" class="modal-open">Санкт-Петербург</a><br>
+                        <a href="#modal-regions" class="modal-open">Нет, изменить регион</a><br>
+                        <a href="#modal-search-hint" class="modal-open">как искать?</a><br>
+                        <a href="#modal-basket-add-false" class="modal-open">Добавить в корзину (ошибка)</a><br>
+                        <a href="#modal-auth" class="modal-open">Авторизироваться</a><br>
+                        <a href="#modal-share" class="modal-open">Поделиться</a><br>
+                        <a href="#modal-balance-zero" class="modal-open">Пополнить счет?</a><br>
+                        <a href="#modal-delivery-regions" class="modal-open">Выберите город пункта выдачи</a><br>
+                        <a href="#modal-delivery" class="modal-open">Ваш пункт выдачи?</a><br>
+                        <a href="#modal-delivery-address" class="modal-open">Ваш адрес доставки?</a><br>
+                        <a href="#modal-delivery-hint" class="modal-open">Доставка на дом</a><br>
+                        <a href="#modal-archive" class="modal-open">Добавить в архив?</a><br>
+                        <a href="#modal-cat-user-exist" class="modal-open">Данная категория пользователей существует</a><br>
+                        <a href="#modal-product-publish" class="modal-open">Опубликовать товар</a><br>
+                        <a href="#modal-product-list" class="modal-open">Список товаров</a><br>
+                        <a href="#modal-money-transfer" class="modal-open">Перевести деньги</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-top">
+            <div class="container clearfix">
+                <div class="contacts">
+                    <div class="footer-title">
+                        контакты
+                    </div>
+                    <div class="contacts-title">
+                        Адрес для приема почтовой корреспонденции
+                    </div>
+                    <div class="contacts-text">
+                        Компания «ИВП Фермион»<br>
+                        190000, Санкт-Петербург, "ИВП Фермион", а/я 645
+                    </div>
+                    <div class="contacts-bottom">
+                        <div class="contacts-phone">
+                            <span>8 (800) 2000-420</span> - звонок бесплатный по России
+                        </div>
+                        <div>
+                            <a href="javascript:void(0)" class="footer-chat-link">онлайн чат</a>
+                            <a href="mailto:email@fermion.ru" class="footer-email">email@fermion.ru</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-nav">
+                    <div class="footer-title">
+                        навигация
+                    </div>
+                    <div class="footer-nav-list">
+                        <div class="nav-list-row">
+                            <div class="nav-item has-subitem">
+                                <a href="javascript:void(0)">О системе</a>
+                            </div>
+                            <div class="nav-item nav-subitem">
+                                <a href="javascript:void(0)">часто задаваемые вопросы</a>
+                            </div>
+                        </div>
+                        <div class="nav-list-row">
+                            <div class="nav-item">
+                                <a href="javascript:void(0)">Новости</a>
+                            </div>
+                        </div>
+                        <div class="nav-list-row">
+                            <div class="nav-item has-subitem">
+                                <a href="javascript:void(0)">Продукция</a>
+                            </div>
+                            <div class="nav-item nav-subitem">
+                                <a href="javascript:void(0)">Каталог продукции</a>
+                            </div>
+                        </div>
+                        <div class="nav-list-row">
+                            <div class="nav-item has-subitem">
+                                <a href="javascript:void(0)">События</a>
+                            </div>
+                            <div class="nav-item nav-subitem">
+                                <a href="javascript:void(0)">Календарь событий</a>
+                            </div>
+                        </div>
+                        <div class="nav-list-row">
+                            <div class="nav-item">
+                                <a href="javascript:void(0)">Отзывы</a>
+                            </div>
+                        </div>
+                        <div class="nav-list-row">
+                            <div class="nav-item">
+                                <a href="javascript:void(0)">Контакты</a>
+                            </div>
+                            <div class="nav-item nav-subitem">
+                                <a href="javascript:void(0)" class="site-map"><span>Карта сайта</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="footer-actions">
+                    <div class="footer-title">
+                        E-mail подписка
+                    </div>
+                    <div class="footer-form">
+                        <form class="clearfix" method="post" action="">
+                            <input type="text" name="email" placeholder="Введите свой e-mail">
+                            <button type="submit">Отправить</button>
+                        </form>
+                    </div>
+                    <div class="footer-title">
+                        Мы в социальных сетях
+                    </div>
+                    <div class="social">
+                        <a href="javascript:void(0)">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a href="javascript:void(0)">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a href="javascript:void(0)">
+                            <i class="fa fa-google-plus"></i>
+                        </a>
+                        <a href="javascript:void(0)">
+                            <i class="fa fa-pinterest-p"></i>
+                        </a>
+                        <a href="javascript:void(0)">
+                            <i class="fa fa-tumblr"></i>
+                        </a>
+                        <a href="javascript:void(0)">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="rights">
+            <div class="container clearfix">
+                <a href="javascript:void(0)" class="logo">
+                    <img src="images/elements/logo-2.png">
+                </a>
+                <div class="rights-text">
+                    © 2005-2015 <span>ООО «Инновационный венчурный проект Фермион»</span> <a href="javascript:void(0)">все права защищены</a>
+                </div>
+
+                <a href="javascript:void(0)" class="scroll-top">
+                    <span>Наверх</span>
+                    <div class="top-rect">
+                        <i class="fa fa-angle-up"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <div class="modals">
+        <div id="modal-money-transfer" class="modal modal-type-2">
+            <div class="modal-content">
+                <a href="javascript:void(0)" class="modal-close">закрыть</a>
+                <div class="modal-title">
+                    Перевод денег
+                </div>
+                <form class="money-transfer-form" method="post">
+                    <div class="money-transfer-row clearfix">
+                        <div class="money-transfer-col">
+                            <span class="form-label">Кому</span>
+                        </div>
+                        <div class="money-transfer-col">
+                            <input type="text" name="name-to" placeholder="Кому">
+                            <input type="text" name="contract-numb" placeholder="№ договора">
+                            <div class="money-transfer-links">
+                                <a href="javascript:void(0)" class="custom-link">
+                                    <span>фамилия</span>
+                                    <div class="inner-hint">
+                                        <div class="inner-hint-header">
+                                            фамилия
+                                        </div>
+                                        <div class="inner-hint-content">
+                                            укажите настоящий номер договора. Если окажется, что он не привязан к счету, мы отправим получателю письмо  и раскажем, как забрать деньги.
+                                        </div>
+                                    </div>
+                                </a> и <a href="javascript:void(0)" class="custom-link">
+                                    <span>номер договора</span>
+                                    <div class="inner-hint">
+                                        <div class="inner-hint-header">
+                                            номер договора
+                                        </div>
+                                        <div class="inner-hint-content">
+                                            укажите настоящий номер договора. Если окажется, что он не привязан к счету, мы отправим получателю письмо  и раскажем, как забрать деньги.
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="money-transfer-row clearfix">
+                        <div class="money-transfer-col">
+                            <span class="form-label">Сумма</span>
+                        </div>
+                        <div class="money-transfer-col input-inline">
+                            <input type="text" name="sum"> <span>руб</span>
+                        </div>
+                    </div>
+                    <div class="money-transfer-row clearfix">
+                        <div class="money-transfer-col">
+                            <span class="form-label">К оплате</span>
+                        </div>
+                        <div class="money-transfer-col input-inline">
+                            <input type="text" name="pay-sum"> <span>руб</span>
+                        </div>
+                    </div>
+                    <div class="money-transfer-row clearfix">
+                        <div class="money-transfer-col">
+                            <span class="form-label">Комментарий</span>
+                        </div>
+                        <div class="money-transfer-col input-inline">
+                            <div class="textarea-wrap">
+                                <textarea class="textarea-scrollbar scrollbar-outer"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="money-transfer-row clearfix">
+                        <div class="money-transfer-col"></div>
+                        <div class="money-transfer-col">
+                            <input type="submit" name="send-money" value="Перевести" class="custom-btn">
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <div id="modal-product-list" class="modal modal-type-2">
+            <div class="modal-content">
+                <a href="javascript:void(0)" class="modal-close">закрыть</a>
+                <div class="modal-title">
+                    Список товаров
+                </div>
+                <div class="modal-text">
+                    <p>
+                        ФИО: Иван Иванович Абрам
+                    </p>
+                    <ul>
+                        <li>
+                            - Электронный корректор осанки Мастер осанки;
+                        </li>
+                        <li>
+                            - Ожерелье магнитное Pip Magneloop, 60 см;
+                        </li>
+                        <li>
+                            - СС-крем Сияние кожи, Baviphat
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div id="modal-product-publish" class="modal modal-type-2">
+            <div class="modal-content">
+                <a href="javascript:void(0)" class="modal-close">закрыть</a>
+                <div class="modal-title">
+                    Вы уверены что хотите опубликовать товар?
+                </div>
+                <div class="modal-text">
+                    <p>
+                        id 5 : Товар: Маска силиконовая
+                    </p>
+                </div>
+                <div class="modal-btn-wrap">
+                    <a href="javascript:void(0)" class="custom-btn custom-btn-red">
+                        Да
+                    </a>
+                    <a href="javascript:void(0)" class="custom-btn">
+                        Нет
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="modal-cat-user-exist" class="modal modal-type-2">
+            <div class="modal-content">
+                <a href="javascript:void(0)" class="modal-close">закрыть</a>
+                <div class="modal-title">
+                    Внимание!
+                </div>
+                <div class="modal-text">
+                    <p>
+                        Данная категория пользователей существует (модератор).
+                    </p>
+                    <p>
+                        Хотите ее отредактировать?
+                    </p>
+                </div>
+                <div class="modal-btn-wrap">
+                    <a href="javascript:void(0)" class="custom-btn custom-btn-red">
+                        Да
+                    </a>
+                    <a href="javascript:void(0)" class="custom-btn">
+                        Нет
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="modal-archive" class="modal modal-type-2">
+            <div class="modal-content">
+                <a href="javascript:void(0)" class="modal-close">закрыть</a>
+                <div class="modal-title">
+                    Добавить в архив?
+                </div>
+                <div class="modal-text">
+                    <p>
+                        Вы уверены, что хотите добавить в архив событие?
+                    </p>
+                    <p>
+                        id 5 : Курс “Постановка голоса и техника речи”
+                    </p>
+                </div>
+                <div class="modal-btn-wrap">
+                    <a href="javascript:void(0)" class="custom-btn custom-btn-red">
+                        Да
+                    </a>
+                    <a href="javascript:void(0)" class="custom-btn">
+                        Нет
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="modal-delivery-hint" class="modal modal-type-1">
+            <div class="modal-content">
+                <div class="modal-text">
+                    <p>
+                        Настоящие Условия использования Сайта являются обязательными для всех его посетителей (здесь и далее Пользователь) при использовании материалов, размещенных на Сайте, при размещении материалов на Сайте, при участии в обсуждении материалов и общении с другими Пользователями.
+                    </p>
+                    <p>
+                        Регистрация Пользователя на Сайте (то есть ввод Пользователем своего логина и пароля в систему авторизации Сайта и авторизованный вход Пользователя на Сайт и/или ввод своих данных для участия в обсуждениях) дает ему ряд дополнительных функциональных возможностей для общения с другими Посетителями и создание собственного контента, в том числе:
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="modal-balance-zero" class="modal">
+            <div class="modal-content">
+                <div class="common-text">
+                    На вашем счете не хватает средств для оформления заказа<br>
+                    Желаете пополнить счет сейчас?
+                </div>
+                <div class="text-center modal-btn-wrap">
+                    <a href="javascript:void(0)" class="custom-btn">
+                        Пополнить
+                    </a>
+                    <a href="javascript:void(0)" class="custom-btn-gray">
+                        Позже
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="modal-share" class="modal">
+            <div class="modal-content">
+                <a href="javascript:void(0)" class="modal-close">закрыть окно</a>
+                <div class="modal-subtitle">
+                    Введите адрес электронной почты Вашего друга
+                </div>
+                <div class="modal-form">
+                    <form method="post" action="" class="clearfix">
+                        <input type="text" name="friend-email">
+                        <input type="submit" class="custom-btn" value="Поделиться">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="modal-auth" class="modal">
+            <div class="modal-content">
+                <a href="javascript:void(0)" class="modal-close">закрыть окно</a>
+                <div class="modal-title">
+                    Вход в личный кабинет
+                </div>
+                <div class="modal-form">
+                    <form method="post" action="">
+                        <input type="text" name="login" placeholder="логин">
+                        <input type="password" name="pass" placeholder="пароль">
+                        <div class="text-center">
+                            <input type="submit" class="custom-btn" value="Войти">
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="modal-search-hint" class="modal">
+            <div class="modal-content">
+                <a href="javascript:void(0)" class="modal-close">закрыть подсказку</a>
+                <div class="modal-title">
+                    Как искать?
+                </div>
+                <div class="modal-text">
+                    <p>
+                        Поиск может осуществляться как по ключевым словам, так и по словосочетаниям.
+                    </p>
+                    <p>
+                        Вы можете использовать специальные символы для поиска. Вы можете использовать логические операторы для поиска. Данный текст должен написать копирайтер после изучения возможностей поисковой системы на сайте.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="modal-basket-add-false" class="modal">
+            <div class="modal-content">
+                <a href="javascript:void(0)" class="modal-close">закрыть подсказку</a>
+                <div class="modal-title">
+                    Добрый день!
+                </div>
+                <div class="modal-text">
+                    <p>
+                        Добавить товар в корзину может только авторизованный пользователь.
+                    </p>
+                    <p>
+                        Пожалуйста, пройдите <a href="javascript:void(0)">авторизацию</a> или <a href="javascript:void(0)">зарегистрируйтесь</a> в системе.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="modal-region" class="modal">
+            <div class="modal-content">
+                <div class="modal-title">
+                    Ваш регион Санкт-Петербург?
+                </div>
+                <div class="text-center">
+                    <a href="javascript:void(0)" class="yes-link">Да, все верно</a>
+                    <a href="#modal-regions" class="no-link modal-open">Нет, изменить регион</a>
+                </div>
+            </div>
+        </div>
+        <div id="modal-delivery" class="modal modal-type-1">
+            <div class="modal-content">
+                <div class="common-text">
+                    Вы выбрали пункт выдачи по адресу cт. м. Преображенская площадь. Преображенская площадь, д. 6 ?
+                </div>
+                <div class="text-center">
+                    <a href="javascript:void(0)" class="yes-link">Да, все верно</a>
+                    <a href="#modal-regions" class="no-link modal-open">Нет, изменить пункт выдачи</a>
+                </div>
+            </div>
+        </div>
+        <div id="modal-delivery-address" class="modal modal-type-1">
+            <div class="modal-content">
+                <div class="common-text">
+                    Вы выбрали адрес для доставки cт. м. Преображенская площадь. Преображенская площадь, д. 6 ?
+                </div>
+                <div class="text-center">
+                    <a href="javascript:void(0)" class="yes-link">Да, все верно</a>
+                    <a href="#modal-regions" class="no-link modal-open">Нет, изменить адрес</a>
+                </div>
+            </div>
+        </div>
+        <div id="modal-delivery-regions" class="modal">
+            <div class="modal-content">
+                <div class="modal-title">
+                    В каком городе Вы хотите выбрать пункт выдачи?
+                </div>
+                <div class="regions-list clearfix">
+                    <div class="regions-col">
+                        <ul>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Екатеринбург
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Краснодар
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Москва
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Нижний Новгород
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Новосибирск
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Ростов-на-Дону
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Санкт-Петербург
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="regions-col">
+                        <ul>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Екатеринбург
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Краснодар
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Москва
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Нижний Новгород
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Новосибирск
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Ростов-на-Дону
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Санкт-Петербург
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="regions-col">
+                        <ul>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Екатеринбург
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Краснодар
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Москва
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Нижний Новгород
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Новосибирск
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Ростов-на-Дону
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Санкт-Петербург
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="regions-col">
+                        <ul>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Екатеринбург
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Краснодар
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Москва
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Нижний Новгород
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Новосибирск
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Ростов-на-Дону
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Санкт-Петербург
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="modal-regions" class="modal">
+            <div class="modal-content">
+                <div class="modal-title">
+                    Выберите ваш регион
+                </div>
+                <div class="regions-list clearfix">
+                    <div class="regions-col">
+                        <ul>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Екатеринбург
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Краснодар
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Москва
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Нижний Новгород
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Новосибирск
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Ростов-на-Дону
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Санкт-Петербург
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="regions-col">
+                        <ul>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Екатеринбург
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Краснодар
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Москва
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Нижний Новгород
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Новосибирск
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Ростов-на-Дону
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Санкт-Петербург
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="regions-col">
+                        <ul>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Екатеринбург
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Краснодар
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Москва
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Нижний Новгород
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Новосибирск
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Ростов-на-Дону
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Санкт-Петербург
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="regions-col">
+                        <ul>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Екатеринбург
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Краснодар
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Москва
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Нижний Новгород
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Новосибирск
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Ростов-на-Дону
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    Санкт-Петербург
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

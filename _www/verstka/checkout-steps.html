@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="maximum-scale=1.0,width=680">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title></title>
+
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="fonts/font-awesome-4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.formstyler.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <script type="text/javascript" src="js/jquery-1.11.2.js"></script>
+    <script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="js/jquery.bxslider.js"></script>
+    <script type="text/javascript" src="js/jquery.formstyler.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+
+</head>
+<body>
+    <div class="wrapper inside">
+
+        <div class="content">
+            <div class="header">
+                <div class="top-wrap">
+                    <div class="top">
+                        <div class="container">
+                            <div class="non-auth-wrap" style="display: none;">
+                                <div class="non-auth-text">
+                                    Здравствуй, посетитель! Для доступа ко всем возможностям сайта мы просим пройти <a href="javascript:void(0)">регистрацию</a> или <a href="javascript:void(0)">авторизироваться</a>
+                                </div>
+                            </div>
+                            <div class="auth-wrap">
+                                <div class="top-user-room">
+                                    <span>Здравствуйте</span>
+                                    <div class="select-wrap">
+                                        <select name="user">
+                                            <option>Константин Сергеевич</option>
+                                            <option>Мои сообщения</option>
+                                            <option>Выход</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="user-room-section">
+                                    <div class="user-row">
+                                        <div class="user-row">
+                                            <a href="javascript:void(0)" class="user-actions">Мои данные</a>
+                                        </div>
+                                        <div class="user-row">
+                                            <a href="javascript:void(0)" class="user-actions">Быстрый заказ</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="user-room-section">
+                                    <div class="user-row">
+                                        <div class="user-row">
+                                            <a href="javascript:void(0)" class="user-actions">События:</a> <span class="room-value">2</span>
+                                        </div>
+                                        <div class="user-row">
+                                            <a href="javascript:void(0)" class="user-actions">Сообщения:</a> <span class="room-value">5</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="user-room-section">
+                                    <div class="user-row">
+                                        <div class="user-room-money">
+                                            <div class="user-row">
+                                                <div class="balance">
+                                                    <span class="room-field">Баланс:</span>
+                                                    <span class="room-value">35231 руб</span>
+                                                </div>
+                                                <div class="points">
+                                                    <span class="room-field">Бонусные баллы:</span>
+                                                    <span class="room-value">500</span>
+                                                </div>
+                                            </div>
+                                            <div class="user-row">
+                                                <a href="javascript:void(0)" class="user-money-actions user-actions">Пополнение</a>
+                                                <a href="javascript:void(0)" class="user-money-actions user-actions">Просмотр операций</a>
+                                                <a href="javascript:void(0)" class="user-money-actions user-actions">Перевод</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="user-room-section">
+                                    <div class="user-room-basket">
+                                        <div class="user-row">
+                                            <div class="basket">
+                                                <span class="room-field">6 товаров:</span>
+                                                <span class="room-value">16200 руб</span>
+                                            </div>
+                                        </div>
+                                        <div class="user-row">
+                                            <a href="javascript:void(0)" class="user-money-actions user-actions">Оформить заказ</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="nav">
+                    <div class="container clearfix">
+                        <a href class="logo">
+                            <img src="images/elements/logo.png">
+                        </a>
+                        <div class="nav-static">
+                            <div class="clearfix">
+                                <div class="header-phone-block">
+                                    <div class="phone-block">
+                                        Есть вопросы? <span>8 (800) 2000-420</span>
+                                    </div>
+                                    <div class="phone-hint">
+                                        Звонок бесплатный из любого города России
+                                    </div>
+                                </div>
+                                <div class="header-chat-block">
+                                    <a href="javascript:void(0)" class="chat-link">Онлайн чат</a>
+                                    <div class="chat-hint">
+                                        консультант на месте
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="menu">
+                                <li>
+                                    <a href="javascript:void(0)">О системе</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">новости</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">продукция</a>
+                                </li>
+                                <li class="submenu">
+                                    <a href="javascript:void(0)">события</a>
+                                    <div class="submenu-block">
+                                        <ul>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Календарь
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Путешествия
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Фотогалерея
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Корпоративы
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Архивы
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Пункт меню
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <ul>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Пункт меню
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Пункт меню
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Пункт меню
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Пункт меню
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Пункт меню
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Пункт меню
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">отзывы</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">контакты</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <div class="nav-right">
+                            <div class="geo-user">
+                                <a href="javascript:void(0)">Санкт-Петербург</a>
+                            </div>
+                            <div class="search-form-block">
+                                <form method="post" action="" class="search-form clearfix">
+                                    <input type="text" name="search-field" placeholder="поиск на сайте">
+                                    <button type="submit" class="search-btn">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="inside-page"></div>
+            <div class="center-content">
+                <div class="container">
+                    <div class="clearfix">
+                        <div class="section-title">
+                            <i class="catalogue-icon"></i> <span>Оформление заказа</span>
+                        </div>
+                    </div>
+                    <div class="page-content-wrap">
+                        <div class="checkout-steps-nav clearfix">
+                            <a href="javascript:void(0)" class="checkout-step active enable-nav" data-step="1">
+                                <div>1. Способ получения заказа</div><i></i><em></em>
+                            </a>
+                            <a href="javascript:void(0)" class="checkout-step" data-step="2">
+                                <div>2. Способ оплаты заказа</div><i></i><em></em>
+                            </a>
+                            <a href="javascript:void(0)" class="checkout-step" data-step="3">
+                                <div>3. Подтверждение заказа</div>
+                            </a>
+
+                        </div>
+                        <form method="post" action="">
+                            <div class="checkout-steps-content step-1 active">
+                                <div class="default-text">
+                                    Выберите пожалуйста способ получения заказа:
+                                </div>
+                                <div class="checkout-get">
+                                    <div class="radio-wrap">
+                                        <input type="radio" checked name="radio_get" id="get-own" value="1"/>
+                                        <label for="get-own">Самовывоз</label>
+                                    </div>
+                                    <div class="delivery-wrap">
+                                        <div class="radio-wrap">
+                                            <input type="radio" name="radio_get" id="get-delivery" value="2"/>
+                                            <label for="get-delivery">Доставка на дом</label>
+                                        </div>
+                                        <a href="javascript:void(0)" class="use-link custom-link">Условия использования</a>
+                                        <div class="alert">
+                                            Доставка на дом не доступна для выбранных товаров.
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="javascript:void(0)" class="custom-btn-gray step-btn-get-end">Продолжить</a>
+                                <div class="checkout-get-detail">
+                                    <div class="checkout-get-detail-item active" data-parent="1">
+                                        <div class="overlayer"></div>
+                                        <div class="checkout-stores-block clearfix">
+                                            <div class="checkout-stores-list">
+                                                <div class="default-title">
+                                                    Ближайший к вам пункт выдачи заказов:
+                                                </div>
+                                                <div class="checkout-store-items">
+                                                    <div class="checkout-store-item active">
+                                                        <div>
+                                                            Ст. м. Пушкинская. Малый Палшевский пер, д. 6
+                                                        </div>
+                                                        <div>
+                                                            8 888 888 88 88 <span>ежедневно с 10 до 20</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="checkout-store-item">
+                                                        <div>
+                                                            Ст. м. Юго-Западная. Просп. Вернадского, д. 86Б
+                                                        </div>
+                                                        <div>
+                                                            8 888 888 88 88 <span>ежедневно с 10 до 20</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="checkout-store-item">
+                                                        <div>
+                                                            Ст. м. Пушкинская. Малый Палшевский пер, д. 6
+                                                        </div>
+                                                        <div>
+                                                            8 888 888 88 88 <span>ежедневно с 10 до 20</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="checkout-store-item">
+                                                        <div>
+                                                            Ст. м. Новые Черемушки. Ул. Профсоюзная, д. 45
+                                                        </div>
+                                                        <div>
+                                                            8 888 888 88 88 <span>ежедневно с 10 до 20</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="checkout-store-item">
+                                                        <div>
+                                                            Ст. м. Пушкинская. Малый Палшевский Малый Палшевский пер, д. 6
+                                                        </div>
+                                                        <div>
+                                                            8 888 888 88 88 <span>ежедневно с 10 до 20</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="checkout-store-item">
+                                                        <div>
+                                                            Ст. м. Новые Черемушки. Ул. Профсоюзная, д. 45
+                                                        </div>
+                                                        <div>
+                                                            8 888 888 88 88 <span>ежедневно с 10 до 20</span>
+                                                        </div>
+                                                    </div>
+                                                    <input type="hidden" name="chosen-store" value="">
+                                                </div>
+                                            </div>
+                                            <div class="checkout-stores-map">
+                                                <div class="checkout-stores-map-header clearfix">
+                                                    <a href="javascript:void(0)" class="other-city-stores">Пункты выдачи в других городах</a>
+                                                </div>
+                                                <div class="map-area" id="map">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a href="javascript:void(0)" class="custom-btn-gray step-next-btn" data-step="2">Продолжить</a>
+                                    </div>
+                                    <div class="checkout-get-detail-item" data-parent="2">
+                                        <div class="overlayer"></div>
+                                        <div class="default-title">
+                                            Доставка на дом:
+                                        </div>
+                                        <div class="delivery-profile">
+                                            <div class="data-header">
+                                                <div class="data-header-text">
+                                                    Укажите профиль доставки:<br>
+                                                    <a href="javascript:void(0)" class="change-profile custom-link">изменить данные профиля</a>
+                                                </div>
+                                                <div class="select-wrap select-seria-wrap">
+                                                    <select name="delivery-place">
+                                                        <option>Дом</option>
+                                                        <option>Офис</option>
+                                                        <option>Коттедж</option>
+                                                    </select>
+                                                </div>
+                                                <label class="checkbox-wrap">
+                                                    <input type="checkbox" name="date-filter"/>
+                                                    Я согласен с условиями доставки
+                                                </label>
+                                            </div>
+
+                                        </div>
+                                        <a href="javascript:void(0)" class="custom-btn-gray step-next-btn" data-step="2">Продолжить</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="checkout-steps-content step-2">
+                                <div class="pay-title">
+                                    Стоимость заказа 5500 руб.
+                                </div>
+                                <div class="default-text">
+                                    Выберите пожалуйста способ оплаты заказа:
+                                </div>
+                                <div class="pay-list">
+                                    <div class="pay-item clearfix">
+                                        <div class="radio-wrap">
+                                            <input type="radio" checked name="radio_pay" id="visa" value="1"/>
+                                            <label for="visa" class="clearfix">
+                                                <img src="images/elements/pay-visa.png">
+                                                <div class="pay-content">
+                                                    <div class="pay-item-title">
+                                                        Безналичный расчет VISA
+                                                    </div>
+                                                    <div class="pay-item-text">
+                                                        Главное предназначение всех без исключения кредитных пластиковых карт банков – безналичная оплата товаров и услуг в пределах платёжного лимита, установленного эмитентом. Рассчитываться кредиткой можно во всех торгово-сервисных точках, где есть терминалы, работающие с платёжной системой, в рамках которой выпущена карта.
+                                                    </div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="pay-item clearfix">
+                                        <div class="radio-wrap">
+                                            <input type="radio" name="radio_pay" id="sber" value="2"/>
+                                            <label for="sber" class="clearfix">
+                                                <img src="images/elements/pay-sber.png">
+                                                <div class="pay-content">
+                                                    <div class="pay-item-title">
+                                                        Сбербанк Онлайн
+                                                    </div>
+                                                    <div class="pay-item-text">
+                                                        Банковские услуги постепенно становятся неотъемлемой частью нашей жизни. Одним из самых популярных кредитно-финансовых учреждений в нашей стране является Сбербанк России. С достаточной регулярностью мы обращаемся в подразделение банка, чтобы совершить денежный перевод своим близким, заказать новую пластиковую карту или просто положить деньги на хранение.
+                                                    </div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="pay-item clearfix">
+                                        <div class="radio-wrap">
+                                            <input type="radio" name="radio_pay" id="evro-allo-svaz" value="3"/>
+                                            <label for="evro-allo-svaz" class="clearfix">
+                                                <img src="images/elements/pay-evro-allo-svaz.png">
+                                                <div class="pay-content">
+                                                    <div class="pay-item-title">
+                                                        Сеть салонов сотовой связи
+                                                    </div>
+                                                    <div class="pay-item-text">
+                                                        Российская компания-ритейлер, владеющая одноимённой сетью салонов сотовой связи. «Евросеть» и один из её основателей Евгений Чичваркин получили широкую известность в стране благодаря ярким рекламным кампаниям, эпатажному имиджу, а также конфликту с правоохранительными органами, приведшему к эмиграции Чичваркина. В 2006 году компания занимала 37 % российского рынка сотовых телефонов[2]. Штаб-квартира находится в Москве.
+                                                    </div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="pay-item clearfix">
+                                        <div class="radio-wrap">
+                                            <input type="radio" name="radio_pay" id="yad" value="4"/>
+                                            <label for="yad" class="clearfix">
+                                                <img src="images/elements/pay-yad.png">
+                                                <div class="pay-content">
+                                                    <div class="pay-item-title">
+                                                        Яндекс.Деньги
+                                                    </div>
+                                                    <div class="pay-item-text">
+                                                        Сервис электронных платежей в Рунете. Он позволяет принимать оплату электронными деньгами, наличными, с банковских карт. Пользоваться некоторыми возможностями можно также через мобильные приложения для Android, IOS, Windows Phone, а также приложением для Windows 8 и Windows RT[4]. Валюта расчётов — российский рубль.
+                                                    </div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="pay-item clearfix">
+                                        <div class="radio-wrap">
+                                            <input type="radio" name="radio_pay" id="wm" value="5"/>
+                                            <label for="wm" class="clearfix">
+                                                <img src="images/elements/pay-wm.png">
+                                                <div class="pay-content">
+                                                    <div class="pay-item-title">
+                                                        WebMoney
+                                                    </div>
+                                                    <div class="pay-item-text">
+                                                        Электронная система расчётов. Юридически в системе происходит передача (трансфер) имущественных прав, учёт которых осуществляется при помощи специальных расчетных единиц — «титульных знаков», номинированных в привязке к разным валютам и золоту. Де-юре WebMoney не зарегистрирована в качестве электронной платёжной системы в России.
+                                                    </div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="javascript:void(0)" class="custom-btn-gray step-next-btn" data-step="3">Продолжить</a>
+                            </div>
+                            <div class="checkout-steps-content step-3">
+                                <div class="order-confirm-block">
+                                    <div class="order-confirm-block-content clearfix">
+                                        <div class="order-confirm-col">
+                                            <div class="order-confirm-title">
+                                                Стоимость заказа
+                                            </div>
+                                            <div class="checkout-table">
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            Стоимость заказа, руб
+                                                        </td>
+                                                        <td>
+                                                            5500
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            НДС (18%), руб
+                                                        </td>
+                                                        <td>
+                                                            990
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            Бонусные балы
+                                                        </td>
+                                                        <td>
+                                                            330
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            итого
+                                                        </td>
+                                                        <td>
+                                                            5500
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="order-confirm-col">
+                                            <div class="order-confirm-title">
+                                                Способ оплаты заказа
+                                            </div>
+                                            <div class="data-header">
+                                                <div class="select-wrap select-seria-wrap">
+                                                    <select name="pay-var">
+                                                        <option>Яндекс.Деньги</option>
+                                                        <option>Сбербанк</option>
+                                                        <option>Webmoney</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="order-confirm-title">
+                                                Способ получения заказа
+                                            </div>
+                                            <div class="delivery-address">
+                                                <span>Самовывоз.</span> Адрес пункта выдачи:
+                                                Москва, ул. Королева д. 17б, оф. 203
+                                            </div>
+                                        </div>
+                                        <div class="order-confirm-col">
+                                            <div class="order-confirm-title">
+                                                Контактные данные покупателя
+                                            </div>
+                                            <div class="order-user-data-block">
+                                                <div>
+                                                    <span>ФИО:</span> Иванов Константин Сергеевич
+                                                </div>
+                                                <div>
+                                                    <span>Телефон:</span> + 7 987654321
+                                                </div>
+                                                <div>
+                                                    <span>E-mail:</span> mail@mail.ru
+                                                </div>
+                                                <div>
+                                                    <span>Scype:</span> login-scype
+                                                </div>
+                                                <a href="javascript:void(0)" class="change-data-link custom-link">изменить данные</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="confirm-actions">
+                                    <a href="javascript:void(0)" class="custom-btn-gray pay-btn">Оплатить</a>
+                                    <div class="pay-info-text">
+                                        Оплатив этот заказ вы получите на свой счет <span>84 балла</span>
+                                    </div>
+                                </div>
+                                <div class="checkout-table-wrap">
+                                    <table class="basket-table">
+                                        <tr>
+                                            <th colspan="2" class="main-td">
+                                                Приобретаемые товары
+                                            </th>
+                                            <th>
+                                                Цена
+                                            </th>
+                                            <th>
+                                                Количество
+                                            </th>
+                                            <th>
+                                                Стоимость
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td class="product-td-img">
+                                                <a href="javascript:void(0)">
+                                                    <img src="images/content/prod-2.jpg">
+                                                </a>
+                                            </td>
+                                            <td class="product-td-title">
+                                                <a href="javascript:void(0)">
+                                                    Крем для тела питательный
+                                                </a>
+                                            </td>
+                                            <td class="product-td-price">
+                                                <span>300</span> руб.
+                                            </td>
+                                            <td class="product-td-count">
+                                                2
+                                            </td>
+                                            <td class="product-td-price-rez">
+                                                <span>600</span> руб.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="product-td-img">
+                                                <a href="javascript:void(0)">
+                                                    <img src="images/content/prod-2.jpg">
+                                                </a>
+                                            </td>
+                                            <td class="product-td-title">
+                                                <a href="javascript:void(0)">
+                                                    Крем для тела питательный
+                                                </a>
+                                            </td>
+                                            <td class="product-td-price">
+                                                <span>300</span> руб.
+                                            </td>
+                                            <td class="product-td-count">
+                                                2
+                                            </td>
+                                            <td class="product-td-price-rez">
+                                                <span>600</span> руб.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="product-td-img">
+                                                <a href="javascript:void(0)">
+                                                    <img src="images/content/prod-2.jpg">
+                                                </a>
+                                            </td>
+                                            <td class="product-td-title">
+                                                <a href="javascript:void(0)">
+                                                    Крем для тела питательный
+                                                </a>
+                                            </td>
+                                            <td class="product-td-price">
+                                                <span>300</span> руб.
+                                            </td>
+                                            <td class="product-td-count">
+                                                2
+                                            </td>
+                                            <td class="product-td-price-rez">
+                                                <span>600</span> руб.
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-top">
+            <div class="container clearfix">
+                <div class="contacts">
+                    <div class="footer-title">
+                        контакты
+                    </div>
+                    <div class="contacts-title">
+                        Адрес для приема почтовой корреспонденции
+                    </div>
+                    <div class="contacts-text">
+                        Компания «ИВП Фермион»<br>
+                        190000, Санкт-Петербург, "ИВП Фермион", а/я 645
+                    </div>
+                    <div class="contacts-bottom">
+                        <div class="contacts-phone">
+                            <span>8 (800) 2000-420</span> - звонок бесплатный по России
+                        </div>
+                        <div>
+                            <a href="javascript:void(0)" class="footer-chat-link">онлайн чат</a>
+                            <a href="mailto:email@fermion.ru" class="footer-email">email@fermion.ru</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-nav">
+                    <div class="footer-title">
+                        навигация
+                    </div>
+                    <div class="footer-nav-list">
+                        <div class="nav-list-row">
+                            <div class="nav-item has-subitem">
+                                <a href="javascript:void(0)">О системе</a>
+                            </div>
+                            <div class="nav-item nav-subitem">
+                                <a href="javascript:void(0)">часто задаваемые вопросы</a>
+                            </div>
+                        </div>
+                        <div class="nav-list-row">
+                            <div class="nav-item">
+                                <a href="javascript:void(0)">Новости</a>
+                            </div>
+                        </div>
+                        <div class="nav-list-row">
+                            <div class="nav-item has-subitem">
+                                <a href="javascript:void(0)">Продукция</a>
+                            </div>
+                            <div class="nav-item nav-subitem">
+                                <a href="javascript:void(0)">Каталог продукции</a>
+                            </div>
+                        </div>
+                        <div class="nav-list-row">
+                            <div class="nav-item has-subitem">
+                                <a href="javascript:void(0)">События</a>
+                            </div>
+                            <div class="nav-item nav-subitem">
+                                <a href="javascript:void(0)">Календарь событий</a>
+                            </div>
+                        </div>
+                        <div class="nav-list-row">
+                            <div class="nav-item">
+                                <a href="javascript:void(0)">Отзывы</a>
+                            </div>
+                        </div>
+                        <div class="nav-list-row">
+                            <div class="nav-item">
+                                <a href="javascript:void(0)">Контакты</a>
+                            </div>
+                            <div class="nav-item nav-subitem">
+                                <a href="javascript:void(0)" class="site-map"><span>Карта сайта</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="footer-actions">
+                    <div class="footer-title">
+                        E-mail подписка
+                    </div>
+                    <div class="footer-form">
+                        <form class="clearfix" method="post" action="">
+                            <input type="text" name="email" placeholder="Введите свой e-mail">
+                            <button type="submit">Отправить</button>
+                        </form>
+                    </div>
+                    <div class="footer-title">
+                        Мы в социальных сетях
+                    </div>
+                    <div class="social">
+                        <a href="javascript:void(0)">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a href="javascript:void(0)">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a href="javascript:void(0)">
+                            <i class="fa fa-google-plus"></i>
+                        </a>
+                        <a href="javascript:void(0)">
+                            <i class="fa fa-pinterest-p"></i>
+                        </a>
+                        <a href="javascript:void(0)">
+                            <i class="fa fa-tumblr"></i>
+                        </a>
+                        <a href="javascript:void(0)">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="rights">
+            <div class="container clearfix">
+                <a href="javascript:void(0)" class="logo">
+                    <img src="images/elements/logo-2.png">
+                </a>
+                <div class="rights-text">
+                    © 2005-2015 <span>ООО «Инновационный венчурный проект Фермион»</span> <a href="javascript:void(0)">все права защищены</a>
+                </div>
+
+                <a href="javascript:void(0)" class="scroll-top">
+                    <span>Наверх</span>
+                    <div class="top-rect">
+                        <i class="fa fa-angle-up"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

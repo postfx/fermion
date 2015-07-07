@@ -1,0 +1,48 @@
+/**********************
+    fixes
+***********************/
+input,
+select {
+    cursor: pointer;
+}
+#fancybox-wrap {
+    width: auto !important;
+}
+.ui-datepicker {
+    font-size: 14px;
+}
+.ui_tpicker_hour_slider,
+.ui_tpicker_minute_slider {
+    top: 4px;
+}
+.ui-slider-handle {
+    cursor: pointer !important;
+}
+
+/**********************
+    special
+***********************/
+.ml0 {
+    margin-left: 0 !important;
+}
+.mr0 {
+    margin-right: 0 !important;
+}
+.mt0 {
+    margin-top: 0 !important;
+}
+.mb0 {
+    margin-bottom: 0 !important;
+}
+.pl0 {
+    padding-left: 0 !important;
+}
+.pr0 {
+    padding-right: 0 !important;
+}
+.pt0 {
+    padding-top: 0 !important;
+}
+.pb0 {
+    padding-bottom: 0 !important;
+}

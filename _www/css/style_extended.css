@@ -1,0 +1,7 @@
+.errorMessage {
+	display: none !important;
+}
+
+.error select, .error .jq-selectbox__select {
+	border-color: rgb(240, 65, 36) !important;
+}

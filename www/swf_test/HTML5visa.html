@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HTML5visa</title>
+
+<style type="text/css">
+		BODY, HTML  {
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+</style>
+
+<script src="http://code.createjs.com/easeljs-0.7.1.min.js"></script>
+<script src="http://code.createjs.com/tweenjs-0.5.1.min.js"></script>
+<script src="http://code.createjs.com/movieclip-0.7.1.min.js"></script>
+<script src="http://code.createjs.com/preloadjs-0.4.1.min.js"></script>
+<script src="HTML5visa.js"></script>
+
+<script>
+var canvas, stage, exportRoot;
+window.addEventListener('resize', resize, false);
+
+function init() {
+	canvas = document.getElementById("canvas");
+	images = images||{};
+	
+	canvas.style = "position: absolute; top: 50px; left: 50px; border:2px solid blue"
+
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", handleFileLoad);
+	loader.addEventListener("complete", handleComplete);
+	loader.loadManifest(lib.properties.manifest);
+}
+
+function handleFileLoad(evt) {
+	if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
+}
+
+function handleComplete() {
+	exportRoot = new lib.HTML5visa();
+
+	stage = new createjs.Stage(canvas);
+	stage.addChild(exportRoot);
+	stage.update();
+
+	createjs.Ticker.setFPS(lib.properties.fps);
+	createjs.Ticker.addEventListener("tick", stage);
+resize()
+}
+
+function resize() {
+
+	
+			
+	stage.canvas.width = window.innerWidth;
+	stage.canvas.height = window.innerHeight;
+	
+	
+				var center;         
+            center = (window.innerWidth/2)-(canvas.width/2);         
+            canvas.style.marginLeft = String(center)+'px';
+	
+	var ow = 640;
+    var oh = 414; 
+		
+	if (stage.canvas.width<stage.canvas.height) {		
+		exportRoot.b1.visible=true;
+		exportRoot.b2.visible=false;
+		exportRoot.b1.gotoAndPlay("pl");
+				
+		ow = 414; 
+		oh = 736; 	
+	} else {
+	
+		exportRoot.b2.visible=true;
+		exportRoot.b1.visible=false;
+		exportRoot.b2.gotoAndPlay("pl");	
+		
+	}
+	
+	var w = window.innerWidth;
+    var h = window.innerHeight;	
+
+    var scale = Math.min(w / ow, h / oh);
+    stage.scaleX = scale;
+    stage.scaleY = scale;	
+
+
+   stage.canvas.width = ow * scale;
+   stage.canvas.height = oh * scale;
+	
+
+stage.canvas.width = window.innerWidth;
+stage.canvas.height = window.innerHeight;
+
+exportRoot.b2.x = (stage.canvas.width/scale)/2;
+exportRoot.b1.x = (stage.canvas.width/scale)/2-208;
+	
+	
+}
+</script>
+</head>
+
+<body onload="init();" style="background-color:#D4D4D4">
+	<canvas id="canvas" width="414" height="736" style="background-color:#1A1F5A"></canvas>
+</body>
+</html>

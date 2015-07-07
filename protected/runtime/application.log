@@ -1,0 +1,1091 @@
+2015/07/01 04:05:45 [error] [system.db.CDbCommand] Не удалось выполнить CDbCommand::fetch(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'fermion.config' doesn't exist. Выполнявшийся SQL-запрос: SELECT *
+FROM `config`.
+in C:\OpenServer\domains\fermion\protected\components\Controller.php (91)
+in C:\OpenServer\domains\fermion\protected\views\layouts\main.php (43)
+in C:\OpenServer\domains\fermion\protected\controllers\SiteController.php (24)
+2015/07/01 04:05:45 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand не удалось исполнить SQL-запрос: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'fermion.config' doesn't exist. The SQL statement executed was: SELECT *
+FROM `config`' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\db\CDbCommand.php(415): CDbCommand->queryInternal('fetch', Array, Array)
+#1 C:\OpenServer\domains\fermion\protected\components\Controller.php(91): CDbCommand->queryRow()
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CComponent.php(111): Controller->getConfig()
+#3 C:\OpenServer\domains\fermion\protected\views\layouts\main.php(43): CComponent->__get('config')
+#4 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CBaseController.php(126): require('C:\\OpenServer\\d...')
+#5 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\OpenServer\\d...', Array, true)
+#6 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(784): CBaseController->renderFile('C:\\OpenServer\\d...', Array, true)
+#7 C:\OpenServer\domains\fermion\protected\controllers\SiteController.php(24): CController->render('index', Array)
+#8 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#9 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#11 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(291): CFilterChain->run()
+#16 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('')
+#18 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#19 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#20 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#21 {main}
+REQUEST_URI=/
+---
+2015/07/01 04:17:11 [error] [exception.CException] exception 'CException' with message 'Не определено свойство "SiteController.subscription_form".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\OpenServer\domains\fermion\protected\views\layouts\main.php(501): CComponent->__get('subscription_fo...')
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CBaseController.php(126): require('C:\\OpenServer\\d...')
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\OpenServer\\d...', Array, true)
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(784): CBaseController->renderFile('C:\\OpenServer\\d...', Array, true)
+#4 C:\OpenServer\domains\fermion\protected\controllers\SiteController.php(24): CController->render('index', Array)
+#5 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#6 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#10 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#11 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('')
+#15 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#16 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#17 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#18 {main}
+REQUEST_URI=/
+---
+2015/07/01 04:25:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "images".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:483
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/ele...')
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/images/elements/rev.png
+HTTP_REFERER=http://fermion/site/index
+---
+2015/07/01 04:25:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "images".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:483
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/con...')
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/images/content/news-3.jpg
+HTTP_REFERER=http://fermion/site/about
+---
+2015/07/01 04:25:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "images".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:483
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/con...')
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/images/content/news-4.jpg
+HTTP_REFERER=http://fermion/site/about
+---
+2015/07/01 04:47:23 [error] [php] trim() expects parameter 1 to be string, array given (C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CUrlManager.php:297)
+Stack trace:
+#0 C:\OpenServer\domains\fermion\protected\views\layouts\main.php(74): CWebApplication->createUrl()
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CBaseController.php(126): require()
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(784): SiteController->renderFile()
+#4 C:\OpenServer\domains\fermion\protected\controllers\SiteController.php(25): SiteController->render()
+#5 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#6 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(133): SiteController->runAction()
+#8 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#10 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CInlineFilter.php(58): SiteController->filterAccessControl()
+#11 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#12 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#14 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): SiteController->run()
+#15 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#17 C:\OpenServer\domains\fermion\public_html\index.php(14): CWebApplication->run()
+REQUEST_URI=/
+in C:\OpenServer\domains\fermion\protected\views\layouts\main.php (74)
+in C:\OpenServer\domains\fermion\protected\controllers\SiteController.php (25)
+in C:\OpenServer\domains\fermion\public_html\index.php (14)
+2015/07/01 04:49:54 [error] [php] trim() expects parameter 1 to be string, array given (C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CUrlManager.php:297)
+Stack trace:
+#0 C:\OpenServer\domains\fermion\protected\views\layouts\main.php(74): CWebApplication->createUrl()
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CBaseController.php(126): require()
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(784): SiteController->renderFile()
+#4 C:\OpenServer\domains\fermion\protected\controllers\SiteController.php(25): SiteController->render()
+#5 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#6 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(133): SiteController->runAction()
+#8 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#10 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CInlineFilter.php(58): SiteController->filterAccessControl()
+#11 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#12 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#14 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): SiteController->run()
+#15 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#17 C:\OpenServer\domains\fermion\public_html\index.php(14): CWebApplication->run()
+REQUEST_URI=/
+in C:\OpenServer\domains\fermion\protected\views\layouts\main.php (74)
+in C:\OpenServer\domains\fermion\protected\controllers\SiteController.php (25)
+in C:\OpenServer\domains\fermion\public_html\index.php (14)
+2015/07/01 04:50:14 [error] [php] trim() expects parameter 1 to be string, array given (C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CUrlManager.php:297)
+Stack trace:
+#0 C:\OpenServer\domains\fermion\protected\views\layouts\main.php(74): CWebApplication->createUrl()
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CBaseController.php(126): require()
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(784): SiteController->renderFile()
+#4 C:\OpenServer\domains\fermion\protected\controllers\SiteController.php(25): SiteController->render()
+#5 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#6 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(133): SiteController->runAction()
+#8 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#10 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CInlineFilter.php(58): SiteController->filterAccessControl()
+#11 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#12 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#14 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): SiteController->run()
+#15 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#17 C:\OpenServer\domains\fermion\public_html\index.php(14): CWebApplication->run()
+REQUEST_URI=/
+in C:\OpenServer\domains\fermion\protected\views\layouts\main.php (74)
+in C:\OpenServer\domains\fermion\protected\controllers\SiteController.php (25)
+in C:\OpenServer\domains\fermion\public_html\index.php (14)
+2015/07/01 04:50:35 [error] [php] trim() expects parameter 1 to be string, array given (C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CUrlManager.php:297)
+Stack trace:
+#0 C:\OpenServer\domains\fermion\protected\views\layouts\main.php(74): CWebApplication->createUrl()
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CBaseController.php(126): require()
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(784): SiteController->renderFile()
+#4 C:\OpenServer\domains\fermion\protected\controllers\SiteController.php(25): SiteController->render()
+#5 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#6 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(133): SiteController->runAction()
+#8 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#10 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CInlineFilter.php(58): SiteController->filterAccessControl()
+#11 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#12 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#14 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): SiteController->run()
+#15 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#17 C:\OpenServer\domains\fermion\public_html\index.php(14): CWebApplication->run()
+REQUEST_URI=/
+in C:\OpenServer\domains\fermion\protected\views\layouts\main.php (74)
+in C:\OpenServer\domains\fermion\protected\controllers\SiteController.php (25)
+in C:\OpenServer\domains\fermion\public_html\index.php (14)
+2015/07/01 04:50:42 [error] [php] trim() expects parameter 1 to be string, array given (C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CUrlManager.php:297)
+Stack trace:
+#0 C:\OpenServer\domains\fermion\protected\views\layouts\main.php(74): CWebApplication->createUrl()
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CBaseController.php(126): require()
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(784): SiteController->renderFile()
+#4 C:\OpenServer\domains\fermion\protected\controllers\SiteController.php(25): SiteController->render()
+#5 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#6 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(133): SiteController->runAction()
+#8 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#10 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CInlineFilter.php(58): SiteController->filterAccessControl()
+#11 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#12 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#14 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): SiteController->run()
+#15 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#17 C:\OpenServer\domains\fermion\public_html\index.php(14): CWebApplication->run()
+REQUEST_URI=/
+in C:\OpenServer\domains\fermion\protected\views\layouts\main.php (74)
+in C:\OpenServer\domains\fermion\protected\controllers\SiteController.php (25)
+in C:\OpenServer\domains\fermion\public_html\index.php (14)
+2015/07/01 04:51:53 [error] [php] trim() expects parameter 1 to be string, array given (C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CUrlManager.php:297)
+Stack trace:
+#0 C:\OpenServer\domains\fermion\protected\views\layouts\main.php(74): CWebApplication->createUrl()
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CBaseController.php(126): require()
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(784): SiteController->renderFile()
+#4 C:\OpenServer\domains\fermion\protected\controllers\SiteController.php(25): SiteController->render()
+#5 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#6 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(133): SiteController->runAction()
+#8 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#10 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CInlineFilter.php(58): SiteController->filterAccessControl()
+#11 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#12 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#14 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): SiteController->run()
+#15 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#17 C:\OpenServer\domains\fermion\public_html\index.php(14): CWebApplication->run()
+REQUEST_URI=/
+in C:\OpenServer\domains\fermion\protected\views\layouts\main.php (74)
+in C:\OpenServer\domains\fermion\protected\controllers\SiteController.php (25)
+in C:\OpenServer\domains\fermion\public_html\index.php (14)
+2015/07/01 05:09:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "cabinet/user/info".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('cabinet/user/in...')
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/cabinet/user/info
+HTTP_REFERER=http://fermion/
+---
+2015/07/01 05:39:52 [error] [exception.CException] exception 'CException' with message 'Не определено свойство "CMenu.template".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWidgetFactory.php(161): CComponent->__set('template', '{menu}')
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(SiteController), 'zii.widgets.CMe...', Array)
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CBaseController.php(180): CBaseController->createWidget('zii.widgets.CMe...', Array)
+#3 C:\OpenServer\domains\fermion\protected\views\layouts\main.php(237): CBaseController->widget('zii.widgets.CMe...', Array)
+#4 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CBaseController.php(126): require('C:\\OpenServer\\d...')
+#5 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\OpenServer\\d...', Array, true)
+#6 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(784): CBaseController->renderFile('C:\\OpenServer\\d...', Array, true)
+#7 C:\OpenServer\domains\fermion\protected\controllers\SiteController.php(25): CController->render('index', Array)
+#8 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#9 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#11 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(291): CFilterChain->run()
+#16 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('')
+#18 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#19 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#20 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#21 {main}
+REQUEST_URI=/
+---
+2015/07/01 06:22:54 [error] [php] include(User.php): failed to open stream: No such file or directory (C:\OpenServer\domains\fermion\yii-1.1.16\framework\YiiBase.php:432)
+Stack trace:
+#0 C:\OpenServer\domains\fermion\protected\controllers\SiteController.php(323): spl_autoload_call()
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\actions\CInlineAction.php(49): SiteController->actionSignup()
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(133): SiteController->runAction()
+#4 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#5 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#6 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CInlineFilter.php(58): SiteController->filterAccessControl()
+#7 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#8 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(291): CFilterChain->run()
+#9 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#10 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): SiteController->run()
+#11 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#13 C:\OpenServer\domains\fermion\public_html\index.php(14): CWebApplication->run()
+REQUEST_URI=/site/signup
+in C:\OpenServer\domains\fermion\protected\controllers\SiteController.php (323)
+in C:\OpenServer\domains\fermion\public_html\index.php (14)
+2015/07/01 06:24:18 [error] [exception.CException] exception 'CException' with message 'Контроллер SiteController не может найти представление "signup".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:878
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(782): CController->renderPartial('signup', Array, true)
+#1 C:\OpenServer\domains\fermion\protected\controllers\SiteController.php(341): CController->render('signup', Array)
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\actions\CInlineAction.php(49): SiteController->actionSignup()
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('signup')
+#12 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/signup')
+#13 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#14 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#15 {main}
+REQUEST_URI=/site/signup
+HTTP_REFERER=http://fermion/
+---
+2015/07/01 06:56:01 [error] [exception.CException] exception 'CException' with message 'Контроллер SiteController не может найти представление "news".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:878
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(782): CController->renderPartial('news', Array, true)
+#1 C:\OpenServer\domains\fermion\protected\controllers\SiteController.php(47): CController->render('news', Array)
+#2 [internal function]: SiteController->actionNews(NULL)
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('news')
+#14 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/news')
+#15 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#16 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#17 {main}
+REQUEST_URI=/site/news
+HTTP_REFERER=http://fermion/
+---
+2015/07/01 07:07:38 [error] [system.db.CDbCommand] Не удалось выполнить CDbCommand::fetch(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'fermion.config' doesn't exist. Выполнявшийся SQL-запрос: SELECT *
+FROM `config`.
+in C:\OpenServer\domains\fermion\protected\components\Controller.php (95)
+in C:\OpenServer\domains\fermion\protected\views\site\about.php (2)
+in C:\OpenServer\domains\fermion\protected\controllers\SiteController.php (36)
+2015/07/01 07:07:38 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand не удалось исполнить SQL-запрос: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'fermion.config' doesn't exist. The SQL statement executed was: SELECT *
+FROM `config`' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\db\CDbCommand.php(415): CDbCommand->queryInternal('fetch', Array, Array)
+#1 C:\OpenServer\domains\fermion\protected\components\Controller.php(95): CDbCommand->queryRow()
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CComponent.php(111): Controller->getConfig()
+#3 C:\OpenServer\domains\fermion\protected\views\site\about.php(2): CComponent->__get('config')
+#4 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CBaseController.php(126): require('C:\\OpenServer\\d...')
+#5 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\OpenServer\\d...', Array, true)
+#6 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(869): CBaseController->renderFile('C:\\OpenServer\\d...', Array, true)
+#7 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(782): CController->renderPartial('about', Array, true)
+#8 C:\OpenServer\domains\fermion\protected\controllers\SiteController.php(36): CController->render('about', Array)
+#9 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\actions\CInlineAction.php(49): SiteController->actionAbout()
+#10 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(291): CFilterChain->run()
+#17 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('about')
+#19 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/about')
+#20 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#21 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#22 {main}
+REQUEST_URI=/site/about
+HTTP_REFERER=http://fermion/site/about
+---
+2015/07/01 07:08:03 [error] [exception.CException] exception 'CException' with message 'Контроллер SiteController не может найти представление "news".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:878
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(782): CController->renderPartial('news', Array, true)
+#1 C:\OpenServer\domains\fermion\protected\controllers\SiteController.php(47): CController->render('news', Array)
+#2 [internal function]: SiteController->actionNews(NULL)
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('news')
+#14 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/news')
+#15 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#16 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#17 {main}
+REQUEST_URI=/site/news
+HTTP_REFERER=http://fermion/site/about
+---
+2015/07/01 07:08:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "images".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:483
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/con...')
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/images/content/news-2.jpg
+HTTP_REFERER=http://fermion/site/news
+---
+2015/07/01 07:09:55 [error] [exception.CException] exception 'CException' with message 'Контроллер SiteController не может найти представление "products".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:878
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(782): CController->renderPartial('products', Array, true)
+#1 C:\OpenServer\domains\fermion\protected\controllers\SiteController.php(58): CController->render('products', Array)
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\actions\CInlineAction.php(49): SiteController->actionProducts()
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('products')
+#12 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/products')
+#13 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#14 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#15 {main}
+REQUEST_URI=/site/products
+HTTP_REFERER=http://fermion/site/news
+---
+2015/07/01 07:10:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "images".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:483
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/con...')
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/images/content/pr-1.jpg
+HTTP_REFERER=http://fermion/site/products
+---
+2015/07/01 07:10:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "images".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:483
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/con...')
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/images/content/pr-2.jpg
+HTTP_REFERER=http://fermion/site/products
+---
+2015/07/01 07:10:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "images".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:483
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/con...')
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/images/content/pr-3.jpg
+HTTP_REFERER=http://fermion/site/products
+---
+2015/07/01 07:10:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "images".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:483
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/con...')
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/images/content/pr-4.jpg
+HTTP_REFERER=http://fermion/site/products
+---
+2015/07/01 07:10:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "images".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:483
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/con...')
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/images/content/pr-5.jpg
+HTTP_REFERER=http://fermion/site/products
+---
+2015/07/01 07:12:23 [error] [exception.CException] exception 'CException' with message 'Контроллер SiteController не может найти представление "events".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:878
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(782): CController->renderPartial('events', Array, true)
+#1 C:\OpenServer\domains\fermion\protected\controllers\SiteController.php(80): CController->render('events', Array)
+#2 [internal function]: SiteController->actionEvents(NULL)
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('events')
+#14 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/events')
+#15 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#16 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#17 {main}
+REQUEST_URI=/site/events
+HTTP_REFERER=http://fermion/site/products
+---
+2015/07/01 07:15:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "calendar".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:483
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(270): CController->missingAction('calendar')
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('calendar')
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/calendar')
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/calendar
+HTTP_REFERER=http://fermion/site/events
+---
+2015/07/01 07:16:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "calendar".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:483
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(270): CController->missingAction('calendar')
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('calendar')
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/calendar')
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/calendar
+HTTP_REFERER=http://fermion/site/events
+---
+2015/07/01 07:20:09 [error] [exception.CException] exception 'CException' with message 'Контроллер SiteController не может найти представление "reviews".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:878
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(782): CController->renderPartial('reviews', Array, true)
+#1 C:\OpenServer\domains\fermion\protected\controllers\SiteController.php(113): CController->render('reviews', Array)
+#2 [internal function]: SiteController->actionReviews(NULL)
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('reviews')
+#14 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/reviews')
+#15 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#16 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#17 {main}
+REQUEST_URI=/site/reviews
+HTTP_REFERER=http://fermion/site/events?category_id=1
+---
+2015/07/01 07:21:51 [error] [exception.CException] exception 'CException' with message 'Контроллер SiteController не может найти представление "contacts".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:878
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(782): CController->renderPartial('contacts', Array, true)
+#1 C:\OpenServer\domains\fermion\protected\controllers\SiteController.php(124): CController->render('contacts', Array)
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\actions\CInlineAction.php(49): SiteController->actionContacts()
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('contacts')
+#12 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/contacts')
+#13 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#14 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#15 {main}
+REQUEST_URI=/site/contacts
+HTTP_REFERER=http://fermion/site/reviews
+---
+2015/07/01 07:26:07 [error] [exception.CException] exception 'CException' with message 'Контроллер SiteController не может найти представление "faqs".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:878
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(782): CController->renderPartial('faqs', Array, true)
+#1 C:\OpenServer\domains\fermion\protected\controllers\SiteController.php(135): CController->render('faqs', Array)
+#2 [internal function]: SiteController->actionFaqs(NULL)
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('faqs')
+#14 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/faqs')
+#15 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#16 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#17 {main}
+REQUEST_URI=/site/faqs
+HTTP_REFERER=http://fermion/site/signup
+---
+2015/07/01 07:28:34 [error] [exception.CException] exception 'CException' with message 'Контроллер SiteController не может найти представление "catalog".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:878
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(782): CController->renderPartial('catalog', Array, true)
+#1 C:\OpenServer\domains\fermion\protected\controllers\SiteController.php(69): CController->render('catalog', Array)
+#2 [internal function]: SiteController->actionCatalog(NULL)
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('catalog')
+#14 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/catalog')
+#15 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#16 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#17 {main}
+REQUEST_URI=/site/catalog
+HTTP_REFERER=http://fermion/site/faq
+---
+2015/07/01 07:29:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "images".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:483
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/con...')
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/images/content/news-1.jpg
+HTTP_REFERER=http://fermion/site/catalog
+---
+2015/07/01 07:29:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "images".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:483
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/con...')
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/images/content/prod-1.jpg
+HTTP_REFERER=http://fermion/site/catalog
+---
+2015/07/01 07:30:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "images".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:483
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/con...')
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/images/content/news-1.jpg
+HTTP_REFERER=http://fermion/site/catalog
+---
+2015/07/01 07:30:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "images".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:483
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/con...')
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/images/content/prod-1.jpg
+HTTP_REFERER=http://fermion/site/catalog
+---
+2015/07/01 07:31:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "images".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:483
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/con...')
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/images/content/news-1.jpg
+HTTP_REFERER=http://fermion/site/catalog
+---
+2015/07/01 07:31:34 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:336
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('event')
+#9 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/event')
+#10 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#11 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#12 {main}
+REQUEST_URI=/site/event
+HTTP_REFERER=http://fermion/
+---
+2015/07/01 07:31:54 [error] [exception.CException] exception 'CException' with message 'Контроллер SiteController не может найти представление "map".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:878
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(782): CController->renderPartial('map', Array, true)
+#1 C:\OpenServer\domains\fermion\protected\controllers\SiteController.php(146): CController->render('map', Array)
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\actions\CInlineAction.php(49): SiteController->actionMap()
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('map')
+#12 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/map')
+#13 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#14 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#15 {main}
+REQUEST_URI=/site/map
+HTTP_REFERER=http://fermion/site/contacts
+---
+2015/07/01 07:32:46 [error] [exception.CException] exception 'CException' with message 'Контроллер SiteController не может найти представление "allRightsReserved".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:878
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(782): CController->renderPartial('allRightsReserv...', Array, true)
+#1 C:\OpenServer\domains\fermion\protected\controllers\SiteController.php(157): CController->render('allRightsReserv...', Array)
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\actions\CInlineAction.php(49): SiteController->actionAllRightsReserved()
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('allRightsReserv...')
+#12 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/allRightsR...')
+#13 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#14 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#15 {main}
+REQUEST_URI=/site/allRightsReserved
+HTTP_REFERER=http://fermion/site/faq
+---
+2015/07/01 07:33:00 [error] [exception.CException] exception 'CException' with message 'Контроллер SiteController не может найти представление "allRightsReserved".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:878
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(782): CController->renderPartial('allRightsReserv...', Array, true)
+#1 C:\OpenServer\domains\fermion\protected\controllers\SiteController.php(157): CController->render('allRightsReserv...', Array)
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\actions\CInlineAction.php(49): SiteController->actionAllRightsReserved()
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('allRightsReserv...')
+#12 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/allRightsR...')
+#13 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#14 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#15 {main}
+REQUEST_URI=/site/allRightsReserved
+HTTP_REFERER=http://fermion/site/faq
+---
+2015/07/01 07:34:23 [error] [php] include(User.php): failed to open stream: No such file or directory (C:\OpenServer\domains\fermion\yii-1.1.16\framework\YiiBase.php:432)
+Stack trace:
+#0 C:\OpenServer\domains\fermion\protected\controllers\SiteController.php(356): spl_autoload_call()
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(133): SiteController->runAction()
+#4 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#5 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#6 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CInlineFilter.php(58): SiteController->filterAccessControl()
+#7 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#8 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(291): CFilterChain->run()
+#9 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#10 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): SiteController->run()
+#11 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#13 C:\OpenServer\domains\fermion\public_html\index.php(14): CWebApplication->run()
+REQUEST_URI=/site/login
+in C:\OpenServer\domains\fermion\protected\controllers\SiteController.php (356)
+in C:\OpenServer\domains\fermion\public_html\index.php (14)
+2015/07/01 07:57:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "basket".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:483
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(270): CController->missingAction('basket')
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('basket')
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/basket')
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/basket
+---
+2015/07/01 07:57:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "basket".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:483
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(270): CController->missingAction('basket')
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('basket')
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/basket')
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/basket
+---
+2015/07/01 07:57:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "basket".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:483
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(270): CController->missingAction('basket')
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('basket')
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/basket')
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/basket
+---
+2015/07/01 08:00:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "images".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:483
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/ele...')
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/images/elements/rev.png
+HTTP_REFERER=http://fermion/site/index?login=1
+---
+2015/07/01 08:00:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "images".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:483
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/ele...')
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/images/elements/rev.png
+HTTP_REFERER=http://fermion/site/index?login=1
+---
+2015/07/01 08:01:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "s".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('s')
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/s
+---
+2015/07/01 08:01:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "images".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:483
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/ele...')
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/images/elements/rev.png
+HTTP_REFERER=http://fermion/site/index?login=1
+---
+2015/07/01 08:01:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "images".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:483
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/ele...')
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/images/elements/rev.png
+HTTP_REFERER=http://fermion/site/index?login=1
+---
+2015/07/01 08:01:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "images".' in C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php:483
+Stack trace:
+#0 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\OpenServer\domains\fermion\yii-1.1.16\framework\web\CWebApplication.php(141): CWebApplication->runController('basket/images/c...')
+#3 C:\OpenServer\domains\fermion\yii-1.1.16\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\OpenServer\domains\fermion\public_html\index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/basket/images/content/prod-2.jpg
+HTTP_REFERER=http://fermion/basket/index
+---
+2015/07/01 11:33:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "images".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CController.php:483
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CController.php(270): CController->missingAction('images')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/ele...')
+#3 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#4 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/images/elements/rev.png
+HTTP_REFERER=http://fermion.e-produce.ru/site/
+---
+2015/07/01 17:16:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "robots.txt".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('robots.txt')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/robots.txt
+---
+2015/07/01 21:03:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2015/07/01 23:10:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "lk-admin-events-create.html".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('lk-admin-events...')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/lk-admin-events-create.html
+---
+2015/07/01 23:10:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "verstka/lk-admin-events-create.html".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('verstka/lk-admi...')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/verstka/lk-admin-events-create.html
+---
+2015/07/01 23:10:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "verstka/index.php".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('verstka/index.p...')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/verstka/index.php
+---
+2015/07/01 23:11:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "verstka/index.html".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('verstka/index.h...')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/verstka/index.html
+---
+2015/07/01 23:35:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "swf_test/images/Bitmap5.png".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('swf_test/images...')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/swf_test/images/Bitmap5.png
+HTTP_REFERER=http://fermion.e-produce.ru/swf_test/test.html
+---
+2015/07/01 23:35:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "swf_test/images/Bitmap7.png".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('swf_test/images...')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/swf_test/images/Bitmap7.png
+HTTP_REFERER=http://fermion.e-produce.ru/swf_test/test.html
+---
+2015/07/01 23:40:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2015/07/02 04:56:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "robots.txt".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('robots.txt')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/robots.txt
+---
+2015/07/02 10:08:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://fermion.e-produce.ru/index.php
+---
+2015/07/02 11:31:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://fermion.e-produce.ru/
+---
+2015/07/02 11:32:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "images".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CController.php:483
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CController.php(270): CController->missingAction('images')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/ele...')
+#3 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#4 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/images/elements/rev.png
+HTTP_REFERER=http://fermion.e-produce.ru/site/
+---
+2015/07/02 11:32:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "images".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CController.php:483
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CController.php(270): CController->missingAction('images')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(282): CController->run('images')
+#2 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('site/images/ele...')
+#3 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#4 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/images/elements/rev.png
+HTTP_REFERER=http://fermion.e-produce.ru/site/
+---
+2015/07/03 10:30:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://fermion.e-produce.ru/index.php
+---
+2015/07/03 17:38:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "robots.txt".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('robots.txt')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/robots.txt
+---
+2015/07/05 10:51:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "robots.txt".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('robots.txt')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/robots.txt
+---
+2015/07/05 22:40:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "robots.txt".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('robots.txt')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/robots.txt
+---
+2015/07/06 02:02:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://fermion.e-produce.ru/
+---
+2015/07/06 10:06:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://fermion.e-produce.ru/index.php
+---
+2015/07/06 21:06:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2015/07/06 23:50:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://fermion.e-produce.ru/index.php
+---
+2015/07/07 10:23:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://fermion.e-produce.ru/index.php
+---
+2015/07/07 15:43:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "verstka/products-card.html".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('verstka/product...')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/verstka/products-card.html
+---
+2015/07/07 15:43:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "verstka/products-card.html".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('verstka/product...')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/verstka/products-card.html
+---
+2015/07/07 15:43:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "verstka".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('verstka')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/verstka/
+---

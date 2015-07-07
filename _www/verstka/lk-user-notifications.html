@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="maximum-scale=1.0,width=680">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title></title>
+
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="fonts/font-awesome-4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.formstyler.css" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="css/spectrum.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <script type="text/javascript" src="js/jquery-1.11.2.js"></script>
+    <script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU" type="text/javascript"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/spectrum.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="js/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript" src="js/jquery.bxslider.js"></script>
+    <script type="text/javascript" src="js/jquery.formstyler.js"></script>
+    <script type="text/javascript" src="js/numeric.js"></script>
+    <script type="text/javascript" src="js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="js/jquery.dataTables.columnFilter.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+
+</head>
+<body>
+    <div class="wrapper inside">
+
+        <div class="content">
+            <div class="header">
+                <div class="top-wrap">
+                    <div class="top">
+                        <div class="container">
+                            <div class="non-auth-wrap" style="display: none;">
+                                <div class="non-auth-text">
+                                    Здравствуй, посетитель! Для доступа ко всем возможностям сайта мы просим пройти <a href="javascript:void(0)">регистрацию</a> или <a href="javascript:void(0)">авторизироваться</a>
+                                </div>
+                            </div>
+                            <div class="auth-wrap">
+                                <div class="top-user-room">
+                                    <span>Здравствуйте</span>
+                                    <div class="select-wrap">
+                                        <select name="user">
+                                            <option>Константин Сергеевич</option>
+                                            <option>Мои сообщения</option>
+                                            <option>Выход</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="user-room-section">
+                                    <div class="user-row">
+                                        <div class="user-row">
+                                            <a href="javascript:void(0)" class="user-actions">Мои данные</a>
+                                        </div>
+                                        <div class="user-row">
+                                            <a href="javascript:void(0)" class="user-actions">Быстрый заказ</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="user-room-section">
+                                    <div class="user-row">
+                                        <div class="user-row">
+                                            <a href="javascript:void(0)" class="user-actions">События:</a> <span class="room-value">2</span>
+                                        </div>
+                                        <div class="user-row">
+                                            <a href="javascript:void(0)" class="user-actions">Сообщения:</a> <span class="room-value">5</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="user-room-section">
+                                    <div class="user-row">
+                                        <div class="user-room-money">
+                                            <div class="user-row">
+                                                <div class="balance">
+                                                    <span class="room-field">Баланс:</span>
+                                                    <span class="room-value">35231 руб</span>
+                                                </div>
+                                                <div class="points">
+                                                    <span class="room-field">Бонусные баллы:</span>
+                                                    <span class="room-value">500</span>
+                                                </div>
+                                            </div>
+                                            <div class="user-row">
+                                                <a href="javascript:void(0)" class="user-money-actions user-actions">Пополнение</a>
+                                                <a href="javascript:void(0)" class="user-money-actions user-actions">Просмотр операций</a>
+                                                <a href="javascript:void(0)" class="user-money-actions user-actions">Перевод</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="user-room-section">
+                                    <div class="user-room-basket">
+                                        <div class="user-row">
+                                            <div class="basket">
+                                                <span class="room-field">6 товаров:</span>
+                                                <span class="room-value">16200 руб</span>
+                                            </div>
+                                        </div>
+                                        <div class="user-row">
+                                            <a href="javascript:void(0)" class="user-money-actions user-actions">Оформить заказ</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="nav">
+                    <div class="container clearfix">
+                        <a href class="logo">
+                            <img src="images/elements/logo.png">
+                        </a>
+                        <div class="nav-static">
+                            <div class="clearfix">
+                                <div class="header-phone-block">
+                                    <div class="phone-block">
+                                        Есть вопросы? <span>8 (800) 2000-420</span>
+                                    </div>
+                                    <div class="phone-hint">
+                                        Звонок бесплатный из любого города России
+                                    </div>
+                                </div>
+                                <div class="header-chat-block">
+                                    <a href="javascript:void(0)" class="chat-link">Онлайн чат</a>
+                                    <div class="chat-hint">
+                                        консультант на месте
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="menu">
+                                <li>
+                                    <a href="javascript:void(0)">О системе</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">новости</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">продукция</a>
+                                </li>
+                                <li class="submenu">
+                                    <a href="javascript:void(0)">события</a>
+                                    <div class="submenu-block">
+                                        <ul>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Календарь
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Путешествия
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Фотогалерея
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Корпоративы
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Архивы
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Пункт меню
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <ul>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Пункт меню
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Пункт меню
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Пункт меню
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Пункт меню
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Пункт меню
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    Пункт меню
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">отзывы</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">контакты</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <div class="nav-right">
+                            <div class="geo-user">
+                                <a href="javascript:void(0)">Санкт-Петербург</a>
+                            </div>
+                            <div class="search-form-block">
+                                <form method="post" action="" class="search-form clearfix">
+                                    <input type="text" name="search-field" placeholder="поиск на сайте">
+                                    <button type="submit" class="search-btn">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="inside-page">
+                <div class="breadcrumbs">
+                    <div class="container">
+                        <a href="javascript:void(0)">Главная</a><div class="b-sep"></div>
+                        <a href="javascript:void(0)">Личный кабинет</a><div class="b-sep"></div>
+                        <span>Карточка заказа</span>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="center-content">
+                <div class="container">
+                    <div class="clearfix">
+                        <div class="section-title">
+                            <i class="user-friend-icon"></i> <span>Настроить уведомления</span>
+                        </div>
+                    </div>
+                    <div class="page-content-wrap">
+                        <div class="clearfix">
+                            <div class="nav-side-content">
+                                <form>
+                                    <div class="enter-form-row">
+                                        <label>
+                                            Вы можете настроить способ получения различных уведомлений
+                                        </label>
+                                        <div class="notification-table">
+                                            <table>
+                                                <tr>
+                                                    <th>
+                                                        Наименование
+                                                    </th>
+                                                    <th>
+                                                        Способ получения уведомления
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        Новости
+                                                    </td>
+                                                    <td>
+                                                        <div>
+                                                            <label class="radio-wrap">
+                                                                <input type="radio" name="news-not" value="sms"/>
+                                                                смс
+                                                            </label>
+                                                            <label class="radio-wrap">
+                                                                <input type="radio" name="news-not" checked value="email"/>
+                                                                электронная почта
+                                                            </label>
+                                                            <label class="radio-wrap">
+                                                                <input type="radio" name="news-not" value="message"/>
+                                                                сообщение в ЛК
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        Новые продукты
+                                                    </td>
+                                                    <td>
+                                                        <div>
+                                                            <label class="radio-wrap">
+                                                                <input type="radio" name="news-products-not" checked value="sms"/>
+                                                                смс
+                                                            </label>
+                                                            <label class="radio-wrap">
+                                                                <input type="radio" name="news-products-not" value="email"/>
+                                                                электронная почта
+                                                            </label>
+                                                            <label class="radio-wrap">
+                                                                <input type="radio" name="news-products-not" value="message"/>
+                                                                сообщение в ЛК
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        События
+                                                    </td>
+                                                    <td>
+                                                        <div>
+                                                            <label class="radio-wrap">
+                                                                <input type="radio" name="events-not" checked value="sms"/>
+                                                                смс
+                                                            </label>
+                                                            <label class="radio-wrap">
+                                                                <input type="radio" name="events-not" value="email"/>
+                                                                электронная почта
+                                                            </label>
+                                                            <label class="radio-wrap">
+                                                                <input type="radio" name="events-not" checked value="message"/>
+                                                                сообщение в ЛК
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        Акции
+                                                    </td>
+                                                    <td>
+                                                        <div>
+                                                            <label class="radio-wrap">
+                                                                <input type="radio" name="actions-not" checked value="sms"/>
+                                                                смс
+                                                            </label>
+                                                            <label class="radio-wrap">
+                                                                <input type="radio" name="actions-not" value="email"/>
+                                                                электронная почта
+                                                            </label>
+                                                            <label class="radio-wrap">
+                                                                <input type="radio" name="actions-not" checked value="message"/>
+                                                                сообщение в ЛК
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        Изменение счета
+                                                    </td>
+                                                    <td>
+                                                        <div>
+                                                            <label class="radio-wrap">
+                                                                <input type="radio" name="balance-not" checked value="sms"/>
+                                                                смс
+                                                            </label>
+                                                            <label class="radio-wrap">
+                                                                <input type="radio" checked name="balance-not" value="email"/>
+                                                                электронная почта
+                                                            </label>
+                                                            <label class="radio-wrap">
+                                                                <input type="radio" name="balance-not" value="message"/>
+                                                                сообщение в ЛК
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                            <div class="user-nav-right">
+                                <div class="user-nav-list">
+                                    <a href="javascript:void(0)">Мои данные</a>
+                                    <a href="javascript:void(0)">Личный счет</a>
+                                    <a href="javascript:void(0)">Отзывы</a>
+                                    <a href="javascript:void(0)">Мои события</a>
+                                    <a href="javascript:void(0)">Мои заказы</a>
+                                    <a href="javascript:void(0)" class="active">Мои сообщения</a>
+                                    <a href="javascript:void(0)">Мои отчеты</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-top">
+            <div class="container clearfix">
+                <div class="contacts">
+                    <div class="footer-title">
+                        контакты
+                    </div>
+                    <div class="contacts-title">
+                        Адрес для приема почтовой корреспонденции
+                    </div>
+                    <div class="contacts-text">
+                        Компания «ИВП Фермион»<br>
+                        190000, Санкт-Петербург, "ИВП Фермион", а/я 645
+                    </div>
+                    <div class="contacts-bottom">
+                        <div class="contacts-phone">
+                            <span>8 (800) 2000-420</span> - звонок бесплатный по России
+                        </div>
+                        <div>
+                            <a href="javascript:void(0)" class="footer-chat-link">онлайн чат</a>
+                            <a href="mailto:email@fermion.ru" class="footer-email">email@fermion.ru</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-nav">
+                    <div class="footer-title">
+                        навигация
+                    </div>
+                    <div class="footer-nav-list">
+                        <div class="nav-list-row">
+                            <div class="nav-item has-subitem">
+                                <a href="javascript:void(0)">О системе</a>
+                            </div>
+                            <div class="nav-item nav-subitem">
+                                <a href="javascript:void(0)">часто задаваемые вопросы</a>
+                            </div>
+                        </div>
+                        <div class="nav-list-row">
+                            <div class="nav-item">
+                                <a href="javascript:void(0)">Новости</a>
+                            </div>
+                        </div>
+                        <div class="nav-list-row">
+                            <div class="nav-item has-subitem">
+                                <a href="javascript:void(0)">Продукция</a>
+                            </div>
+                            <div class="nav-item nav-subitem">
+                                <a href="javascript:void(0)">Каталог продукции</a>
+                            </div>
+                        </div>
+                        <div class="nav-list-row">
+                            <div class="nav-item has-subitem">
+                                <a href="javascript:void(0)">События</a>
+                            </div>
+                            <div class="nav-item nav-subitem">
+                                <a href="javascript:void(0)">Календарь событий</a>
+                            </div>
+                        </div>
+                        <div class="nav-list-row">
+                            <div class="nav-item">
+                                <a href="javascript:void(0)">Отзывы</a>
+                            </div>
+                        </div>
+                        <div class="nav-list-row">
+                            <div class="nav-item">
+                                <a href="javascript:void(0)">Контакты</a>
+                            </div>
+                            <div class="nav-item nav-subitem">
+                                <a href="javascript:void(0)" class="site-map"><span>Карта сайта</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="footer-actions">
+                    <div class="footer-title">
+                        E-mail подписка
+                    </div>
+                    <div class="footer-form">
+                        <form class="clearfix" method="post" action="">
+                            <input type="text" name="email" placeholder="Введите свой e-mail">
+                            <button type="submit">Отправить</button>
+                        </form>
+                    </div>
+                    <div class="footer-title">
+                        Мы в социальных сетях
+                    </div>
+                    <div class="social">
+                        <a href="javascript:void(0)">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a href="javascript:void(0)">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a href="javascript:void(0)">
+                            <i class="fa fa-google-plus"></i>
+                        </a>
+                        <a href="javascript:void(0)">
+                            <i class="fa fa-pinterest-p"></i>
+                        </a>
+                        <a href="javascript:void(0)">
+                            <i class="fa fa-tumblr"></i>
+                        </a>
+                        <a href="javascript:void(0)">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="rights">
+            <div class="container clearfix">
+                <a href="javascript:void(0)" class="logo">
+                    <img src="images/elements/logo-2.png">
+                </a>
+                <div class="rights-text">
+                    © 2005-2015 <span>ООО «Инновационный венчурный проект Фермион»</span> <a href="javascript:void(0)">все права защищены</a>
+                </div>
+
+                <a href="javascript:void(0)" class="scroll-top">
+                    <span>Наверх</span>
+                    <div class="top-rect">
+                        <i class="fa fa-angle-up"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
