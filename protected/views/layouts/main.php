@@ -168,7 +168,7 @@
                             <div class="clearfix">
                                 <div class="header-phone-block">
                                     <div class="phone-block">
-                                        Есть вопросы? <span><?= /*$config['phone']*/'8 (800) 2000-420' ?></span>
+                                        Есть вопросы? <span><?= $config['phone'] ?></span>
                                     </div>
                                     <div class="phone-hint">
                                         Звонок бесплатный из любого города России
@@ -376,17 +376,17 @@
                         Адрес для приема почтовой корреспонденции
                     </div>
                     <div class="contacts-text">
-                        <?= /*$config['addressInfo']*/'Компания «ИВП Фермион»<br>190000, Санкт-Петербург, "ИВП Фермион", а/я 645' ?>
+                        <?= $config['addressInfo'] ?>
                     </div>
                     <div class="contacts-bottom">
                         <div class="contacts-phone">
-                            <span><?= /*$config['phone']*/'8 (800) 2000-420' ?></span> - звонок бесплатный по России
+                            <span><?= $config['phone'] ?></span> - звонок бесплатный по России
                         </div>
                         <div>
                             <!-- todo -->
                                 <a href="javascript:void(0)" class="footer-chat-link">онлайн чат</a>
                             <!-- -->
-                            <?= CHtml::link(/*$config['adminEmail']*/'email@fermion.ru', 'mailto:'./*$config['adminEmail']*/'email@fermion.ru', array(
+                            <?= CHtml::link($config['adminEmail'], 'mailto:'.$config['adminEmail'], array(
                                 'class'=>'footer-email',
                                 'target'=>'_blank',
                             )) ?>
@@ -450,19 +450,50 @@
                         E-mail подписка
                     </div>
                     <div class="footer-form">
-                        <!-- todo -->
-                            <form class="clearfix" method="post" action="">
-                                <input type="text" name="email" placeholder="Введите свой e-mail">
-                                <button type="submit">Отправить</button>
-                            </form>
-                        <!-- -->
-                    	<?php /*$form = $this->beginWidget("CActiveForm", array("enableAjaxValidation" => true, "clientOptions" => array("validateOnSubmit" => true), "htmlOptions" => array("class" => "clearfix") ,"id"=>"subscription-form", "action"=>Yii::app()->createUrl("site/subscript"),)); ?>
-                    		<div style="display:inline">
-	                    		<?php echo $form->textField($this->subscription_form, "email", array("placeholder"=>"Введите свой e-mail")); ?>
-					            <?php echo $form->error($this->subscription_form, "email"); ?>
-							</div>
+                        <?php
+                            $subscriptionForm = new Subscription();
+                        ?>
+                        <?php $form=$this->beginWidget('CActiveForm', array(
+                            'action'=>array('site/subscription'),
+                            'id'=>'subscription-form',
+                            'enableAjaxValidation'=>true,
+                            'enableClientValidation'=>true,
+                            'clientOptions'=>array(
+                                'validateOnChange'=>false,
+                                'validateOnSubmit'=>true,
+                                'afterValidate'=>'js:function(form, data, hasError){
+                                    if ( !hasError ) {
+
+                                        $.ajax({
+                                            type: "POST",
+                                            url: form[0].action,
+                                            data: $(form).serialize(),
+                                            success: function(ret) {
+                                                if ( ret==1 ) {
+                                                    $("#subscription-form").html("<span class=\"text-success\">На указанный e-mail отправлена ссылка для подтверждения подписки.</span>");
+                                                } else {
+                                                    alert("Неизвестная ошибка. Повторите позже или обратитесь в поддержку.");
+                                                }
+                                                //location = location;
+                                            }
+                                        });
+
+                                        return false;
+                                    }
+                                }',
+                            ),
+                            'htmlOptions'=>array(
+                                'class'=>'clearfix',
+                            ),
+                        )); ?>
+                        
+                            <?= $form->textField($subscriptionForm, 'email', array(
+                                'placeHolder'=>$subscriptionForm->getAttributeLabel('email'),
+                            )) ?>
+                            <?= $form->error($subscriptionForm, 'email') ?>
                             <button type="submit">Отправить</button>
-                        <?php $this->endWidget();*/ ?>
+                            
+                        <?php $this->endWidget(); ?>
                     </div>
                     <div class="footer-title">
                         Мы в социальных сетях
@@ -480,7 +511,7 @@
         </div>
         <div class="rights">
             <div class="container clearfix">
-                <?= CHtml::link(CHtml::image('/images/elements/logo-2.png', /*$config['metaTitle']*/''), $app->homeUrl, array(
+                <?= CHtml::link(CHtml::image('/images/elements/logo-2.png', $config['metaTitle']), $app->homeUrl, array(
                     'class'=>'logo',
                 )) ?>
                 <div class="rights-text">

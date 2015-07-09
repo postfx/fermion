@@ -4,6 +4,10 @@ class MyPhpMailer {
 
     public static function send($email, $subject, $message, $from = false) {
 
+        if ( Yii::app()->request->userHostAddress=='127.0.0.1' ) {
+            return true;
+        }
+        
         Yii::import('application.extensions.phpmailer.JPhpMailer');
 
         $mail = new JPhpMailer;
@@ -19,7 +23,7 @@ class MyPhpMailer {
 		if (!$from)
 	        $mail->SetFrom("noreply@fermionam.ru", "FermionAm");
 		else
-			$mail->SetFrom($frome);
+			$mail->SetFrom($from);
 
         $mail->AddAddress($email);
         $mail->Subject = $subject;

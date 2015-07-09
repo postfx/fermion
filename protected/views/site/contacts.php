@@ -1,5 +1,5 @@
 <?php
-    //$c = $this->config;
+    $c = $this->config;
 ?>
 
 <div class="container">
@@ -15,13 +15,13 @@
                 <div class="contacts-section">
                     <div class="contacts-header phone-header">Многоканальный телефон: <?= /*$c['phone']*/'8(800) 2000-420' ?></div>
                     <div class="contacts-descr">
-                        <?= /*$c['phoneInfo']*/'Звонок бесплатный из любого города России. Пн-Пт с 10-00 до 19-00 по мск. времени' ?>
+                        <?= $c['phoneInfo'] ?>
                     </div>
                 </div>
                 <div class="contacts-section">
                     <div class="contacts-header post-header">Адрес для приема почтовой корреспонденции</div>
                     <div class="contacts-descr">
-                        <?= /*$c['addressInfo']*/'Компания «ИВП Фермион» <span>190000, Санкт-Петербург, "ИВП Фермион", а/я 645</span>' ?>
+                        <?= $c['addressInfo'] ?>
                     </div>
                 </div>
                 <!-- todo -->

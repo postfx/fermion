@@ -14,7 +14,9 @@ $(document).ready(function(){
     
     $('.optionIsLink').styler({
         onSelectClosed: function() {
-            location = $('#user').val();
+            if ( $(this).hasClass('optionIsLink') ) {
+                location = $('#user').val();
+            }
         }
     });
     

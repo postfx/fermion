@@ -110,6 +110,16 @@ class User extends CActiveRecord
                     array('pass, passR', 'length', 'min'=>6, 'max'=>16, 'on'=>'signup'),
                     array('passR', 'compare', 'compareAttribute'=>'pass', 'on'=>'signup'),
                     //array('referer_id', 'checkReferer', 'on'=>'signup'), 
+                
+                // recovery
+                    array('login', 'required', 'on'=>'recovery'),
+                    array('login', 'email', 'on'=>'recovery'),
+                    array('login', 'checkRecovery', 'on'=>'recovery'),
+                
+                // newPassword
+                    array('pass, passR', 'required', 'on'=>'newPassword'),
+                    array('pass', 'length', 'min'=>6, 'max'=>16, 'on'=>'newPassword'),
+                    array('passR', 'compare', 'compareAttribute'=>'pass', 'on'=>'newPassword'),
             
                 // search
                     array('id, login, password, balance, points, phone, skype, surname, name, patronymic, date_create, date_update, date_activity, role, active, hash, deliveryPoint_id, referer_id, date_birthday, passport_num, passport_date, passport_issuingAuthority, phoneHome, office_id, info, alert_news, alert_products, alert_events, alert_promo, alert_balance, country_id, region_id, city_id, postcode, address', 'safe', 'on'=>'search'),
@@ -123,6 +133,33 @@ class User extends CActiveRecord
                 }
             }
         }*/
+        public function checkRecovery()
+        {
+            if ( !$this->hasErrors() ) {
+                    //  todo
+//                $exist_ip = Yii::app()->db->createCommand()
+//                        ->select('date')
+//                        ->from('ip_recovery')
+//                        ->where('`ip` = :ip', array(
+//                            ':ip'=>Yii::app()->request->userHostAddress,
+//                        ))->queryScalar();
+//                if ( $exist_ip && time()-$exist_ip < 15*60 ) {
+//                    $this->addError('login', 'Попробуйте через '.ceil((15*60-(time()-$exist_ip))/60).' мин.');
+//                } else {
+                    $exist_user = Yii::app()->db->createCommand()
+                            ->select('id, active')
+                            ->from('user')
+                            ->where('`login` = :login', array(
+                                ':login'=>$this->login,
+                            ))->queryRow();
+                    if ( !$exist_user ) {
+                        $this->addError('login', 'Пользователь с указанным логином не зарегистрирован в системе.');
+                    } elseif ( !$exist_user['active'] ) {
+                        $this->addError('login', 'Аккаунт не активирован.');
+                    }
+//                }
+            }
+        }
 
 
 	public function relations()
@@ -326,19 +363,30 @@ class User extends CActiveRecord
             
             if ( $this->save(false) ) {
                 
+                $link = Yii::app()->controller->createAbsoluteUrl('site/activate', array('hash' => $this->hash));
                 $message = Yii::app()->controller->renderPartial('/messages/signup', array(
                     'name' => $this->name,
-                    'link' => CHtml::link(Yii::app()->controller->createAbsoluteUrl('site/activate', array('hash' => $this->hash)), Yii::app()->controller->createAbsoluteUrl('site/activate', array('hash' => $this->hash))),
+                    'link' => CHtml::link($link, $link),
                     'login'=>$this->login,
                     'password'=>$password,
                 ), true);
 
-                MyPhpMailer::send($this->login, 'Регистрация на '.$_SERVER['SERVER_NAME'], $message, $_SERVER['SERVER_NAME']);
+                MyPhpMailer::send($this->login, 'Регистрация - '.$_SERVER['SERVER_NAME'], $message);
                 
                 return true;
             } else {
                 return false;
             }
+        }
+        
+        
+        public function activate()
+        {
+            $this->hash = null;
+            $this->active = 1;
+            $this->date_activity = time();
+            $this->update(array('hash', 'active', 'date_activity'));
+            return true;
         }
         
         
@@ -356,5 +404,67 @@ class User extends CActiveRecord
                 'word'=>'товаров',
                 'total'=>0,
             );
+        }
+        
+        
+        public function recovery()
+        {
+            $user = User::model()->findByAttributes(array(
+                'login'=>$this->login,
+            ));
+            
+            if ( $user && $user->active ) {
+                //  todo
+//                $exist_ip = IpRecovery::model()->findByPk(Yii::app()->request->userHostAddress);
+//                if ( !$exist_ip ) {
+//                    $ip_new = new IpRecovery();
+//                    $ip_new->ip = Yii::app()->request->userHostAddress;
+//                    $ip_new->date = time();
+//                    $ip_new->save();
+//                } else {
+//                    $exist_ip->date = time();
+//                    $exist_ip->update(array('date'));
+//                }
+                
+                $user->hash = md5($user->login.microtime().rand(0, 1000000));
+                $user->update(array('hash'));
+                
+                $link = Yii::app()->createAbsoluteUrl('site/newPassword', array('hash'=>$user->hash));
+                
+                $message = Yii::app()->controller->renderPartial('/messages/recovery', array(
+                    'name' => $user->name,
+                    'link' => CHtml::link($link, $link),
+                ), true);
+
+                MyPhpMailer::send($user->login, 'Восстановление пароля - '.$_SERVER['SERVER_NAME'], $message);
+                
+                return true;
+                
+            } else {
+                return false;
+            }
+        }
+        
+        
+        public function newPassword()
+        {
+            $password = $this->pass;
+            $this->password         =   CPasswordHelper::hashPassword($this->pass);
+            $this->hash             =   null;
+            
+            if ( $this->save(false) ) {
+                
+                $message = Yii::app()->controller->renderPartial('/messages/newPassword', array(
+                    'name' => $this->name,
+                    'login'=>$this->login,
+                    'password'=>$password,
+                ), true);
+
+                MyPhpMailer::send($this->login, 'Новый пароль - '.$_SERVER['SERVER_NAME'], $message);
+                
+                return true;
+            } else {
+                return false;
+            }
         }
 }

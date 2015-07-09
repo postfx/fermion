@@ -1089,3 +1089,73 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/verstka/
 ---
+2015/07/08 10:19:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://fermion.e-produce.ru/index.php
+---
+2015/07/08 13:08:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "verstka/lk-admin-product-create.html".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('verstka/lk-admi...')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/verstka/lk-admin-product-create.html
+---
+2015/07/08 13:19:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://fermion.e-produce.ru/
+---
+2015/07/08 14:07:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "verstka/lk-admin-product-create.html".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('verstka/lk-admi...')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/verstka/lk-admin-product-create.html
+---
+2015/07/08 22:36:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://fermion.e-produce.ru/
+---
+2015/07/09 10:19:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://fermion.e-produce.ru/index.php
+---
+2015/07/09 10:22:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://fermion.e-produce.ru/index.php
+---
+2015/07/09 14:29:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://fermion.e-produce.ru/index.php
+---

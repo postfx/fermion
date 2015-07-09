@@ -5226,6 +5226,16 @@ ul.tabs li.tab-current:before{
     color: #474747;
     font: 18px "robotoregular";
 }
+.custom-form input[type="password"]{
+    width: 340px;
+    height: 40px;
+    border: 2px solid #E9E9E9;
+    box-sizing: border-box;
+    padding: 0px 15px;
+
+    color: #474747;
+    font: 18px "robotoregular";
+}
 
 .recovery-form form > div{
     margin-bottom: 45px;
@@ -9513,4 +9523,18 @@ button[type="submit"] {
     float: none;
     width: auto;
     padding-bottom: 0;
+}
+#subscription-form {
+    position: relative;
+    width: 370px;
+    height: 40px;
+}
+#Subscription_email_em_ {
+    position: absolute;
+    left: 0;
+    top: 40px;
+    font-size: 12px;
+}
+.text-success {
+    color: #090;
 }

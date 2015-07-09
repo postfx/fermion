@@ -25,10 +25,13 @@ class Subscription extends CActiveRecord
 	public function rules()
 	{
             return array(
-                array('email, isConfirm, date_create', 'required'),
-                array('isConfirm, date_create, date_last, date_confirm', 'numerical', 'integerOnly'=>true),
-                array('email', 'length', 'max'=>128),
-                array('hash', 'length', 'max'=>32),
+//                array('email, isConfirm, date_create', 'required'),
+//                array('isConfirm, date_create, date_last, date_confirm', 'numerical', 'integerOnly'=>true),
+//                array('email', 'length', 'max'=>128),
+//                array('hash', 'length', 'max'=>32),
+                array('email', 'required', 'message'=>'Необходимо заполнить поле.'),
+                array('email', 'email', 'message'=>'Не является правильным E-Mail адресом.'),
+                array('email', 'unique', 'message'=>'Подписка уже оформлена.'),
             
                 // search
                     array('id, email, isConfirm, date_create, date_last, date_confirm, hash', 'safe', 'on'=>'search'),
@@ -47,7 +50,7 @@ class Subscription extends CActiveRecord
 	{
             return array(
                 'id' => 'ID',
-                'email' => 'Email',
+                'email' => 'Введите свой e-mail',
                 'isConfirm' => 'Is Confirm',
                 'date_create' => 'Date Create',
                 'date_last' => 'Date Last',
@@ -88,5 +91,30 @@ class Subscription extends CActiveRecord
 	}
         
         
-        
+        public function goSubscription()
+        {
+            $this->date_create = time();
+            $this->hash = md5($this->email.microtime().rand(0, 1000000));
+            if ( $this->save(false) ) {
+                
+                $link = Yii::app()->controller->createAbsoluteUrl('site/subscriptionConform', array('hash' => $this->hash));
+                $message = Yii::app()->controller->renderPartial('/messages/subscription', array(
+                    'link' => CHtml::link($link, $link),
+                ), true);
+
+                MyPhpMailer::send($this->email, 'Подписка - '.$_SERVER['SERVER_NAME'], $message);
+                
+                return true;
+            } else {
+                return false;
+            }
+        }
+        public function confirm()
+        {
+            $this->isConfirm = 1;
+            $this->date_confirm = time();
+            $this->hash = null;
+            $this->update(array('isConfirm', 'date_confirm', 'hash'));
+            return true;
+        }
 }

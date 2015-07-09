@@ -263,9 +263,9 @@ class SiteController extends Controller
 //        for ( $i=0; $i<100000; $i++ ) {
 //            $temp = rand(0, 1000000);
 //        }
-        $roles = Yii::app()->db->createCommand()->select('id, name, active')->from('role')->where('active=1')->queryAll();
-        var_dump($roles);
-        echo '<hr />'.round(Yii::getLogger()->executionTime, 3).' сек';
+//        $roles = Yii::app()->db->createCommand()->select('id, name, active')->from('role')->where('active=1')->queryAll();
+//        var_dump($roles);
+//        echo '<hr />'.round(Yii::getLogger()->executionTime, 3).' сек';
     }
     
 
@@ -376,13 +376,8 @@ class SiteController extends Controller
             'hash'=>$hash,
         ));
         
-        if ( $user ) {
-            $user->hash = null;
-            $user->active = 1;
-            $user->date_activity = time();
-            $user->update(array('hash', 'active', 'date_activity'));
+        if ( $user && $user->activate() ) {
             Yii::app()->user->setFlash('activate_success', true);
-            $user->scenario = 'login';
             $user->login();
             $this->redirect(array('cabinet/default/index'));
         } else {
@@ -419,13 +414,67 @@ class SiteController extends Controller
     
     
     // восстановление пароля
-    public function actionRecovery($hash=null)
+    public function actionRecovery()
     {
-        
-        
+        $model = new User('recovery');
+
+        if ( isset($_POST['ajax']) && $_POST['ajax']==='recovery-form' ) {
+            echo CActiveForm::validate($model);
+            Yii::app()->end();
+        }
+
+        if ( isset($_POST['User']) ) {
+            $model->attributes = $_POST['User'];
+            if ( $model->validate() && $model->recovery() ) {
+                Yii::app()->user->setFlash('recovery_success', true);
+            } else {
+                Yii::app()->user->setFlash('recovery_success', false);
+            }
+        }
+
         $this->render('recovery', array(
-            //'model'=>$model,
+            'model'=>$model,
         ));
+    }
+    
+    
+    // второй шаг воссстановления - задаем новый пароль
+    public function actionNewPassword($hash=null)
+    { 
+        if ( $hash===null ) {
+            $hash = Yii::app()->request->getParam('hash');
+        }
+        $model = User::model()->findByAttributes(array(
+            'hash'=>$hash,
+        ));
+
+        if ( $model && $model->active ) {
+            
+            $model->scenario = 'newPassword';
+
+            if ( isset($_POST['ajax']) && $_POST['ajax']==='newPassword-form' ) {
+                echo CActiveForm::validate($model);
+                Yii::app()->end();
+            }
+
+            if ( isset($_POST['User']) ) {
+                $model->attributes = $_POST['User'];
+                if ( $model->validate() && $model->newPassword() ) {
+                    Yii::app()->user->setFlash('newPassword_success', true);
+                    $model->login();
+                    $this->redirect(array('cabinet/default/index'));
+                } else {
+                    Yii::app()->user->setFlash('newPassword_success', false);
+                }
+            }
+
+            $this->render('newPassword', array(
+                'model'=>$model,
+            ));
+
+        } else {
+            $this->redirect(Yii::app()->homeUrl);
+        }
     }
     
     
@@ -498,6 +547,44 @@ class SiteController extends Controller
         
         
         echo json_encode('1');
+    }
+    
+    
+    // подписка
+    public function actionSubscription()
+    {
+        $model = new Subscription();
+        
+        if ( isset($_POST['ajax']) && $_POST['ajax']==='subscription-form' ) {
+            echo CActiveForm::validate($model);
+            Yii::app()->end();
+        }
+        
+        if ( isset($_POST['Subscription']) ) {
+            $model->attributes = $_POST['Subscription'];
+            if ( $model->validate() && $model->goSubscription() ) {
+                echo '1';
+            } else {
+                echo '0';
+            }
+        }
+    }
+    
+    
+    // подтверждение подписки
+    public function actionSubscriptionConfirm($hash)
+    {
+        $model = Subscription::model()->findByAttributes(array(
+            'hash'=>$hash,
+        ));
+        
+        if ( $model && !$model->isConfirm && $model->confirm() ) {
+            $this->render('subscriptionConfirm', array(
+                'model'=>$model,
+            ));
+        } else {
+            $this->redirect(Yii::app()->homeUrl);
+        }
     }
     
     

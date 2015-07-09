@@ -17,6 +17,13 @@
             </div>
         </div>
     <?php endif; ?>
+    <?php if ( Yii::app()->user->getFlash('newPassword_success')===true ): ?>
+        <div class="success-content fa_success">
+            <div class="success-title">
+                Ваш пароль был изменен. Новые доступы отправлены Вам на почту.
+            </div>
+        </div>
+    <?php endif; ?>
     <!-- todo -->
     <?php if ( Yii::app()->user->role==0 ): ?>
         <div class="page-content-wrap">

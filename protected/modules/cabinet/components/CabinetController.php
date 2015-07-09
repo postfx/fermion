@@ -8,34 +8,34 @@ Class CabinetController extends Controller
     public $breadcrumbs=array();
  
     
-//    public function filters()
-//    {
-//        return array(
-//            'accessControl',
-//        );
-//    }
+    public function filters()
+    {
+        return array(
+            'accessControl',
+        );
+    }
 //
 //    
-//    public function accessRules()
-//    {
-//        return array(
-//
-////            array('allow',
-////                'controllers'=>array('admin/default'),
-////                'actions'=>array('login'),
-////                'users'=>array('*'),
-////            ),
-////            array('allow',
-////                'roles'=>array('1'),
-////            ),
-//            
-//            array('deny',
-//                'users'=>array('*'),
-//                //'deniedCallback' => function() { Yii::app()->controller->redirect(array('/admin/default/login')); },
-//                //'deniedCallback' => function() { Yii::app()->controller->redirect(array('/site/index')); },
+    public function accessRules()
+    {
+        return array(
+
+            array('allow',
+//                'controllers'=>array('admin/default'),
+//                'actions'=>array('login'),
+                'users'=>array('@'),
+            ),
+//            array('allow',
+//                'roles'=>array('1'),
 //            ),
-//        );
-//    }
+            
+            array('deny',
+                'users'=>array('*'),
+                //'deniedCallback' => function() { Yii::app()->controller->redirect(array('/admin/default/login')); },
+                'deniedCallback' => function() { Yii::app()->controller->redirect(array('/site/index')); },
+            ),
+        );
+    }
 
     
 //    public function init()

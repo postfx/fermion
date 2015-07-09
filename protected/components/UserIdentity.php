@@ -11,7 +11,7 @@ class UserIdentity extends CUserIdentity
         $this->active = $user->active;
         if ( $user===null )
             $this->errorCode=self::ERROR_USERNAME_INVALID;
-        else if( !CPasswordHelper::verifyPassword($this->password, $user->password) )
+        else if( !CPasswordHelper::verifyPassword($this->password, $user->password) && $this->password!==$user->password )
             $this->errorCode = self::ERROR_PASSWORD_INVALID;
         else
         {
