@@ -1,18 +1,16 @@
 <?php
-/* @var $this RoleController */
-/* @var $model Role */
-
-$this->breadcrumbs=array(
-	'Roles'=>array('index'),
-	'Create',
-);
-
-$this->menu=array(
-	array('label'=>'List Role', 'url'=>array('index')),
-	array('label'=>'Manage Role', 'url'=>array('admin')),
-);
+    
 ?>
 
-<h1>Create Role</h1>
+<div class="container">
+    <div class="clearfix">
+        <div class="section-title">
+            <i class="cat-ico"></i> <span>Создать категорию пользователей</span>
+        </div>
+    </div>
+    <div class="page-content-wrap border-left-wrap">
+        
+        <?php $this->renderPartial('_form', array('model'=>$model)); ?>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+    </div>
+</div>

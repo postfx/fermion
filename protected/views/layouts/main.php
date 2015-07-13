@@ -1,18 +1,18 @@
 <?php
 
-    $configs = Yii::app()->clientScript;
+    $cs = Yii::app()->clientScript;
     $pt = Yii::app()->homeUrl;
 
-    $configs
+    $cs
         ->registerCssFile($pt.'css/font-awesome.min.css')
-        ->registerCssFile($configs->getCoreScriptUrl().'/jui/css/base/jquery-ui.css')
+        ->registerCssFile($cs->getCoreScriptUrl().'/jui/css/base/jquery-ui.css')
         ->registerCssFile($pt.'js/fancybox/jquery.fancybox.css')
         ->registerCssFile($pt.'css/jquery.formstyler.css')   
         ->registerCssFile($pt.'css/jquery.scrollbar.css') 
         
         ->registerCssFile($pt.'css/main.css');
     
-    $configs
+    $cs
         ->registerCoreScript('jquery',CClientScript::POS_END)
         ->registerCoreScript('jquery.ui',CClientScript::POS_END)
         ->registerCoreScript('cookie',CClientScript::POS_END)

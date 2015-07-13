@@ -1,5 +1,5 @@
 
-var oTable;
+//var oTable;
 $(document).ready(function(){
     
     /* mainMenu fix */
@@ -152,80 +152,80 @@ $(document).ready(function(){
 
 
 
-    if($('#table-logs').length){
-        oTable = $('#table-logs').dataTable({
-            "oLanguage":
-            {
-                "sSearch": "Search all columns:",
-                "oPaginate":
-                {
-                    "sNext": '›',
-                    "sLast": '»',
-                    "sFirst": '«',
-                    "sPrevious": '‹'
-                }
-            },
-            "aoColumnDefs": [
-                { 'bSortable': false, 'aTargets': [ 2, 3, 4, 5, 6, 7, 8, 9 ] }
-            ]
-        });
+//    if($('#table-logs').length){
+//        oTable = $('#table-logs').dataTable({
+//            "oLanguage":
+//            {
+//                "sSearch": "Search all columns:",
+//                "oPaginate":
+//                {
+//                    "sNext": '›',
+//                    "sLast": '»',
+//                    "sFirst": '«',
+//                    "sPrevious": '‹'
+//                }
+//            },
+//            "aoColumnDefs": [
+//                { 'bSortable': false, 'aTargets': [ 2, 3, 4, 5, 6, 7, 8, 9 ] }
+//            ]
+//        });
+//
+//    }
 
-    }
 
-
-    if($('#user-list').length){
-        $.fn.dataTableExt.afnFiltering.push(function(oSettings, aData, iDataIndex) {
-            var checked = $('input[name="user-role"]').is(':checked');
-
-            if (checked && aData[0] === $('input[name="user-role"]:checked').val()) {
-                return true;
-            }
-
-            if(!checked){
-                return true;
-            }
-
-            return false;
-        });
-
-        var oUserTable = $('#user-list').dataTable({
-
-            "oLanguage":
-            {
-                "processing": "Подождите...",
-                "search": "Поиск:",
-                "lengthMenu": "Показать _MENU_ записей",
-                "info": "Записи с _START_ до _END_ из _TOTAL_ записей",
-                "infoEmpty": "Записи с 0 до 0 из 0 записей",
-                "infoFiltered": "(отфильтровано из _MAX_ записей)",
-                "infoPostFix": "",
-                "loadingRecords": "Загрузка записей...",
-                "zeroRecords": "Записи отсутствуют.",
-                "emptyTable": "В таблице отсутствуют данные",
-                "sZeroRecords": "Не найдено ни одной записи",
-                "oPaginate":
-                {
-                    "sNext": '›',
-                    "sLast": '»',
-                    "sFirst": '«',
-                    "sPrevious": '‹'
-                }
-            },
-            "aoColumnDefs": [
-                { 'bSortable': false, 'aTargets': [ 0, 2, 3, 4, 5, 6, 7 ] },
-                {
-                    "targets": [ 0 ],
-                    "visible": false
-                }
-            ]
-        });
-
-        $('input[name="user-role"]').on("change", function(e) {
-
-            oUserTable.fnDraw();
-        });
-
-    }
+//    if($('#user-list').length){
+//        $.fn.dataTableExt.afnFiltering.push(function(oSettings, aData, iDataIndex) {
+//            var checked = $('input[name="user-role"]').is(':checked');
+//
+//            if (checked && aData[0] === $('input[name="user-role"]:checked').val()) {
+//                return true;
+//            }
+//
+//            if(!checked){
+//                return true;
+//            }
+//
+//            return false;
+//        });
+//
+//        var oUserTable = $('#user-list').dataTable({
+//
+//            "oLanguage":
+//            {
+//                "processing": "Подождите...",
+//                "search": "Поиск:",
+//                "lengthMenu": "Показать _MENU_ записей",
+//                "info": "Записи с _START_ до _END_ из _TOTAL_ записей",
+//                "infoEmpty": "Записи с 0 до 0 из 0 записей",
+//                "infoFiltered": "(отфильтровано из _MAX_ записей)",
+//                "infoPostFix": "",
+//                "loadingRecords": "Загрузка записей...",
+//                "zeroRecords": "Записи отсутствуют.",
+//                "emptyTable": "В таблице отсутствуют данные",
+//                "sZeroRecords": "Не найдено ни одной записи",
+//                "oPaginate":
+//                {
+//                    "sNext": '›',
+//                    "sLast": '»',
+//                    "sFirst": '«',
+//                    "sPrevious": '‹'
+//                }
+//            },
+//            "aoColumnDefs": [
+//                { 'bSortable': false, 'aTargets': [ 0, 2, 3, 4, 5, 6, 7 ] },
+//                {
+//                    "targets": [ 0 ],
+//                    "visible": false
+//                }
+//            ]
+//        });
+//
+//        $('input[name="user-role"]').on("change", function(e) {
+//
+//            oUserTable.fnDraw();
+//        });
+//
+//    }
 
     if($('#table-products-inactive').length){
         $.fn.dataTableExt.afnFiltering.push(function(oSettings, aData, iDataIndex) {
@@ -672,27 +672,7 @@ $(document).ready(function(){
         });
     }
 
-    if($('#datepicker-start').length){
-        $( "#datepicker-start" ).datepicker({
-            defaultDate: "+1w",
-            changeMonth: true,
-            numberOfMonths: 2,
-            onClose: function( selectedDate ) {
-                $("#datepicker-end").datepicker("option", "minDate", selectedDate);
-            }
-        });
-    }
-
-    if($('#datepicker-end').length){
-        $( "#datepicker-end" ).datepicker({
-            defaultDate: "+1w",
-            changeMonth: true,
-            numberOfMonths: 2,
-            onClose: function( selectedDate ) {
-                $( "#datepicker-start" ).datepicker( "option", "maxDate", selectedDate );
-            }
-        });
-    }
+    
 
 
 

@@ -109,5 +109,32 @@ class Office extends CActiveRecord
 	}
         
         
-        
+        public static function items($country_id=null, $region_id=null, $city_id=null)
+        {
+            $result = array(
+                //''=>'',
+            );
+            $criteria = new CDbCriteria;
+            $criteria->order = '`name` ASC';
+            if ( $country_id!==null ) {
+                $criteria->compare('country_id', $country_id);
+            }
+            if ( $region_id!==null ) {
+                $criteria->compare('region_id', $region_id);
+            }
+            if ( $city_id!==null ) {
+                $criteria->compare('city_id', $city_id);
+            }
+            $values = self::model()->findAll($criteria);
+            
+            foreach ( $values as $value ) {
+                //$result[$value->id] = $value->name;
+                $result[] = array(
+                    'id'=>$value->id,
+                    'value'=>$value->name,
+                );
+            }
+            
+            return $result;
+        }
 }

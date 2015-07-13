@@ -81,7 +81,7 @@ return array(
                 'rules'=>array(
                     //'http://<region:\w+>.site/<controller:\w+>/<action:\w+>' => '<controller>/<action>',
                     
-                    //'site/news/<slug:[a-zA-Z0-9-]+>/'=>'site/news',
+                    'site/news/<slug:[a-zA-Z0-9-]+>/'=>'site/news',
                     //'site/page/<slug:[a-zA-Z0-9-]+>/'=>'site/page',
                     
                     //'<controller:\w+>/<id:\d+>'=>'<controller>/view',

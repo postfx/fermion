@@ -18,10 +18,22 @@ class SiteController extends Controller
     // главная
     public function actionIndex()
     {
+        $criteria = new CDbCriteria();
+        $criteria->select = '`id`, `title`, `date_create`, `category_name`, `desc`, `slug`, `img`';
+        $criteria->compare('active', 1);
+        $time = time();
+        $criteria->addCondition('`date_begin`<'.$time.' AND `date_end`>'.$time);        //  mb edit
+        $criteria->limit = 2;
+        $criteria->order = '`id` DESC';
+        $news = News::model()->findAll($criteria);
         
+        $criteria->compare('show_index', 1);
+        $popularNews = News::model()->findAll($criteria);
         
         $this->render('index', array(
             //'model'=>$model,
+            'news'=>$news,
+            'popularNews'=>$popularNews,
         ));
     }
     
@@ -38,13 +50,51 @@ class SiteController extends Controller
     
     
     // новости
-    public function actionNews($id=null)
+    public function actionNews($slug=null)
     {
-        
-        
-        $this->render('news', array(
-            //'model'=>$model,
-        ));
+        if ( $slug===null ) {
+            $model = new News('search');
+            $model->unsetAttributes();
+            
+            $model->isList = true;
+            $model->category_id = Yii::app()->request->getParam('category_id');
+            
+            $this->render('news', array(
+                'model'=>$model,
+            ));
+        } else {
+            $model = $this->loadNews($slug);
+            $model->saveCounters(array('countViews'=>1));                       //  to memcache mb
+            
+            $comment = new NewsComment();
+            
+            if ( isset($_POST['ajax']) && $_POST['ajax']==='newsComment-form' ) {
+                echo CActiveForm::validate($comment);
+                Yii::app()->end();
+            }
+
+            if ( isset($_POST['NewsComment']) ) {
+                $comment->attributes = $_POST['NewsComment'];
+                $comment->news_id = $model->id;
+                $comment->user_id = Yii::app()->user->id;
+                if ( $comment->validate() && $comment->preSave() ) {
+                    $comment->unsetAttributes();
+                    Yii::app()->user->setFlash('comment_success', true);
+                    $this->redirect(array('/site/news', 'slug'=>$model->slug, '#'=>'comments'));
+                }
+            }
+            
+            $criteria = new CDbCriteria();
+            $criteria->compare('news_id', $model->id);
+            $criteria->order = '`id` ASC';
+            $comments = NewsComment::model()->findAll($criteria);
+            
+            $this->render('news_inner', array(
+                'model'=>$model,
+                'comment'=>$comment,
+                'comments'=>$comments,
+            ));
+        }
     }
     
     
@@ -613,15 +663,18 @@ class SiteController extends Controller
 //    }
     
     /**/
-//    public function loadTicketD($id)
-//    {
-//        //$model = Ticket::model()->findByPk($id);
-//        $model = TicketD::model()->findByAttributes(array('hash'=>$id));
-//        if ( !$model ) {
-//            throw new CHttpException(404, 'Билет не найден.');
-//        }
-//        return $model;
-//    }
+    public function loadNews($slug)
+    {
+        //$model = Ticket::model()->findByPk($id);
+        $model = News::model()->findByAttributes(array('slug'=>$slug));
+        if ( !$model ) {
+            throw new CHttpException(404, 'Новость не найдена.');
+        }
+        if ( !$model->active ) {
+            throw new CHttpException(404, 'Новость неактивна.');
+        }
+        return $model;
+    }
     
     
 }

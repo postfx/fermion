@@ -1,21 +1,16 @@
 <?php
-/* @var $this RoleController */
-/* @var $model Role */
-
-$this->breadcrumbs=array(
-	'Roles'=>array('index'),
-	$model->name=>array('view','id'=>$model->id),
-	'Update',
-);
-
-$this->menu=array(
-	array('label'=>'List Role', 'url'=>array('index')),
-	array('label'=>'Create Role', 'url'=>array('create')),
-	array('label'=>'View Role', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage Role', 'url'=>array('admin')),
-);
+    
 ?>
 
-<h1>Update Role <?php echo $model->id; ?></h1>
+<div class="container">
+    <div class="clearfix">
+        <div class="section-title">
+            <i class="cat-ico"></i> <span>Редактировать категорию пользователей - "<?= CHtml::encode($model->name) ?>"</span>
+        </div>
+    </div>
+    <div class="page-content-wrap border-left-wrap">
+        
+        <?php $this->renderPartial('_form', array('model'=>$model)); ?>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+    </div>
+</div>

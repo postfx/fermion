@@ -337,46 +337,39 @@
                 </div>
             <?php endif; ?>
             
-            <div class="section-company-news">
-                <div class="section-title">
-                    <i class="articles-icon"></i> <span>Новости компании</span>
-                </div>
-                <!-- todo -->
+            <?php if ( count($news)!=0 ): ?>
+                <div class="section-company-news">
+                    <div class="section-title">
+                        <i class="articles-icon"></i> <span>Новости компании</span>
+                    </div>
                     <div class="company-news">
-                        <div class="company-news-item">
-                            <div class="company-news-item-title">
-                                Новые устройства серии Фрегат
+                        
+                        <?php foreach ( $news as $n ): ?>
+                            <div class="company-news-item">
+                                <div class="company-news-item-title">
+                                    <?= CHtml::encode($n->title) ?>
+                                </div>
+                                <div class="company-news-item-detail">
+                                    <span><?= Yii::app()->dateFormatter->format('dd MMMM yyyy', $n->date_create) ?></span> <span class="news-tag"><?= CHtml::encode($n->category_name) ?></span>
+                                </div>
+                                <div class="company-news-descr">
+                                    <?= $n->_desc ?>
+                                    <?= CHtml::link('подробнее', array('/site/news', 'slug'=>$n->slug), array(
+                                        'class'=>'news-detail',
+                                    )) ?>
+                                </div>
                             </div>
-                            <div class="company-news-item-detail">
-                                <span>22 марта 2015</span> <span class="news-tag">продукция</span>
-                            </div>
-                            <div class="company-news-descr">
-                                Компания вводит антикризисную программу, по которой клиент может приобрести
-                                устройство по доступной цене и получить яркий результат!
-                                <a href="javascript:void(0)" class="news-detail">подробнее</a>
-                            </div>
-                        </div>
-                        <div class="company-news-item">
-                            <div class="company-news-item-title">
-                                Встреча с Президентом компании
-                            </div>
-                            <div class="company-news-item-detail">
-                                <span>20 февраля 2015</span> <span class="news-tag">события</span>
-                            </div>
-                            <div class="company-news-descr">
-                                6-7 февраля 2015 года состоялась встреча Верховцева Николая Владимировича с
-                                Профессиональными консультантами компании!
-                                <a href="javascript:void(0)" class="news-detail">подробнее</a>
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
+                        
                         <div class="all-news-wrap">
                             <?= CHtml::link('Все новости', array('/site/news'), array(
                                 'class'=>'all-news',
                             )) ?>
                         </div>
                     </div>
-                <!-- -->
-            </div>
+                </div>
+            <?php endif; ?>
+            
             <div class="section-events">
                 <div class="section-title">
                     <i class="event-icon"></i> <span>ближайшие события</span>
@@ -440,65 +433,44 @@
     </div>
 </div>
 
-<!-- todo -->
-    <div class="bottom-content">
-        <div class="container">
+<div class="bottom-content">
+    <div class="container">
+        <?php if ( count($popularNews)!=0 ): ?>
             <div class="section-popular">
                 <div class="section-title">
                     <i class="articles-icon"></i> <span>Последние или популярные статьи</span>
                 </div>
                 <div class="clearfix">
-                    <div class="left-col">
-                        <div class="articles-item clearfix">
-                            <div class="articles-item-col">
-                                <div class="articles-item-prev">
-                                    <div class="articles-item-create">
-                                        <div class="articles-item-create-day">15</div>
-                                        <div class="articles-item-create-month">окт</div>
+                    <?php foreach ( $popularNews as $key => $pn ): ?>
+                        <div class="<?= ($key==0)?'left-col':'right-col' ?>">
+                            <div class="articles-item clearfix">
+                                <div class="articles-item-col">
+                                    <div class="articles-item-prev">
+                                        <div class="articles-item-create">
+                                            <div class="articles-item-create-day"><?= date('d', $pn->date_create) ?></div>
+                                            <div class="articles-item-create-month"><?= Yii::app()->dateFormatter->format('MMM', $pn->date_create) ?></div>
+                                        </div>
+                                        <?= (strlen($pn->img)!=0) ? CHtml::image('/uploads/news/preview/'.$pn->img, '', array(
+                                            'class'=>'img-responsive',
+                                        )) : '' ?>
                                     </div>
-                                    <img src="/images/content/news-1.jpg" class="img-responsive">
                                 </div>
-                            </div>
-                            <div class="articles-item-col">
-                                <div class="articles-item-title">
-                                    Бизнес-предложение
-                                </div>
-                                <div class="articles-item-descr">
-                                    Вся цивилизация планеты Земля находится в состоянии перехода. Индустриальное общество входит в информационную эпоху. Меняется общество, меняется человек, причем скорость изменений стремительно нарастает.  Человек новой эры – это гармонически развитая творческая личность.
-                                </div>
-                                <div class="articles-actions">
-                                    <a href="javascript:void(0)" class="articles-detail">подробнее</a>
+                                <div class="articles-item-col">
+                                    <div class="articles-item-title">
+                                        <?= CHtml::encode($pn->title) ?>
+                                    </div>
+                                    <div class="articles-item-descr">
+                                        <?= $pn->_desc ?>
+                                    </div>
+                                    <div class="articles-actions">
+                                        <?= CHtml::link('подробнее', array('/site/news', 'slug'=>$pn->slug), array('class'=>'articles-detail')) ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="right-col">
-                        <div class="articles-item clearfix">
-                            <div class="articles-item-col">
-                                <div class="articles-item-prev">
-                                    <div class="articles-item-create">
-                                        <div class="articles-item-create-day">31</div>
-                                        <div class="articles-item-create-month">дек</div>
-                                    </div>
-                                    <img src="/images/content/news-2.jpg" class="img-responsive">
-                                </div>
-
-                            </div>
-                            <div class="articles-item-col">
-                                <div class="articles-item-title">
-                                    Эволюция сознания
-                                </div>
-                                <div class="articles-item-descr">
-                                    Мы живем в эпоху информации. Кто владеет информацией, тот владеет миром. И это действительно так. Если в давние времена новости приходили с караванами купцов, с почтовыми каретами.
-                                </div>
-                                <div class="articles-actions">
-                                    <a href="javascript:void(0)" class="articles-detail">подробнее</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
-        </div>
+        <?php endif; ?>
     </div>
-<!-- todo -->
+</div>

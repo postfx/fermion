@@ -6,6 +6,7 @@ Class CabinetController extends Controller
     //public $header='';
     //public $menu=array();
     public $breadcrumbs=array();
+    public $role = null;
  
     
     public function filters()
@@ -38,11 +39,17 @@ Class CabinetController extends Controller
     }
 
     
-//    public function init()
-//    {
-//        parent::init();
-//        
-//    }
+    public function init()
+    {
+        parent::init();
+        
+        $cs = Yii::app()->clientScript;
+        $pt = Yii::app()->homeUrl;  
+        
+        $cs->registerScriptFile($pt.'js/tinymce/tinymce.min.js',CClientScript::POS_END);
+        
+        $this->role = Role::model()->findByPk(Yii::app()->user->role);
+    }
 
 //    public function get_menu_left()
 //    {

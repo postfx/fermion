@@ -1,64 +1,97 @@
 <?php
-/* @var $this RoleController */
-/* @var $model Role */
-/* @var $form CActiveForm */
+
+    
+
 ?>
 
-<div class="form">
-
 <?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'role-form',
-	// Please note: When you enable ajax validation, make sure the corresponding
-	// controller action is handling ajax validation correctly.
-	// There is a call to performAjaxValidation() commented in generated controller code.
-	// See class documentation of CActiveForm for details on this.
-	'enableAjaxValidation'=>false,
+    //'action'=>array('site/signup'),
+    'id'=>'role-form',
+    //'focus'=>array($model,'referer_id'),
+    'enableAjaxValidation'=>true,
+    'enableClientValidation'=>true,
+    'clientOptions'=>array(
+        'validateOnChange'=>true,
+        'validateOnSubmit'=>true,
+        /*'afterValidate'=>'js:function(form, data, hasError){
+            if ( !hasError ) {
+
+                $.ajax({
+                    type: "POST",
+                    url: form[0].action,
+                    data: $(form).serialize(),
+                    success: function(ret) {
+                        if ( ret==1 ) {
+
+                        } else {
+                            alert("Неизвестная ошибка. Повторите позже или обратитесь в поддержку.");
+                        }
+                        location = location;
+                    }
+                });
+
+                return false;
+            }
+        }',*/
+    ),
+    'htmlOptions'=>array(
+        //'enctype'=>'multipart/form-data',
+    ),
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+    <div class="enter-section-text">
+        поля помеченные <span>*</span>, обязательны для заполнения
+    </div>
 
-	<?php echo $form->errorSummary($model); ?>
+    <?= $form->errorSummary($model, null, null, array(
+        'class'=>'error-message',
+    )) ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'zIndex'); ?>
-		<?php echo $form->textField($model,'zIndex'); ?>
-		<?php echo $form->error($model,'zIndex'); ?>
-	</div>
+    <div class="enter-form-row">
+        <?= $form->labelEx($model,'zIndex'); ?>
+        <?= $form->textField($model,'zIndex'); ?>
+        <?= $form->error($model,'zIndex'); ?>
+    </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'name'); ?>
-		<?php echo $form->textField($model,'name',array('size'=>32,'maxlength'=>32)); ?>
-		<?php echo $form->error($model,'name'); ?>
-	</div>
+    <div class="enter-form-row">
+        <?= $form->labelEx($model,'name'); ?>
+        <?= $form->textField($model,'name',array('size'=>32,'maxlength'=>32)); ?>
+        <?= $form->error($model,'name'); ?>
+    </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'name_genitive'); ?>
-		<?php echo $form->textField($model,'name_genitive',array('size'=>32,'maxlength'=>32)); ?>
-		<?php echo $form->error($model,'name_genitive'); ?>
-	</div>
+    <div class="enter-form-row">
+        <?= $form->labelEx($model,'name_genitive'); ?>
+        <?= $form->textField($model,'name_genitive',array('size'=>32,'maxlength'=>32)); ?>
+        <?= $form->error($model,'name_genitive'); ?>
+    </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'date_create'); ?>
-		<?php echo $form->textField($model,'date_create'); ?>
-		<?php echo $form->error($model,'date_create'); ?>
-	</div>
+    <div class="enter-form-row checkbox-wrap">
+        <label class="checkbox-wrap">
+            <?= $form->checkBox($model,'active'); ?>
+            <?= /*$model->getAttributeLabel('active')*/'Активная роль' ?>
+        </label>
+        <?= $form->error($model,'active'); ?>
+    </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'active'); ?>
-		<?php echo $form->textField($model,'active'); ?>
-		<?php echo $form->error($model,'active'); ?>
-	</div>
+    <div class="enter-form-row">
+        <label>
+            Набор прав <span>*</span>
+        </label>
+        <div class="permissions-table">
+            <?= $model->getPerimssionsTable($form) ?>
+        </div>
+    </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'desc'); ?>
-		<?php echo $form->textArea($model,'desc',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'desc'); ?>
-	</div>
+    <div class="enter-form-row">
+        <?= $form->labelEx($model,'desc'); ?>
+        <?= $form->textArea($model,'desc',array('rows'=>6, 'cols'=>50, 'class'=>'tiny-field')); ?>
+        <?= $form->error($model,'desc'); ?>
+    </div>
 
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
-	</div>
+    <div class="enter-form-row">
+        <?= CHtml::submitButton($model->isNewRecord ? 'Создать' : 'Сохранить', array(
+            'class'=>'custom-btn-gray',
+        )); ?>
+    </div>
 
 <?php $this->endWidget(); ?>
-
-</div><!-- form -->

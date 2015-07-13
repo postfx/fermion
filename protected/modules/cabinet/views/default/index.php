@@ -25,10 +25,148 @@
         </div>
     <?php endif; ?>
     <!-- todo -->
-    <?php if ( Yii::app()->user->role==0 ): ?>
-        <div class="page-content-wrap">
-            <div class="clearfix user-menu-row">
-                <div class="user-menu-section">
+    
+        <div class="page-content-wrap pl0 fa_user-menu">
+            <div class="user-menu-row">
+                <?php if ( $role->blockUser ): ?>
+                    <div class="user-menu-section">
+                        <div class="user-menu-header">
+                            Пользователи
+                        </div>
+                        <div class="user-menu-list">
+                            <?php if ( $role->opt_user_create ): ?>
+                                <a href="<?= $this->createUrl('/cabinet/user/create') ?>" class="user-menu-item clearfix">
+                                    <div class="user-menu-img">
+                                        <img src="/images/icons/user-create-ico.png">
+                                    </div>
+                                    <div class="user-menu-title-wrap">
+                                        <div class="user-menu-title">
+                                            создать пользователя
+                                        </div>
+                                    </div>
+                                </a>
+                            <?php endif; ?>
+                            <?php if ( $role->opt_role_create ): ?>
+                                <a href="<?= $this->createUrl('/cabinet/role/create') ?>" class="user-menu-item clearfix">
+                                    <div class="user-menu-img">
+                                        <img src="/images/icons/cat-ico.png">
+                                    </div>
+                                    <div class="user-menu-title-wrap">
+                                        <div class="user-menu-title">
+                                            создать категорию пользователей
+                                        </div>
+                                    </div>
+                                </a>
+                            <?php endif; ?>
+                            <?php if ( $role->opt_user_read ): ?>
+                                <a href="<?= $this->createUrl('/cabinet/user/index') ?>" class="user-menu-item clearfix">
+                                    <div class="user-menu-img">
+                                        <img src="/images/icons/user-create-ico.png">
+                                    </div>
+                                    <div class="user-menu-title-wrap">
+                                        <div class="user-menu-title">
+                                            просмотр пользователей
+                                        </div>
+                                    </div>
+                                </a>
+                            <?php endif; ?>
+                            <?php if ( $role->opt_role_read ): ?>
+                                <a href="<?= $this->createUrl('/cabinet/role/index') ?>" class="user-menu-item clearfix">
+                                    <div class="user-menu-img">
+                                        <img src="/images/icons/cat-eye-ico.png">
+                                    </div>
+                                    <div class="user-menu-title-wrap">
+                                        <div class="user-menu-title">
+                                            просмотр категорий пользователей
+                                        </div>
+                                    </div>
+                                </a>
+                            <?php endif; ?>
+                            <!-- todo -->
+                                <!--a href="javascript:void(0)" class="user-menu-item clearfix">
+                                    <div class="user-menu-img">
+                                        <img src="/images/icons/planet-ico.png">
+                                    </div>
+                                    <div class="user-menu-title-wrap">
+                                        <div class="user-menu-title">
+                                            создать место
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="javascript:void(0)" class="user-menu-item clearfix">
+                                    <div class="user-menu-img">
+                                        <img src="/images/icons/doc-ico.png">
+                                    </div>
+                                    <div class="user-menu-title-wrap">
+                                        <div class="user-menu-title">
+                                            журнал административных единиц
+                                        </div>
+                                    </div>
+                                </a-->
+                            <!-- todo -->
+                        </div>
+                    </div>
+                <?php endif; ?>
+                
+                <?php if ( $role->blockNews ): ?>
+                    <div class="user-menu-section">
+                        <div class="user-menu-header">
+                            Новости
+                        </div>
+                        <div class="user-menu-list">
+                            <?php if ( $role->opt_news_create ): ?>
+                                <a href="<?= $this->createUrl('/cabinet/news/create') ?>" class="user-menu-item clearfix">
+                                    <div class="user-menu-img">
+                                        <img src="/images/icons/news.png">
+                                    </div>
+                                    <div class="user-menu-title-wrap">
+                                        <div class="user-menu-title">
+                                            создать новость
+                                        </div>
+                                    </div>
+                                </a>
+                            <?php endif; ?>
+                            <?php if ( $role->opt_newsCategory_create ): ?>
+                                <a href="<?= $this->createUrl('/cabinet/newsCategory/index') ?>" class="user-menu-item clearfix">
+                                    <div class="user-menu-img">
+                                        <img src="/images/icons/cat-ico.png">
+                                    </div>
+                                    <div class="user-menu-title-wrap">
+                                        <div class="user-menu-title">
+                                            создать категорию новостей
+                                        </div>
+                                    </div>
+                                </a>
+                            <?php endif; ?>
+                            <?php if ( $role->opt_news_read ): ?>
+                                <a href="<?= $this->createUrl('/cabinet/news/index') ?>" class="user-menu-item clearfix">
+                                    <div class="user-menu-img">
+                                        <img src="/images/icons/eye-ico-2.png">
+                                    </div>
+                                    <div class="user-menu-title-wrap">
+                                        <div class="user-menu-title">
+                                            просмотр новостей
+                                        </div>
+                                    </div>
+                                </a>
+                            <?php endif; ?>
+                            <?php if ( $role->opt_newsCategory_read ): ?>
+                                <a href="<?= $this->createUrl('/cabinet/newsCategory/index') ?>" class="user-menu-item clearfix">
+                                    <div class="user-menu-img">
+                                        <img src="/images/icons/cat-eye-ico.png">
+                                    </div>
+                                    <div class="user-menu-title-wrap">
+                                        <div class="user-menu-title">
+                                            просмотр категорий новостей
+                                        </div>
+                                    </div>
+                                </a>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
+                
+                <!--<div class="user-menu-section">
                     <div class="user-menu-header">
                         События
                     </div>
@@ -74,55 +212,9 @@
                             </div>
                         </a>
                     </div>
-                </div>
-                <div class="user-menu-section">
-                    <div class="user-menu-header">
-                        Новости
-                    </div>
-                    <div class="user-menu-list">
-                        <a href="javascript:void(0)" class="user-menu-item clearfix">
-                            <div class="user-menu-img">
-                                <img src="/images/icons/news.png">
-                            </div>
-                            <div class="user-menu-title-wrap">
-                                <div class="user-menu-title">
-                                    создать новость
-                                </div>
-                            </div>
-                        </a>
-                        <a href="javascript:void(0)" class="user-menu-item clearfix">
-                            <div class="user-menu-img">
-                                <img src="/images/icons/cat-ico.png">
-                            </div>
-                            <div class="user-menu-title-wrap">
-                                <div class="user-menu-title">
-                                    создать категорию новостей
-                                </div>
-                            </div>
-                        </a>
-                        <a href="javascript:void(0)" class="user-menu-item clearfix">
-                            <div class="user-menu-img">
-                                <img src="/images/icons/eye-ico-2.png">
-                            </div>
-                            <div class="user-menu-title-wrap">
-                                <div class="user-menu-title">
-                                    просмотр новостей
-                                </div>
-                            </div>
-                        </a>
-                        <a href="javascript:void(0)" class="user-menu-item clearfix">
-                            <div class="user-menu-img">
-                                <img src="/images/icons/cat-eye-ico.png">
-                            </div>
-                            <div class="user-menu-title-wrap">
-                                <div class="user-menu-title">
-                                    просмотр категорий новостей
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="user-menu-section">
+                </div>-->
+                
+                <!--<div class="user-menu-section">
                     <div class="user-menu-header">
                         Каталоги
                     </div>
@@ -168,77 +260,8 @@
                             </div>
                         </a>
                     </div>
-                </div>
-            </div>
-            <div class="clearfix user-menu-row">
-                <div class="user-menu-section">
-                    <div class="user-menu-header">
-                        Пользователи
-                    </div>
-                    <div class="user-menu-list">
-                        <a href="javascript:void(0)" class="user-menu-item clearfix">
-                            <div class="user-menu-img">
-                                <img src="/images/icons/user-create-ico.png">
-                            </div>
-                            <div class="user-menu-title-wrap">
-                                <div class="user-menu-title">
-                                    создать пользователя
-                                </div>
-                            </div>
-                        </a>
-                        <a href="javascript:void(0)" class="user-menu-item clearfix">
-                            <div class="user-menu-img">
-                                <img src="/images/icons/cat-ico.png">
-                            </div>
-                            <div class="user-menu-title-wrap">
-                                <div class="user-menu-title">
-                                    создать категорию пользователей
-                                </div>
-                            </div>
-                        </a>
-                        <a href="javascript:void(0)" class="user-menu-item clearfix">
-                            <div class="user-menu-img">
-                                <img src="/images/icons/user-create-ico.png">
-                            </div>
-                            <div class="user-menu-title-wrap">
-                                <div class="user-menu-title">
-                                    просмотр пользователей
-                                </div>
-                            </div>
-                        </a>
-                        <a href="javascript:void(0)" class="user-menu-item clearfix">
-                            <div class="user-menu-img">
-                                <img src="/images/icons/cat-eye-ico.png">
-                            </div>
-                            <div class="user-menu-title-wrap">
-                                <div class="user-menu-title">
-                                    просмотр категорий пользователей
-                                </div>
-                            </div>
-                        </a>
-                        <a href="javascript:void(0)" class="user-menu-item clearfix">
-                            <div class="user-menu-img">
-                                <img src="/images/icons/planet-ico.png">
-                            </div>
-                            <div class="user-menu-title-wrap">
-                                <div class="user-menu-title">
-                                    создать место
-                                </div>
-                            </div>
-                        </a>
-                        <a href="javascript:void(0)" class="user-menu-item clearfix">
-                            <div class="user-menu-img">
-                                <img src="/images/icons/doc-ico.png">
-                            </div>
-                            <div class="user-menu-title-wrap">
-                                <div class="user-menu-title">
-                                    журнал административных единиц
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="user-menu-custom-group">
+                </div>-->         
+                <!--<div class="user-menu-custom-group">
                     <div class="user-menu-section">
                         <div class="user-menu-header">
                             Журнал всех событий
@@ -290,13 +313,14 @@
                             </a>
                         </div>
                     </div>
-                </div>
-
+                </div>-->
+            </div>
+            <div class="clearfix user-menu-row">
+                
             </div>
         </div>
-    <?php endif; ?>
     
-    <?php if ( Yii::app()->user->role==1 ): ?>
+    <?php /*if ( Yii::app()->user->role==1 ): ?>
         <div class="full-width-content">
             <div class="clearfix user-menu-row user-lk-menu">
                 <div class="user-menu-col">
@@ -505,9 +529,9 @@
                 </div>
             </div>
         </div>
-    <?php endif; ?>
+    <?php endif;*/ ?>
     
-    <?php if ( Yii::app()->user->role==3 ): ?>
+    <?php /*if ( Yii::app()->user->role==3 ): ?>
         <div class="full-width-content">
             <div class="clearfix user-menu-row user-lk-menu">
                 <div class="user-menu-col">
@@ -743,6 +767,6 @@
                 </div>
             </div>
         </div>
-    <?php endif; ?>
+    <?php endif;*/ ?>
     <!-- -->
 </div>

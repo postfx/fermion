@@ -1159,3 +1159,38 @@ Stack trace:
 REQUEST_URI=/favicon.ico
 HTTP_REFERER=http://fermion.e-produce.ru/index.php
 ---
+2015/07/10 10:14:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://fermion.e-produce.ru/index.php
+---
+2015/07/12 23:50:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://fermion.e-produce.ru/
+---
+2015/07/13 10:58:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "favicon.ico".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://fermion.e-produce.ru/
+---
+2015/07/13 14:03:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "robots.txt".' in /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/web/CWebApplication.php(141): CWebApplication->runController('robots.txt')
+#1 /home/u337133/fermion.e-produce.ru/yii-1.1.16/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/u337133/fermion.e-produce.ru/www/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/robots.txt
+---

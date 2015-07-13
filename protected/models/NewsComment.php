@@ -27,8 +27,8 @@ class NewsComment extends CActiveRecord
 	public function rules()
 	{
             return array(
-                array('date_create, news_id, user_id, text', 'required'),
-                array('date_create, news_id, user_id', 'numerical', 'integerOnly'=>true),
+                array('news_id, user_id, text', 'required'),
+                array('news_id, user_id', 'numerical', 'integerOnly'=>true),
             
                 // search
                     array('id, date_create, news_id, user_id, text', 'safe', 'on'=>'search'),
@@ -39,8 +39,8 @@ class NewsComment extends CActiveRecord
 	public function relations()
 	{
             return array(
-//                    'user' => array(self::BELONGS_TO, 'User', 'user_id'),
-//                    'news' => array(self::BELONGS_TO, 'News', 'news_id'),
+                    'user' => array(self::BELONGS_TO, 'User', 'user_id'),
+                    'news' => array(self::BELONGS_TO, 'News', 'news_id'),
             );
 	}
 
@@ -52,7 +52,7 @@ class NewsComment extends CActiveRecord
                 'date_create' => 'Date Create',
                 'news_id' => 'News',
                 'user_id' => 'User',
-                'text' => 'Text',
+                'text' => 'Комментарий',
             );
 	}
 
@@ -86,5 +86,16 @@ class NewsComment extends CActiveRecord
 	}
         
         
-        
+        public function preSave()
+        {
+            $this->date_create = time();
+            
+            if ( $this->save(false) ) {
+                $this->news->saveCounters(array('countComments'=>1));
+                
+                return true;
+            } else {
+                return false;
+            }
+        }
 }

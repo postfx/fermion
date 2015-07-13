@@ -120,6 +120,41 @@ class User extends CActiveRecord
                     array('pass, passR', 'required', 'on'=>'newPassword'),
                     array('pass', 'length', 'min'=>6, 'max'=>16, 'on'=>'newPassword'),
                     array('passR', 'compare', 'compareAttribute'=>'pass', 'on'=>'newPassword'),
+                
+                // create
+                    array('surname, name, patronymic, login, pass, passR, role', 'required', 'on'=>'create'),
+                    array('country_id, region_id, city_id, active, office_id', 'numerical', 'integerOnly'=>true, 'allowEmpty'=>true, 'on'=>'create'),
+                    array('referer_id', 'numerical', 'integerOnly'=>true, 'allowEmpty'=>true, 'on'=>'create'),
+                    array('surname, name, patronymic', 'length', 'max'=>32, 'min'=>2, 'on'=>'create'),
+                    array('phone, phoneHome, skype', 'length', 'max'=>32, 'on'=>'create'),
+                    array('date_birthday, passport_date, info', 'safe', 'on'=>'create'),
+                    array('passport_num', 'length', 'max'=>16, 'min'=>2, 'on'=>'create'),
+                    array('passport_issuingAuthority, address', 'length', 'max'=>255, 'on'=>'create'),
+                    array('postcode', 'length', 'max'=>8, 'on'=>'create'),
+                    array('login', 'unique', 'on'=>'create'),
+                    array('login', 'email', 'on'=>'create'),
+                    array('login', 'length', 'max'=>64, 'min'=>5, 'on'=>'create'),
+                    array('pass, passR', 'length', 'min'=>6, 'max'=>16, 'on'=>'create'),
+                    array('passR', 'compare', 'compareAttribute'=>'pass', 'on'=>'create'),
+                    array('balance, points, role', 'numerical', 'integerOnly'=>true, 'on'=>'create'),
+                
+                // update   -   пока отличия от create: нельзя менять логин, необязательно заполнять пароль
+                    array('surname, name, patronymic, role', 'required', 'on'=>'update'),
+                    array('country_id, region_id, city_id, active, office_id', 'numerical', 'integerOnly'=>true, 'allowEmpty'=>true, 'on'=>'update'),
+                    array('referer_id', 'numerical', 'integerOnly'=>true, 'allowEmpty'=>true, 'on'=>'update'),
+                    array('surname, name, patronymic', 'length', 'max'=>32, 'min'=>2, 'on'=>'update'),
+                    array('phone, phoneHome, skype', 'length', 'max'=>32, 'on'=>'update'),
+                    array('date_birthday, passport_date, info', 'safe', 'on'=>'update'),
+                    array('passport_num', 'length', 'max'=>16, 'min'=>2, 'on'=>'update'),
+                    array('passport_issuingAuthority, address', 'length', 'max'=>255, 'on'=>'update'),
+                    array('postcode', 'length', 'max'=>8, 'on'=>'update'),
+//                    array('login', 'unique', 'on'=>'create'),
+//                    array('login', 'email', 'on'=>'create'),
+//                    array('login', 'length', 'max'=>64, 'min'=>5, 'on'=>'create'),
+                    array('pass, passR', 'length', 'min'=>6, 'max'=>16, 'on'=>'update'),
+                    array('passR', 'compare', 'compareAttribute'=>'pass', 'on'=>'update'),
+                    array('balance, points, role', 'numerical', 'integerOnly'=>true, 'on'=>'update'),
+                    
             
                 // search
                     array('id, login, password, balance, points, phone, skype, surname, name, patronymic, date_create, date_update, date_activity, role, active, hash, deliveryPoint_id, referer_id, date_birthday, passport_num, passport_date, passport_issuingAuthority, phoneHome, office_id, info, alert_news, alert_products, alert_events, alert_promo, alert_balance, country_id, region_id, city_id, postcode, address', 'safe', 'on'=>'search'),
@@ -176,8 +211,8 @@ class User extends CActiveRecord
 //                    'relEventUsers1' => array(self::HAS_MANY, 'RelEventUser', 'user_id'),
 //                    'relProductUsers' => array(self::HAS_MANY, 'RelProductUser', 'user_id'),
 //                    'reviews' => array(self::HAS_MANY, 'Review', 'user_id'),
-//                    'office' => array(self::BELONGS_TO, 'Office', 'office_id'),
-//                    'referer' => array(self::BELONGS_TO, 'User', 'referer_id'),
+                    'office' => array(self::BELONGS_TO, 'Office', 'office_id'),
+                    'referer' => array(self::BELONGS_TO, 'User', 'referer_id'),
 //                    'users' => array(self::HAS_MANY, 'User', 'referer_id'),
 //                    'userCodes' => array(self::HAS_MANY, 'UserCode', 'user_id'),
 //                    'userOperations' => array(self::HAS_MANY, 'UserOperation', 'user_id'),
@@ -187,6 +222,9 @@ class User extends CActiveRecord
                 '_role'=>array(self::BELONGS_TO, 'Role', 'role'),
                 'countEvents'=>array(self::STAT, 'RelEventUser', 'user_id', 'condition'=>'`event_date`>'.time()),      //  todo mb
                 'countMessagesInbox'=>array(self::STAT, 'Message', 'receiver_id', 'condition'=>'`isRead`=0'),
+                'country'=>array(self::BELONGS_TO, 'Country', 'country_id'),
+                'region'=>array(self::BELONGS_TO, 'Region', 'region_id'),
+                'city'=>array(self::BELONGS_TO, 'City', 'city_id'),
             );
 	}
 
@@ -217,8 +255,8 @@ class User extends CActiveRecord
                 'passport_date' => 'Дата выдачи',
                 'passport_issuingAuthority' => 'Кем выдан',
                 'phoneHome' => 'Городской телефон',
-                'office_id' => 'Office',
-                'info' => 'Info',
+                'office_id' => 'Местоположение',
+                'info' => 'Описание',
                 'alert_news' => 'Alert News',
                 'alert_products' => 'Alert Products',
                 'alert_events' => 'Alert Events',
@@ -241,41 +279,41 @@ class User extends CActiveRecord
 	{
             $criteria=new CDbCriteria;
 
-            $criteria->compare('id',$this->id);         
-            $criteria->compare('login',$this->login,true);         
-            $criteria->compare('password',$this->password,true);         
-            $criteria->compare('balance',$this->balance);         
-            $criteria->compare('points',$this->points);         
-            $criteria->compare('phone',$this->phone,true);         
-            $criteria->compare('skype',$this->skype,true);         
-            $criteria->compare('surname',$this->surname,true);         
-            $criteria->compare('name',$this->name,true);         
-            $criteria->compare('patronymic',$this->patronymic,true);         
-            $criteria->compare('date_create',$this->date_create);         
-            $criteria->compare('date_update',$this->date_update);         
-            $criteria->compare('date_activity',$this->date_activity);         
+//            $criteria->compare('id',$this->id);         
+//            $criteria->compare('login',$this->login,true);         
+//            $criteria->compare('password',$this->password,true);         
+//            $criteria->compare('balance',$this->balance);         
+//            $criteria->compare('points',$this->points);         
+//            $criteria->compare('phone',$this->phone,true);         
+//            $criteria->compare('skype',$this->skype,true);         
+//            $criteria->compare('surname',$this->surname,true);         
+//            $criteria->compare('name',$this->name,true);         
+//            $criteria->compare('patronymic',$this->patronymic,true);         
+//            $criteria->compare('date_create',$this->date_create);         
+//            $criteria->compare('date_update',$this->date_update);         
+//            $criteria->compare('date_activity',$this->date_activity);         
             $criteria->compare('role',$this->role);         
-            $criteria->compare('active',$this->active);         
-            $criteria->compare('hash',$this->hash,true);         
-            $criteria->compare('deliveryPoint_id',$this->deliveryPoint_id);         
-            $criteria->compare('referer_id',$this->referer_id);         
-            $criteria->compare('date_birthday',$this->date_birthday);         
-            $criteria->compare('passport_num',$this->passport_num,true);         
-            $criteria->compare('passport_date',$this->passport_date);         
-            $criteria->compare('passport_issuingAuthority',$this->passport_issuingAuthority,true);         
-            $criteria->compare('phoneHome',$this->phoneHome,true);         
-            $criteria->compare('office_id',$this->office_id);         
-            $criteria->compare('info',$this->info,true);         
-            $criteria->compare('alert_news',$this->alert_news);         
-            $criteria->compare('alert_products',$this->alert_products);         
-            $criteria->compare('alert_events',$this->alert_events);         
-            $criteria->compare('alert_promo',$this->alert_promo);         
-            $criteria->compare('alert_balance',$this->alert_balance);         
-            $criteria->compare('country_id',$this->country_id);         
-            $criteria->compare('region_id',$this->region_id);         
-            $criteria->compare('city_id',$this->city_id);         
-            $criteria->compare('postcode',$this->postcode,true);         
-            $criteria->compare('address',$this->address,true);         
+//            $criteria->compare('active',$this->active);         
+//            $criteria->compare('hash',$this->hash,true);         
+//            $criteria->compare('deliveryPoint_id',$this->deliveryPoint_id);         
+//            $criteria->compare('referer_id',$this->referer_id);         
+//            $criteria->compare('date_birthday',$this->date_birthday);         
+//            $criteria->compare('passport_num',$this->passport_num,true);         
+//            $criteria->compare('passport_date',$this->passport_date);         
+//            $criteria->compare('passport_issuingAuthority',$this->passport_issuingAuthority,true);         
+//            $criteria->compare('phoneHome',$this->phoneHome,true);         
+//            $criteria->compare('office_id',$this->office_id);         
+//            $criteria->compare('info',$this->info,true);         
+//            $criteria->compare('alert_news',$this->alert_news);         
+//            $criteria->compare('alert_products',$this->alert_products);         
+//            $criteria->compare('alert_events',$this->alert_events);         
+//            $criteria->compare('alert_promo',$this->alert_promo);         
+//            $criteria->compare('alert_balance',$this->alert_balance);         
+//            $criteria->compare('country_id',$this->country_id);         
+//            $criteria->compare('region_id',$this->region_id);         
+//            $criteria->compare('city_id',$this->city_id);         
+//            $criteria->compare('postcode',$this->postcode,true);         
+//            $criteria->compare('address',$this->address,true);         
 
             $dataProvider = new CActiveDataProvider($this, array(
                 'criteria'=>$criteria,
@@ -384,8 +422,8 @@ class User extends CActiveRecord
         {
             $this->hash = null;
             $this->active = 1;
-            $this->date_activity = time();
-            $this->update(array('hash', 'active', 'date_activity'));
+            //$this->date_activity = time();
+            $this->update(array('hash', 'active'/*, 'date_activity'*/));
             return true;
         }
         
@@ -393,6 +431,10 @@ class User extends CActiveRecord
         public function get_io()
         {
             return mb_convert_case($this->name.' '.$this->patronymic, MB_CASE_TITLE, 'UTF-8');
+        }
+        public function get_fio()
+        {
+            return mb_convert_case($this->surname.' '.$this->name.' '.$this->patronymic, MB_CASE_TITLE, 'UTF-8');
         }
         
         
@@ -466,5 +508,80 @@ class User extends CActiveRecord
             } else {
                 return false;
             }
+        }
+        
+        
+        public function get_active()
+        {
+            return ($this->active)?'Активен':'Неактивен';
+        }
+        
+        
+        public function preSave()
+        {
+            if ( $this->isNewRecord ) {
+                $this->date_create = time();
+                //$password = $this->pass;
+                $this->password         =   CPasswordHelper::hashPassword($this->pass);
+            } else {
+                $this->date_update = time();
+                if ( strlen($this->pass)!=0 ) {
+                    $this->password         =   CPasswordHelper::hashPassword($this->pass);
+                }
+            }
+            
+            if ( strlen($this->passport_date)!=0 ) {
+                $this->passport_date    =   strtotime($this->passport_date);
+            }
+            if ( strlen($this->date_birthday)!=0 ) {
+                $this->date_birthday    =   strtotime($this->date_birthday);
+            }
+            
+            /**/
+            if ( (int)$this->city_id>0 ) {
+                $city = Yii::app()->db->createCommand()->select('id, country_id, region_id')->from('city')->where('id=:id', array(':id'=>(int)$this->city_id))->queryRow();
+                if ( $city ) {
+                    $this->region_id = $city['region_id'];
+                    $this->country_id = $city['country_id'];
+                } else {
+                    $this->city_id = null;
+                }
+            } elseif ( (int)$this->region_id>0 ) {
+                $region = Yii::app()->db->createCommand()->select('id, country_id')->from('region')->where('id=:id', array(':id'=>(int)$this->region_id))->queryRow();
+                if ( $region ) {
+                    $this->country_id = $region['country_id'];
+                } else {
+                    $this->region_id = null;
+                }
+            }
+            /**/
+            
+            if ( $this->save(false) ) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        public function preUpdate()
+        {
+            if ( strlen($this->passport_date)>0 ) {
+                $this->passport_date = date('d.m.Y', $this->passport_date);
+            }
+            if ( strlen($this->date_birthday)>0 ) {
+                $this->date_birthday = date('d.m.Y', $this->date_birthday);
+            }
+        }
+        
+        
+        public function get_phone()
+        {
+            return ( strlen($this->phone)!=0 ) ? $this->phone : ( (strlen($this->phoneHome)!=0) ? $this->phoneHome : '' );
+        }
+        
+        
+        // todo
+        public function get_activity()
+        {
+            return null;
         }
 }

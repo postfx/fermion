@@ -1,18 +1,16 @@
 <?php
-/* @var $this UserController */
-/* @var $model User */
-
-$this->breadcrumbs=array(
-	'Users'=>array('index'),
-	'Create',
-);
-
-$this->menu=array(
-	array('label'=>'List User', 'url'=>array('index')),
-	array('label'=>'Manage User', 'url'=>array('admin')),
-);
+    
 ?>
 
-<h1>Create User</h1>
+<div class="container">
+    <div class="clearfix">
+        <div class="section-title">
+            <i class="cat-ico"></i> <span>Создать пользователя</span>
+        </div>
+    </div>
+    <div class="page-content-wrap border-left-wrap">
+        
+        <?php $this->renderPartial('_form', array('model'=>$model)); ?>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+    </div>
+</div>
