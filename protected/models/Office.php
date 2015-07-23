@@ -11,9 +11,13 @@
  * @property integer $country_id
  * @property string $street
  * @property string $house
- * @property integer $workingHours_begin
- * @property integer $workingHours_end
+ * @property string $office
+ * @property string $workingHours_begin
+ * @property string $workingHours_end
+ * @property integer $workingHours_comment
  * @property string $desc
+ * @property integer $isDeliveryPoint
+ * @property integer $date_create
  *
  * The followings are the available model relations:
  * @property Country $country
@@ -35,14 +39,15 @@ class Office extends CActiveRecord
 	{
             return array(
                 array('name, city_id, region_id, country_id, street, house, workingHours_begin, workingHours_end', 'required'),
-                array('city_id, region_id, country_id, workingHours_begin, workingHours_end', 'numerical', 'integerOnly'=>true),
-                array('name', 'length', 'max'=>255),
+                array('city_id, region_id, country_id, isDeliveryPoint', 'numerical', 'integerOnly'=>true),
+                array('name, workingHours_comment', 'length', 'max'=>255),
                 array('street', 'length', 'max'=>128),
-                array('house', 'length', 'max'=>16),
+                array('house, office', 'length', 'max'=>16),
+                array('workingHours_begin, workingHours_end', 'length', 'max'=>5),
                 array('desc', 'safe'),
             
                 // search
-                    array('id, name, city_id, region_id, country_id, street, house, workingHours_begin, workingHours_end, desc', 'safe', 'on'=>'search'),
+                    array('id, name, city_id, region_id, country_id, street, house, workingHours_begin, workingHours_end, desc, isDeliveryPoint, workingHours_comment, office', 'safe', 'on'=>'search'),
             );
 	}
 
@@ -50,9 +55,9 @@ class Office extends CActiveRecord
 	public function relations()
 	{
             return array(
-//                    'country' => array(self::BELONGS_TO, 'Country', 'country_id'),
-//                    'city' => array(self::BELONGS_TO, 'City', 'city_id'),
-//                    'region' => array(self::BELONGS_TO, 'Region', 'region_id'),
+                    'country' => array(self::BELONGS_TO, 'Country', 'country_id'),
+                    'city' => array(self::BELONGS_TO, 'City', 'city_id'),
+                    'region' => array(self::BELONGS_TO, 'Region', 'region_id'),
 //                    'users' => array(self::HAS_MANY, 'User', 'office_id'),
             );
 	}
@@ -62,15 +67,19 @@ class Office extends CActiveRecord
 	{
             return array(
                 'id' => 'ID',
-                'name' => 'Name',
-                'city_id' => 'City',
-                'region_id' => 'Region',
-                'country_id' => 'Country',
-                'street' => 'Street',
-                'house' => 'House',
-                'workingHours_begin' => 'Working Hours Begin',
-                'workingHours_end' => 'Working Hours End',
-                'desc' => 'Desc',
+                'name' => 'Название',
+                'city_id' => 'Город',
+                'region_id' => 'Регион',
+                'country_id' => 'Страна',
+                'street' => 'Улица',
+                'house' => 'Дом',
+                'office' => 'Офис',
+                'workingHours_begin' => 'Время работы, с',
+                'workingHours_end' => 'Время работы, до',
+                'workingHours_comment' => 'Время работы, инфо',
+                'desc' => 'Описание',
+                'date_create'=>'Дата создания',
+                'isDeliveryPoint'=>'Является пунктом выдачи',
             );
 	}
 
@@ -88,7 +97,7 @@ class Office extends CActiveRecord
             $criteria->compare('house',$this->house,true);         
             $criteria->compare('workingHours_begin',$this->workingHours_begin);         
             $criteria->compare('workingHours_end',$this->workingHours_end);         
-            $criteria->compare('desc',$this->desc,true);         
+            $criteria->compare('`desc`',$this->desc,true);         
 
             $dataProvider = new CActiveDataProvider($this, array(
                 'criteria'=>$criteria,
@@ -136,5 +145,49 @@ class Office extends CActiveRecord
             }
             
             return $result;
+        }
+        
+        
+        public function get_desc()
+        {
+            if ( strlen(strip_tags($this->desc))>100 ) {
+                return mb_substr(strip_tags($this->desc), 0, 100).'...';
+            } else {
+                return strip_tags($this->desc);
+            }
+        }
+        
+        
+        public function preUpdate()
+        {
+            
+        }
+        
+        
+        public function preSave()
+        {
+            if ( $this->isNewRecord ) {
+                $this->date_create = time();
+            } else {
+                
+            }
+
+            if ( $this->save(false) ) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        
+        
+        public function get_address()
+        {
+            return $this->city->name.', '.$this->street.', д. '.$this->house . ( (strlen($this->office)!=0) ? ', оф. '.$this->office : '' );
+        }
+        
+        
+        public function get_workingHours()
+        {
+            return $this->workingHours_begin.' - '.$this->workingHours_end . ( (strlen($this->workingHours_comment)!=0) ? ', '.$this->workingHours_comment : '' );
         }
 }

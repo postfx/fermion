@@ -67,7 +67,7 @@ class Country extends CActiveRecord
             $criteria=new CDbCriteria;
 
             $criteria->compare('id',$this->id);         
-            $criteria->compare('code',$this->code,true);         
+            $criteria->compare('`code`',$this->code,true);         
             $criteria->compare('name',$this->name,true);         
 
             $dataProvider = new CActiveDataProvider($this, array(

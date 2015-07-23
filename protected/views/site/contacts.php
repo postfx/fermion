@@ -1,6 +1,34 @@
 <?php
     $c = $this->config;
+    
+    $cs = Yii::app()->clientScript;
+    $pt = Yii::app()->homeUrl;
+    
+    $cs->registerScriptFile('https://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU',CClientScript::POS_END);
 ?>
+
+<script>
+    $(document).ready(function(){
+        ymaps.ready(init);
+        
+        var myMap,
+            myPlacemark;
+        
+        function init(){
+            myMap = new ymaps.Map("map", {
+                center: [50.2591,28.6544],
+                zoom: 14,
+                controls: []
+            });
+        
+            myPlacemark_1 = new ymaps.Placemark([50.2591,28.6544], { balloonContent: 'Тестовый пункт выдачи.' });
+        
+            myMap.geoObjects.add(myPlacemark_1);
+            myMap.behaviors.disable("scrollZoom");
+            myMap.controls.add('zoomControl');
+        }
+    });
+</script>
 
 <div class="container">
     <div class="clearfix">
@@ -60,25 +88,94 @@
                     Тогда отправьте вопрос нам, и мы постараемся ответить как можно быстрее
                 </div>
                 <div class="contacts-form">
-                    <!-- todo -->
-                        <form method="post" action="">
-                            <input type="text" name="fio" placeholder="ФИО">
-                            <input type="text" name="email" placeholder="E-mail">
-                            <input type="text" name="phone" placeholder="Телефон">
-                            <div class="select-wrap">
-                                <select name="country">
-                                    <option>Тема вопроса</option>
-                                    <option>Тема № 1</option>
-                                    <option>Тема № 2</option>
-                                    <option>Тема № 3</option>
-                                </select>
+                    <?php if ( Yii::app()->user->getFlash('success_create')!==true ): ?>
+                        
+                        <?php $form=$this->beginWidget('CActiveForm', array(
+                            //'action'=>array('site/signup'),
+                            'id'=>'feedback-form',
+                            //'focus'=>array($model,'referer_id'),
+                            'enableAjaxValidation'=>true,
+                            'enableClientValidation'=>true,
+                            'clientOptions'=>array(
+                                'validateOnChange'=>true,
+                                'validateOnSubmit'=>true,
+                                /*'afterValidate'=>'js:function(form, data, hasError){
+                                    if ( !hasError ) {
+
+                                        $.ajax({
+                                            type: "POST",
+                                            url: form[0].action,
+                                            data: $(form).serialize(),
+                                            success: function(ret) {
+                                                if ( ret==1 ) {
+
+                                                } else {
+                                                    alert("Неизвестная ошибка. Повторите позже или обратитесь в поддержку.");
+                                                }
+                                                location = location;
+                                            }
+                                        });
+
+                                        return false;
+                                    }
+                                }',*/
+                            ),
+                            'htmlOptions'=>array(
+                                'enctype'=>'multipart/form-data',
+                            ),
+                        )); ?>
+
+                            <?= $form->errorSummary($model, null, null, array(
+                                'class'=>'error-message',
+                            )) ?>
+
+                            <div class="fa_form-row">
+                                <?= $form->labelEx($model, 'fio') ?>
+                                <?= $form->textField($model, 'fio', array(
+                                    'placeHolder'=>$model->getAttributeLabel('fio'),
+                                )) ?>
+                                <?= $form->error($model, 'fio') ?>
                             </div>
-                            <textarea name="question" placeholder="Вопрос"></textarea>
+                            <div class="fa_form-row">
+                                <?= $form->labelEx($model, 'email') ?>
+                                <?= $form->textField($model, 'email', array(
+                                    'placeHolder'=>$model->getAttributeLabel('email'),
+                                )) ?>
+                                <?= $form->error($model, 'email') ?>
+                            </div>
+                            <div class="fa_form-row">
+                                <?= $form->labelEx($model, 'phone') ?>
+                                <?= $form->textField($model, 'phone', array(
+                                    'placeHolder'=>$model->getAttributeLabel('phone'),
+                                )) ?>
+                                <?= $form->error($model, 'phone') ?>
+                            </div>
+                            <div class="fa_form-row select-wrap">
+                                <?= $form->labelEx($model, 'question_id') ?>
+                                <?= $form->dropDownList($model, 'question_id', CHtml::listData(array(-1=>array('id'=>null))+FeedbackQuestion::items(), 'id', 'value')) ?>
+                                <?= $form->error($model, 'question_id') ?>
+                            </div>
+                            <div class="fa_form-row">
+                                <?= $form->labelEx($model, 'text') ?>
+                                <?= $form->textArea($model, 'text', array(
+                                    'placeHolder'=>$model->getAttributeLabel('text'),
+                                )) ?>
+                                <?= $form->error($model, 'text') ?>
+                            </div>
+
                             <div class="text-center">
                                 <input type="submit" class="custom-btn-gray" value="Отправить">
                             </div>
-                        </form>
-                    <!-- -->
+
+                        <?php $this->endWidget(); ?>
+                    
+                    <?php else: ?>
+                    
+                        <div class="success-message">
+                            <p>Ваш вопрос отправлен администрации.</p>
+                        </div>
+                    
+                    <?php endif;?>
                 </div>
             </div>
         </div>

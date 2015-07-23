@@ -43,7 +43,7 @@
                         <?= $model->getAttributeLabel('user_id') ?>
                     </label>
                     <div class="item-value">
-                        <?= CHtml::link($model->user->login, array('/cabinet/user/view', 'id'=>$model->user_id)) ?>
+                        <?= $model->_user ?>
                     </div>
                 </div>
                 <div class="product-card-item">

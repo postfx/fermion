@@ -65,7 +65,7 @@ class FaqCategory extends CActiveRecord
             $criteria->compare('id',$this->id);         
             $criteria->compare('name',$this->name,true);         
             $criteria->compare('zIndex',$this->zIndex);         
-            $criteria->compare('desc',$this->desc,true);         
+            $criteria->compare('`desc`',$this->desc,true);         
             $criteria->compare('img',$this->img,true);         
 
             $dataProvider = new CActiveDataProvider($this, array(

@@ -66,7 +66,7 @@ class PaymentMethod extends CActiveRecord
             $criteria->compare('zIndex',$this->zIndex);         
             $criteria->compare('img',$this->img,true);         
             $criteria->compare('name',$this->name,true);         
-            $criteria->compare('desc',$this->desc,true);         
+            $criteria->compare('`desc`',$this->desc,true);         
 
             $dataProvider = new CActiveDataProvider($this, array(
                 'criteria'=>$criteria,

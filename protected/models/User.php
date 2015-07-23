@@ -292,7 +292,7 @@ class User extends CActiveRecord
 //            $criteria->compare('date_create',$this->date_create);         
 //            $criteria->compare('date_update',$this->date_update);         
 //            $criteria->compare('date_activity',$this->date_activity);         
-            $criteria->compare('role',$this->role);         
+            $criteria->compare('`role`',$this->role);         
 //            $criteria->compare('active',$this->active);         
 //            $criteria->compare('hash',$this->hash,true);         
 //            $criteria->compare('deliveryPoint_id',$this->deliveryPoint_id);         
@@ -366,6 +366,8 @@ class User extends CActiveRecord
         
         public function signup()
         {
+            $config = Yii::app()->controller->config;
+            
             $password = $this->pass;
             $this->password         =   CPasswordHelper::hashPassword($this->pass);
             $this->date_create      =   time();
@@ -374,11 +376,15 @@ class User extends CActiveRecord
             $this->date_birthday    =   strtotime($this->date_birthday);
             $this->passport_date    =   strtotime($this->passport_date);
             
-            // если ID реферера указан неправильно
-            if ( (int)$this->referer_id>0 ) {
-                if ( !Yii::app()->db->createCommand()->select('id')->from('user')->where('id=:id', array(':id'=>$this->referer_id))->queryScalar() ) {
-                    $this->referer_id = null;
+            if ( $config['referralSystem'] ) {
+                // если ID реферера указан неправильно
+                if ( (int)$this->referer_id>0 ) {
+                    if ( !Yii::app()->db->createCommand()->select('id')->from('user')->where('id=:id', array(':id'=>$this->referer_id))->queryScalar() ) {
+                        $this->referer_id = null;
+                    }
                 }
+            } else {
+                $this->referer_id = null;
             }
             
             // код далее нужен против засранцев
@@ -441,10 +447,28 @@ class User extends CActiveRecord
         //  todo
         public function get_basket()
         {
+            $basket = Yii::app()->db->createCommand()->select('*')->from('basket')->where('user_id = :user_id', array(
+                ':user_id'=>$this->id,
+            ))->queryAll();
+            $total = 0;
+            foreach ( $basket as $b ) {
+                $total += $b['count']*$b['price'];
+            }
+            
+            $count = count($basket);
+            
+            if ( $count%10==0 || ($count>=5 && $count<=19) ) {
+                $word = 'товаров';
+            } else if ( $count%10==1 ) {
+                $word = 'товар';
+            } else {
+                $word = 'товара';
+            }
+            
             return array(
-                'countProducts'=>0,
-                'word'=>'товаров',
-                'total'=>0,
+                'countProducts'=>count($basket),
+                'word'=>$word,
+                'total'=>$total,
             );
         }
         
@@ -583,5 +607,28 @@ class User extends CActiveRecord
         public function get_activity()
         {
             return null;
+        }
+        
+        
+        public static function items()
+        {
+            $result = array(
+                //''=>'',
+            );
+            $criteria = new CDbCriteria;
+            $criteria->compare('active', 1);
+            $criteria->select = array('id', 'login');
+            $criteria->order = '`login` ASC';
+            $values = self::model()->findAll($criteria);
+            
+            foreach ( $values as $value ) {
+                //$result[$value->id] = $value->name;
+                $result[] = array(
+                    'id'=>$value->id,
+                    'value'=>$value->login,
+                );
+            }
+            
+            return $result;
         }
 }

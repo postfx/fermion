@@ -49,9 +49,9 @@ class NewsComment extends CActiveRecord
 	{
             return array(
                 'id' => 'ID',
-                'date_create' => 'Date Create',
-                'news_id' => 'News',
-                'user_id' => 'User',
+                'date_create' => 'Дата',
+                'news_id' => 'Новость',
+                'user_id' => 'Пользователь',
                 'text' => 'Комментарий',
             );
 	}
@@ -62,7 +62,7 @@ class NewsComment extends CActiveRecord
             $criteria=new CDbCriteria;
 
             $criteria->compare('id',$this->id);         
-            $criteria->compare('date_create',$this->date_create);         
+//            $criteria->compare('date_create',$this->date_create);         
             $criteria->compare('news_id',$this->news_id);         
             $criteria->compare('user_id',$this->user_id);         
             $criteria->compare('text',$this->text,true);         
@@ -86,16 +86,35 @@ class NewsComment extends CActiveRecord
 	}
         
         
+        public function preUpdate()
+        {
+            
+        }
+        
+        
         public function preSave()
         {
             $this->date_create = time();
+            $isNewRecord = $this->isNewRecord;
             
             if ( $this->save(false) ) {
-                $this->news->saveCounters(array('countComments'=>1));
+                if ( $isNewRecord ) {
+                    $this->news->saveCounters(array('countComments'=>1));
+                }
                 
                 return true;
             } else {
                 return false;
+            }
+        }
+        
+        
+        public function get_text()
+        {
+            if ( strlen(strip_tags($this->text))>100 ) {
+                return mb_substr(strip_tags($this->text), 0, 100).'...';
+            } else {
+                return strip_tags($this->text);
             }
         }
 }

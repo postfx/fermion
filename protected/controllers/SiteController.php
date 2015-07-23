@@ -99,23 +99,50 @@ class SiteController extends Controller
     
     
     // продукция
-    public function actionProducts()
+    public function actionProducts($id=null)
     {
+        if ( $id===null ) {
+            $model = new ProductCategory('search');
+            $model->unsetAttributes();
+
+            $this->render('products', array(
+                'model'=>$model,
+            ));
+        } else {
+            $model = $this->loadProducts($id);
+            
+            $this->render('products_inner', array(
+                'model'=>$model,
+            ));
+        }
         
-        
-        $this->render('products', array(
-            //'model'=>$model,
-        ));
     }
     
     
     // каталог продукции
     public function actionCatalog($id=null)
     {
+        $model = new Product('search');
+        $model->unsetAttributes();
+        $model->category_id = Yii::app()->request->getParam('id');
         
+        if ( isset($_GET['Product']) ) {
+            $model->attributes = $_GET['Product'];
+        }
         
         $this->render('catalog', array(
-            //'model'=>$model,
+            'model'=>$model,
+        ));
+    }
+    
+    
+    // карточка товара
+    public function actionProduct($id)
+    {
+        $model = $this->loadProduct($id);
+        
+        $this->render('product', array(
+            'model'=>$model,
         ));
     }
     
@@ -167,10 +194,31 @@ class SiteController extends Controller
     // контакты
     public function actionContacts()
     {
+        $model = new Feedback();
+        if ( !Yii::app()->user->isGuest ) {
+            $user = User::model()->findByPk(Yii::app()->user->id);
+            $model->fio = $user->_fio;
+            $model->email = $user->login;
+            $model->phone = $user->phone;
+        }
         
+        if ( isset($_POST['ajax']) && $_POST['ajax']==='feedback-form' ) {
+            echo CActiveForm::validate($model);
+            Yii::app()->end();
+        }
+        
+        if ( isset($_POST['Feedback']) ) {
+            $model->attributes = $_POST['Feedback'];
+            if( $model->validate() ) {
+                if ( $model->preSave() ) {
+                    Yii::app()->user->setFlash('success_create', true);
+                    $this->redirect(array('contacts'));
+                }
+            }
+        }
         
         $this->render('contacts', array(
-            //'model'=>$model,
+            'model'=>$model,
         ));
     }
     
@@ -197,7 +245,7 @@ class SiteController extends Controller
     }
     
     
-    // страница "все права защищены" (это страницы и/или страницы ниже может не быть)
+    // страница "все права защищены" (этой страницы и/или страницы ниже может не быть)
     public function actionAllRightsReserved()
     {
         
@@ -672,6 +720,29 @@ class SiteController extends Controller
         }
         if ( !$model->active ) {
             throw new CHttpException(404, 'Новость неактивна.');
+        }
+        return $model;
+    }
+    
+    
+    public function loadProducts($id)
+    {
+        $model = ProductCategory::model()->findByPk($id);
+        if ( !$model ) {
+            throw new CHttpException(404, 'Продукция не найдена.');
+        }
+        return $model;
+    }
+    
+    
+    public function loadProduct($id)
+    {
+        $model = Product::model()->findByPk($id);
+        if ( !$model ) {
+            throw new CHttpException(404, 'Товар не найден.');
+        }
+        if ( !$model->active ) {
+            throw new CHttpException(404, 'Товар неактивен.');
         }
         return $model;
     }

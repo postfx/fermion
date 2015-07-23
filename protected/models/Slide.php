@@ -11,10 +11,13 @@
  * @property string $spec_link
  * @property string $spec_text
  * @property string $img
+ * @property string $link
  */
 class Slide extends CActiveRecord
 {
-    
+    public $_images;
+    public static $image_w = 320;
+    public static $image_h = 240;
 
 	public function tableName()
 	{
@@ -25,14 +28,17 @@ class Slide extends CActiveRecord
 	public function rules()
 	{
             return array(
-                array('name, text, img', 'required'),
+                array('zIndex', 'required'),
                 array('zIndex', 'numerical', 'integerOnly'=>true),
                 array('name', 'length', 'max'=>128),
-                array('text, spec_link', 'length', 'max'=>255),
-                array('spec_text, img', 'length', 'max'=>32),
+                array('text, spec_link, link', 'length', 'max'=>255),
+                array('spec_link, link', 'url', 'allowEmpty'=>true),
+                array('spec_text', 'length', 'max'=>64),
+                
+                array('_images', 'file', 'types'=>'jpg, gif, png', 'allowEmpty'=>true, 'maxSize'=>1024*1024*4, 'maxFiles'=>1),
             
                 // search
-                    array('id, zIndex, name, text, spec_link, spec_text, img', 'safe', 'on'=>'search'),
+                    array('id, zIndex, name, text, spec_link, link, spec_text, img', 'safe', 'on'=>'search'),
             );
 	}
 
@@ -48,12 +54,14 @@ class Slide extends CActiveRecord
 	{
             return array(
                 'id' => 'ID',
-                'zIndex' => 'Z Index',
-                'name' => 'Name',
-                'text' => 'Text',
-                'spec_link' => 'Spec Link',
-                'spec_text' => 'Spec Text',
-                'img' => 'Img',
+                'zIndex' => 'Порядок',
+                'name' => 'Заголовок слайда',
+                'text' => 'Текст',
+                'spec_link' => 'Доп. ссылка',
+                'spec_text' => 'Текст доп. ссылки',
+                'img' => 'Изображение',
+                'link' => 'Ссылка (слайда)',
+                '_images[]' => 'Изображение',
             );
 	}
 
@@ -65,10 +73,11 @@ class Slide extends CActiveRecord
             $criteria->compare('id',$this->id);         
             $criteria->compare('zIndex',$this->zIndex);         
             $criteria->compare('name',$this->name,true);         
-            $criteria->compare('text',$this->text,true);         
+            $criteria->compare('`text`',$this->text,true);         
             $criteria->compare('spec_link',$this->spec_link,true);         
             $criteria->compare('spec_text',$this->spec_text,true);         
             $criteria->compare('img',$this->img,true);         
+            $criteria->compare('link',$this->link,true);         
 
             $dataProvider = new CActiveDataProvider($this, array(
                 'criteria'=>$criteria,
@@ -77,8 +86,8 @@ class Slide extends CActiveRecord
                 ),
             ));
 
-            $dataProvider->sort->defaultOrder = '`id` DESC';
-
+            $dataProvider->sort->defaultOrder = '`zIndex` ASC, `id` ASC';
+ 
             return $dataProvider;
 	}
 
@@ -89,5 +98,60 @@ class Slide extends CActiveRecord
 	}
         
         
+        public function preUpdate()
+        {
+            
+        }
         
+        
+        public function preSave()
+        {
+//            if ( $this->isNewRecord ) {
+//                
+//            } else {
+//                
+//            }
+            
+            if ( count($this->_images)!=0 ) {
+                foreach($this->_images as $file) {
+                    if ( $file->name!='' ) {
+                        $imageExtention = pathinfo($file->getName(), PATHINFO_EXTENSION);
+                        $imageName      = substr(md5($file->name.microtime()), 0, 28).'.'.$imageExtention;
+                        $image = Yii::app()->image->load($file->tempName);
+                        //$image->resize(self::$image_w, self::$image_h);
+                        $image->save('./uploads/slide/'.$imageName);
+                        $image->resize(self::$image_w, self::$image_h);
+                        $image->save('./uploads/slide/preview/'.$imageName);
+                        $this->img = $imageName;
+                    }
+                    break;
+                }
+            }
+            
+//            if ( strlen($this->date_begin)!=0 ) {
+//                $this->date_begin    =   strtotime($this->date_begin);
+//            }
+//            if ( strlen($this->date_end)!=0 ) {
+//                $this->date_end    =   strtotime($this->date_end);
+//            }
+
+            if ( $this->save(false) ) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        
+        
+        public function get_img()
+        {
+            $img = $this->img;
+            if ( strlen($img)!=0 ) {
+                return CHtml::image('/uploads/slide/preview/'.$img, '', array(
+                    //'style'=>'max-width: 100px; max-height: 66px;',
+                ));
+            } else {
+                return null;
+            }
+        }
 }

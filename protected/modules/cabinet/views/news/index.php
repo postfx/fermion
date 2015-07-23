@@ -5,7 +5,7 @@
 <div class="container">
     <div class="clearfix">
         <div class="section-title">
-            <i class="logs-news-icon"></i> <span>Журнал новостей</span>
+            <i class="logs-news-icon"></i> <span>Список новостей</span>
         </div>
         <!-- todo -->
             <!--label class="checkbox-wrap filter-use-wrap">

@@ -65,12 +65,12 @@ class Subscription extends CActiveRecord
             $criteria=new CDbCriteria;
 
             $criteria->compare('id',$this->id);         
-            $criteria->compare('email',$this->email,true);         
+            $criteria->compare('`email`',$this->email,true);         
             $criteria->compare('isConfirm',$this->isConfirm);         
             $criteria->compare('date_create',$this->date_create);         
             $criteria->compare('date_last',$this->date_last);         
             $criteria->compare('date_confirm',$this->date_confirm);         
-            $criteria->compare('hash',$this->hash,true);         
+            $criteria->compare('`hash`',$this->hash,true);         
 
             $dataProvider = new CActiveDataProvider($this, array(
                 'criteria'=>$criteria,

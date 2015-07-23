@@ -27,7 +27,7 @@ class NewsCategory extends CActiveRecord
 	public function rules()
 	{
             return array(
-                array('name', 'required'),
+                array('name, zIndex', 'required'),
                 array('zIndex, active', 'numerical', 'integerOnly'=>true),
                 array('name', 'length', 'max'=>128),
                 array('desc', 'safe'),
@@ -66,7 +66,7 @@ class NewsCategory extends CActiveRecord
             $criteria->compare('id',$this->id);         
             $criteria->compare('zIndex',$this->zIndex);         
             $criteria->compare('name',$this->name,true);         
-            $criteria->compare('desc',$this->desc,true);         
+            $criteria->compare('`desc`',$this->desc,true);         
             $criteria->compare('active',$this->active);         
 
             $dataProvider = new CActiveDataProvider($this, array(

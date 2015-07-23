@@ -63,7 +63,7 @@ class RelOrderEvent extends CActiveRecord
             $criteria->compare('id',$this->id);         
             $criteria->compare('order_id',$this->order_id);         
             $criteria->compare('event_id',$this->event_id);         
-            $criteria->compare('code',$this->code,true);         
+            $criteria->compare('`code`',$this->code,true);         
 
             $dataProvider = new CActiveDataProvider($this, array(
                 'criteria'=>$criteria,

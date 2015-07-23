@@ -16,7 +16,7 @@
         ->registerCoreScript('jquery',CClientScript::POS_END)
         ->registerCoreScript('jquery.ui',CClientScript::POS_END)
         ->registerCoreScript('cookie',CClientScript::POS_END)
-        ->registerScriptFile('https://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU',CClientScript::POS_END)
+        //->registerScriptFile('https://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU',CClientScript::POS_END)
         ->registerScriptFile($pt.'js/jquery.easing.1.3.js',CClientScript::POS_END)
         ->registerScriptFile($pt.'js/jquery.bxslider.js',CClientScript::POS_END)
         ->registerScriptFile($pt.'js/fancybox/jquery.fancybox.pack.js',CClientScript::POS_END)
@@ -53,6 +53,10 @@
 </head>
 
 <body>
+    
+    <script>
+        window.isGuest = <?= (int)Yii::app()->user->isGuest ?>;
+    </script>
     
     <div class="wrapper<?= ($this->route!='site/index')?' inside':'' ?>">
 
@@ -264,93 +268,7 @@
             
             <?php if ( $this->route=='site/index'): ?>
             
-                <div class="slider">
-                    <div class="slider-nav-wrap">
-                        <div class="slider-nav"></div>
-                    </div>
-                    <!-- todo -->
-                        <ul class="main-slider">
-                            <li>
-                                <div class="slide" style="background: url(/images/slider/slide-1.jpg) no-repeat center;">
-                                    <div class="container">
-                                        <div class="slide-title">
-                                            ЖИЗНЬ БЕЗ ГРАНИЦ
-                                        </div>
-                                        <div class="slide-text">
-                                            Каждый партнер<br>
-                                            Компании «ИВП Фермион»<br>
-                                            имеет все возможности<br>
-                                            для воплощения в<br>
-                                            реальность любых своих<br>
-                                            желаний.
-                                        </div>
-                                        <a href="javascript:void(0)" class="btn circle-btn">
-                                            <div class="circle-btn-inside">
-                                                <div class="circle-btn-text">
-                                                    жизнь<br>
-                                                    <span>без</span><br>
-                                                    границ
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="slide" style="background: url(/images/slider/slide-1.jpg) no-repeat center;">
-                                    <div class="container">
-                                        <div class="slide-title">
-                                            СЛАЙД 2
-                                        </div>
-                                        <div class="slide-text">
-                                            Каждый партнер<br>
-                                            Компании «ИВП Фермион»<br>
-                                            имеет все возможности<br>
-                                            для воплощения в<br>
-                                            реальность любых своих<br>
-                                            желаний.
-                                        </div>
-                                        <a href="javascript:void(0)" class="btn circle-btn">
-                                            <div class="circle-btn-inside">
-                                                <div class="circle-btn-text">
-                                                    жизнь<br>
-                                                    <span>без</span><br>
-                                                    границ 2
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="slide" style="background: url(/images/slider/slide-1.jpg) no-repeat center;">
-                                    <div class="container">
-                                        <div class="slide-title">
-                                            СЛАЙД 3
-                                        </div>
-                                        <div class="slide-text">
-                                            Каждый партнер<br>
-                                            Компании «ИВП Фермион»<br>
-                                            имеет все возможности<br>
-                                            для воплощения в<br>
-                                            реальность любых своих<br>
-                                            желаний.
-                                        </div>
-                                        <a href="javascript:void(0)" class="btn circle-btn">
-                                            <div class="circle-btn-inside">
-                                                <div class="circle-btn-text">
-                                                    жизнь<br>
-                                                    <span>без</span><br>
-                                                    границ 3
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    <!-- -->
-                </div>
+                <?= $this->renderPartial('application.components.views.slider') ?>
             
             <?php else: ?>
             
@@ -530,10 +448,11 @@
     </div>
     
     <?php if ( Yii::app()->user->isGuest ): ?>
+    
         <?php
             $loginForm = new User('login');
         ?>
-        <div id="modal-auth" class="modal hidden">
+        <div id="modal-auth" class="modal" style="display: none;">
             <div class="modal-content">
                 <a href="javascript:void(0)" class="modal-close">закрыть окно</a>
                 <div class="modal-title">
@@ -595,6 +514,25 @@
                 </div>
             </div>
         </div>
+    
+        <a href="#modal-basket-add-false" class="modal-open" style="display: none;">Добавить в корзину (ошибка)</a>
+        <div id="modal-basket-add-false" class="modal" style="display: none;">
+            <div class="modal-content">
+                <a href="javascript:void(0)" class="modal-close">закрыть подсказку</a>
+                <div class="modal-title">
+                    Добрый день!
+                </div>
+                <div class="modal-text">
+                    <p>
+                        Добавить товар в корзину может только авторизованный пользователь.
+                    </p>
+                    <p>
+                        Пожалуйста, пройдите <?= CHtml::link('авторизацию', '#modal-auth', array('id'=>'goLogin', 'class'=>'no-link modal-open')) ?> или <?= CHtml::link('зарегистрируйтесь', array('/site/signup')) ?> в системе.
+                    </p>
+                </div>
+            </div>
+        </div>
+    
     <?php endif; ?>
 
 </body>

@@ -97,10 +97,10 @@ class Event extends CActiveRecord
             $criteria->compare('ratingCount',$this->ratingCount);         
             $criteria->compare('img',$this->img,true);         
             $criteria->compare('name',$this->name,true);         
-            $criteria->compare('desc',$this->desc,true);         
-            $criteria->compare('text',$this->text,true);         
-            $criteria->compare('active',$this->active);         
-            $criteria->compare('status',$this->status);         
+            $criteria->compare('`desc`',$this->desc,true);         
+            $criteria->compare('`text`',$this->text,true);         
+            $criteria->compare('`active`',$this->active);         
+            $criteria->compare('`status`',$this->status);         
             $criteria->compare('category_id',$this->category_id);         
 
             $dataProvider = new CActiveDataProvider($this, array(

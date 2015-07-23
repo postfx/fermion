@@ -62,7 +62,7 @@ class RelOrderProduct extends CActiveRecord
             $criteria->compare('id',$this->id);         
             $criteria->compare('order_id',$this->order_id);         
             $criteria->compare('product_id',$this->product_id);         
-            $criteria->compare('count',$this->count);         
+            $criteria->compare('`count`',$this->count);         
 
             $dataProvider = new CActiveDataProvider($this, array(
                 'criteria'=>$criteria,

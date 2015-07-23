@@ -67,7 +67,7 @@ class EventCategory extends CActiveRecord
             $criteria->compare('id',$this->id);         
             $criteria->compare('zIndex',$this->zIndex);         
             $criteria->compare('name',$this->name,true);         
-            $criteria->compare('desc',$this->desc,true);         
+            $criteria->compare('`desc`',$this->desc,true);         
             $criteria->compare('color',$this->color,true);         
 
             $dataProvider = new CActiveDataProvider($this, array(

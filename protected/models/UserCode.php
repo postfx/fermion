@@ -68,7 +68,7 @@ class UserCode extends CActiveRecord
 
             $criteria->compare('id',$this->id);         
             $criteria->compare('user_id',$this->user_id);         
-            $criteria->compare('code',$this->code,true);         
+            $criteria->compare('`code`',$this->code,true);         
             $criteria->compare('event_id',$this->event_id);         
             $criteria->compare('used',$this->used);         
             $criteria->compare('eventCategory_id',$this->eventCategory_id);         

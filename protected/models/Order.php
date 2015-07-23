@@ -107,7 +107,7 @@ class Order extends CActiveRecord
             $criteria->compare('phone',$this->phone,true);         
             $criteria->compare('email',$this->email,true);         
             $criteria->compare('skype',$this->skype,true);         
-            $criteria->compare('sum',$this->sum);         
+            $criteria->compare('`sum`',$this->sum);         
             $criteria->compare('vat',$this->vat);         
             $criteria->compare('pointsUse',$this->pointsUse);         
             $criteria->compare('total',$this->total,true);         

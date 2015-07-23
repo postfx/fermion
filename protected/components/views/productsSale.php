@@ -11,7 +11,7 @@
                     <div class="other-item-item">
                         <div class="other-item-header clearfix">
                             <div class="other-item-img">
-                                <img src="images/content/news-1.jpg" class="img-responsive">
+                                <img src="/images/content/news-1.jpg" class="img-responsive">
                             </div>
                             <div class="other-item-top">
                                 <div class="other-item-title">
@@ -32,7 +32,7 @@
                     <div class="other-item-item">
                         <div class="other-item-header clearfix">
                             <div class="other-item-img">
-                                <img src="images/content/news-1.jpg" class="img-responsive">
+                                <img src="/images/content/news-1.jpg" class="img-responsive">
                             </div>
                             <div class="other-item-top">
                                 <div class="other-item-title">
@@ -54,7 +54,7 @@
                     <div class="other-item-item">
                         <div class="other-item-header clearfix">
                             <div class="other-item-img">
-                                <img src="images/content/news-1.jpg" class="img-responsive">
+                                <img src="/images/content/news-1.jpg" class="img-responsive">
                             </div>
                             <div class="other-item-top">
                                 <div class="other-item-title">

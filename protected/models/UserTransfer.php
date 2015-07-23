@@ -65,7 +65,7 @@ class UserTransfer extends CActiveRecord
             $criteria->compare('sender_id',$this->sender_id);         
             $criteria->compare('date_create',$this->date_create);         
             $criteria->compare('receiver_id',$this->receiver_id);         
-            $criteria->compare('sum',$this->sum);         
+            $criteria->compare('`sum`',$this->sum);         
 
             $dataProvider = new CActiveDataProvider($this, array(
                 'criteria'=>$criteria,

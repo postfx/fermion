@@ -1,5 +1,10 @@
 <?php
 
+    $config = $this->config;
+    if ( !$config['relatedNews'] ) {
+        return false;
+    }
+
     $criteria = new CDbCriteria();
     $criteria->select = '`id`, `title`, `date_create`, `desc`, `slug`, `img`';
     $criteria->compare('active', 1);

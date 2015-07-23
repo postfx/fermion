@@ -59,6 +59,7 @@
         <?= $form->labelEx($model,'zIndex'); ?>
         <?= $form->textField($model,'zIndex'); ?>
         <?= $form->error($model,'zIndex'); ?>
+        <div class="help-block">Чем меньше это значение, тем первее будет расположена категория.</div>
     </div>
 
     <div class="enter-form-row">

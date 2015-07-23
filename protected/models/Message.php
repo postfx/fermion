@@ -73,7 +73,7 @@ class Message extends CActiveRecord
             $criteria->compare('sender_id',$this->sender_id);         
             $criteria->compare('receiver_id',$this->receiver_id);         
             $criteria->compare('subject',$this->subject,true);         
-            $criteria->compare('text',$this->text,true);         
+            $criteria->compare('`text`',$this->text,true);         
             $criteria->compare('isRead',$this->isRead);         
             $criteria->compare('isDelete',$this->isDelete);         
 

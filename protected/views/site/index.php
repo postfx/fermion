@@ -1,5 +1,6 @@
 <?php
     $app = Yii::app();
+    $config = $this->config;
 ?>
 
 <div class="container">
@@ -7,64 +8,7 @@
         
         <div class="left-col">
             <div class="section-about">
-                <div class="default-title">
-                    Основная идея компании «ИВП Фермион»  состоит в том,  что человек сам является творцом своей жизни.
-                </div>
-                <p>
-                    Сколько стоит ваш час работы? Будет поступать доход, если перестанете работать?
-                    На сколько ваш финансовый результат зависит от вашего личного участия в работе?
-                </p>
-                <p>
-                    Сетевой Маркетинг – это феноменальный бизнес,  позволяющий расширить границы времени и пространства. Сетевой Маркетинг – это
-                </p>
-                <div class="section-about-list">
-                    <div class="section-about-item">
-                        <div class="section-about-block">
-                            <div class="about-item-title">
-                                Бизнес саморазвития
-                            </div>
-                            <div class="about-item-descr">
-                                Переходя со ступени на ступень, вы каждый раз растете профессионально и личносто.
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="section-about-item">
-                        <div class="section-about-block">
-                            <div class="about-item-title">
-                                Бизнес, дающий время
-                            </div>
-                            <div class="about-item-descr">
-                                Появляется больше свободного времени, которое можете провести со своей семьей.
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="section-about-item">
-                        <div class="section-about-block">
-                            <div class="about-item-title">
-                                Бизнес с минимальными
-                                финансовыми вложениями
-                            </div>
-                            <div class="about-item-descr">
-                                Возможность начать бизнес с небольшими вложениями дает шанс каждому, кто желает изменить свою жизнь, открыть свое дело.
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="section-about-item">
-                        <div class="section-about-block">
-                            <div class="about-item-title">
-                                Бизнес больших желаний
-                                и возможностей
-                            </div>
-                            <div class="about-item-descr">
-                                Самые смелые мечты и желания, планы и намерения становятся реальными для достижения. Все зависит только от вас!
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+                <?= $config['content_index_1'] ?>
             </div>
             <div class="section-actions">
                 <?= CHtml::link('<div class="rect-btn-inside">Регистрация в системе</div>', array('/site/signup'), array(
@@ -72,91 +16,7 @@
                 )) ?>
             </div>
             <div class="section-reviews">
-                <div class="reviews-slider-wrap">
-                    <div class="review-slide-nav-wrap">
-                        <div class="review-slide-nav"></div>
-                    </div>
-
-                    <ul class="reviews-slider">
-                        <li>
-                            <div class="review-slide clearfix">
-                                <div class="review-slide-content">
-                                    <div class="review-name">
-                                        Каверина Наталья Николаевна:
-                                    </div>
-                                    <div class="review-text">
-                                        <p>
-                                            Я счастлива, что попала в «ИВП Фермион».
-                                        </p>
-                                        <p>
-                                            Удивительно открывать себя, свои возможности,
-                                            начинать жить более осознанно и находить ответы
-                                            на многие вопросы, на которые, казалось, нет ответа.
-                                        </p>
-                                        <p>
-                                            Базовое обучение дало мне очень многое.<br>
-                                            Появилось ощущение спокойствия и уверенности!
-                                        </p>
-                                    </div>
-                                </div>
-                                <img src="/images/elements/rev.png" class="review-img">
-                            </div>
-                        </li>
-                        <li>
-                            <div class="review-slide clearfix">
-                                <div class="review-slide-content">
-                                    <div class="review-name">
-                                        Хомчук Наталья Николаевна:
-                                    </div>
-                                    <div class="review-text">
-                                        <p>
-                                            Я счастлива, что попала в «ИВП Фермион».
-                                        </p>
-                                        <p>
-                                            Удивительно открывать себя, свои возможности,
-                                            начинать жить более осознанно и находить ответы
-                                            на многие вопросы, на которые, казалось, нет ответа.
-                                        </p>
-                                        <p>
-                                            Базовое обучение дало мне очень многое.<br>
-                                            Появилось ощущение спокойствия и уверенности!
-                                        </p>
-                                        <p>
-                                            Удивительно открывать себя, свои возможности.
-                                        </p>
-                                    </div>
-                                </div>
-                                <img src="/images/elements/rev.png" class="review-img">
-                            </div>
-                        </li>
-                        <li>
-                            <div class="review-slide clearfix">
-                                <div class="review-slide-content">
-                                    <div class="review-name">
-                                        Каверина Наталья Николаевна:
-                                    </div>
-                                    <div class="review-text">
-                                        <p>
-                                            Я счастлива, что попала в «ИВП Фермион».
-                                        </p>
-                                        <p>
-                                            Удивительно открывать себя, свои возможности,
-                                            начинать жить более осознанно и находить ответы
-                                            на многие вопросы, на которые, казалось, нет ответа.
-                                        </p>
-                                        <p>
-                                            Базовое обучение дало мне очень многое.<br>
-                                            Появилось ощущение спокойствия и уверенности!
-                                        </p>
-                                    </div>
-                                </div>
-                                <img src="/images/elements/rev.png" class="review-img">
-                            </div>
-                        </li>
-
-                    </ul>
-                </div>
-
+                <?= $config['content_index_2'] ?>
             </div>
 
         </div>

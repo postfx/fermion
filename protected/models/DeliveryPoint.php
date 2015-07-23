@@ -11,6 +11,7 @@
  * @property integer $city_id
  * @property integer $region_id
  * @property integer $country_id
+ * @property integer $date_create
  *
  * The followings are the available model relations:
  * @property Country $country
@@ -58,12 +59,13 @@ class DeliveryPoint extends CActiveRecord
 	{
             return array(
                 'id' => 'ID',
-                'address' => 'Address',
-                'schedule' => 'Schedule',
-                'phone' => 'Phone',
-                'city_id' => 'City',
-                'region_id' => 'Region',
-                'country_id' => 'Country',
+                'address' => 'Адрес',
+                'schedule' => 'График работы',
+                'phone' => 'Телефон',
+                'city_id' => 'Город',
+                'region_id' => 'Регион',
+                'country_id' => 'Страна',
+                'date_create'=>'Дата создания',
             );
 	}
 

@@ -33,11 +33,32 @@ class Role extends CActiveRecord
 	public function rules()
 	{
             return array(
-                array('name, name_genitive', 'required'),
+                array('name, name_genitive, zIndex', 'required'),
                 array('zIndex, active', 'numerical', 'integerOnly'=>true),
                 array('name, name_genitive', 'length', 'max'=>32),
                 array('desc, date_create', 'safe'),
                 array(''
+                    
+                    . 'opt_feedback,'
+                    
+                    . 'opt_office_create,'
+                    . 'opt_office_read,'
+                    . 'opt_office_update,'
+                    . 'opt_office_delete,'
+                    
+                    . 'opt_product_create,'
+                    . 'opt_product_read,'
+                    . 'opt_product_update,'
+                    . 'opt_product_delete,'
+                    
+                    . 'opt_productCategory_create,'
+                    . 'opt_productCategory_read,'
+                    . 'opt_productCategory_update,'
+                    . 'opt_productCategory_delete,'
+                    
+                    . 'opt_content,'
+                    
+                    . 'opt_config,'
                     
                     . 'opt_news_create,'
                     . 'opt_news_read,'
@@ -98,8 +119,8 @@ class Role extends CActiveRecord
             $criteria->compare('name',$this->name,true);         
             $criteria->compare('name_genitive',$this->name_genitive,true);         
             $criteria->compare('date_create',$this->date_create);         
-            $criteria->compare('active',$this->active);         
-            $criteria->compare('desc',$this->desc,true);           
+            $criteria->compare('`active`',$this->active);         
+            $criteria->compare('`desc`',$this->desc,true);           
 
             $dataProvider = new CActiveDataProvider($this, array(
                 'criteria'=>$criteria,
@@ -124,12 +145,34 @@ class Role extends CActiveRecord
         {
             return (   $this->opt_user_create || $this->opt_user_read || $this->opt_user_update || $this->opt_user_delete
                     || $this->opt_role_create || $this->opt_role_read || $this->opt_role_update || $this->opt_role_delete
+                    || $this->opt_office_create || $this->opt_office_read || $this->opt_office_update || $this->opt_office_delete
                     );
         }
         public function getBlockNews()
         {
             return (   $this->opt_news_create || $this->opt_news_read || $this->opt_news_update || $this->opt_news_delete
                     || $this->opt_newsCategory_create || $this->opt_newsCategory_read || $this->opt_newsCategory_update || $this->opt_newsCategory_delete
+                    );
+        }
+        public function getBlockConfig()
+        {
+            return (   $this->opt_config
+                    );
+        }
+        public function getBlockContent()
+        {
+            return (   $this->opt_content
+                    );
+        }
+        public function getBlockCatalog()
+        {
+            return (   $this->opt_productCategory_create || $this->opt_productCategory_read || $this->opt_productCategory_update || $this->opt_productCategory_delete
+                    || $this->opt_product_create || $this->opt_product_read || $this->opt_product_update || $this->opt_product_delete
+                    );
+        }
+        public function getBlockFeedback()
+        {
+            return (   $this->opt_feedback
                     );
         }
         
@@ -158,6 +201,33 @@ class Role extends CActiveRecord
                 'Новости'=>array(
                     'type'=>'0',
                     'data'=>'news',
+                ),
+                'Настройки'=>array(
+                    'type'=>'1',
+                    'data'=>'config',
+                    'name'=>'управление настройками',
+                ),
+                'Контент'=>array(
+                    'type'=>'1',
+                    'data'=>'content',
+                    'name'=>'управление контентом',
+                ),
+                'Категории товаров'=>array(
+                    'type'=>'0',
+                    'data'=>'productCategory',
+                ),
+                'Товары'=>array(
+                    'type'=>'0',
+                    'data'=>'product',
+                ),
+                'Административные единицы'=>array(
+                    'type'=>'0',
+                    'data'=>'office',
+                ),
+                'Обратная связь'=>array(
+                    'type'=>'1',
+                    'data'=>'feedback',
+                    'name'=>'управление',
                 ),
             );
             
@@ -219,7 +289,23 @@ class Role extends CActiveRecord
                             </td>';
                     }
                 } else {
-                    $inner = null;      // todo
+                    if ( $form!==null ) {
+                        $inner = 
+                            '<td colspan="4">
+                                <label class="checkbox-wrap permissions-check">
+                                    '.$form->checkBox($this, 'opt_'.$v['data']).'
+                                    '.$v['name'].'
+                                </label>
+                            </td>';
+                    } else {
+                        $inner = 
+                            '<td colspan="4">
+                                <label class="checkbox-wrap permissions-check">
+                                    '.CHtml::checkBox('opt_'.$v['data'], $this->{'opt_'.$v['data']}, array('disabled'=>'disabled')).'
+                                    '.$v['name'].'
+                                </label>
+                            </td>';
+                    }
                 }
                 $result .= 
                     '<tr>

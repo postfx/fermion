@@ -1,5 +1,7 @@
 <?php
     
+    $config = $this->config;
+
 ?>
 
 <script>
@@ -8,14 +10,16 @@
         $('#User_country_id, #User_region_id, #User_city_id').change(function(){
             renderGeo();
         });*/
-        $('.reg-continue').on('click', function(){
-            setTimeout(function(){
-                if ( $('#User_referer_id_em_').css('display')=='none' ) {
-                    $('.reg-section .overlayer').addClass('hidden');
-                    $.scrollTo('#_step_2', 300, {offset: -75});
-                }
-            }, 400);
-        });
+        <?php if ( $config['referralSystem'] ): ?>
+            $('.reg-continue').on('click', function(){
+                setTimeout(function(){
+                    if ( $('#User_referer_id_em_').css('display')=='none' ) {
+                        $('.reg-section .overlayer').addClass('hidden');
+                        $.scrollTo('#_step_2', 300, {offset: -75});
+                    }
+                }, 400);
+            });
+        <?php endif; ?>
         
         $('#User_country_id').change(function(){
             $.ajax({
@@ -121,26 +125,31 @@
                 //'enctype'=>'multipart/form-data',
             ),
         )); ?>
-            <div class="reg-section">
-                <div class="reg-section-title">
-                    шаг 1
+            
+            <?php if ( $config['referralSystem'] ): ?>
+                <div class="reg-section">
+                    <div class="reg-section-title">
+                        шаг 1
+                    </div>
+                    <div class="enter-section-text">
+                        Введите номер договора (ID) консультанта, который дал вам рекомендацию.<br>
+                        Если вы зашли на сайт самостоятельно, позвоните в Компанию по бесплатному номеру  8 (800) 2000-420
+                    </div>
+                    <div class="reg-field">
+                        <?= $form->textField($model, 'referer_id') ?>
+                        <?= $form->error($model, 'referer_id') ?>
+                    </div>
+                    <a href="javascript:void(0)" class="custom-btn-gray reg-continue">Продолжить</a>
                 </div>
-                <div class="enter-section-text">
-                    Введите номер договора (ID) консультанта, который дал вам рекомендацию.<br>
-                    Если вы зашли на сайт самостоятельно, позвоните в Компанию по бесплатному номеру  8 (800) 2000-420
-                </div>
-                <div class="reg-field">
-                    <?= $form->textField($model, 'referer_id') ?>
-                    <?= $form->error($model, 'referer_id') ?>
-                </div>
-                <a href="javascript:void(0)" class="custom-btn-gray reg-continue">Продолжить</a>
-            </div>
+            <?php endif; ?>
         
             <div class="reg-section" id="_step_2">
-                <div class="overlayer"></div>
-                <div class="reg-section-title">
-                    шаг 2
-                </div>
+                <?php if ( $config['referralSystem'] ): ?>
+                    <div class="overlayer"></div>
+                    <div class="reg-section-title">
+                        шаг 2
+                    </div>
+                <?php endif; ?>
                 <?= $form->errorSummary($model, null, null, array(
                     'class'=>'error-message',
                 )) ?>

@@ -243,4 +243,40 @@ class News extends CActiveRecord
                 ),
             );
         }
+        
+        
+        public static function items()
+        {
+            $result = array(
+                //''=>'',
+            );
+            $criteria = new CDbCriteria;
+            $criteria->compare('active', 1);
+            $time = time();
+            $criteria->addCondition('`date_begin`<'.$time.' AND `date_end`>'.$time);
+            $criteria->select = array('id', 'title', 'slug');
+            $criteria->order = '`id` DESC';
+            $values = self::model()->findAll($criteria);
+            
+            foreach ( $values as $value ) {
+                //$result[$value->id] = $value->name;
+                $result[] = array(
+                    'id'=>$value->id,
+                    'value'=>$value->title,
+                );
+            }
+            
+            return $result;
+        }
+        
+        
+        public function get_user()
+        {
+            $role = User::model()->findByPk(Yii::app()->user->id)->_role;       //  todo
+            if ( $role->opt_user_read ) {
+                return CHtml::link($this->user->login, array('/cabinet/user/view', 'id'=>$this->user_id), array('target'=>'_blank'));
+            } else {
+                return $this->user->login;
+            }
+        }
 }

@@ -30,11 +30,13 @@ class Feedback extends CActiveRecord
 	public function rules()
 	{
             return array(
-                array('fio, email, date_create, question_id, text', 'required'),
-                array('user_id, date_create, question_id', 'numerical', 'integerOnly'=>true),
+                array('fio, email, question_id, text', 'required'),
+                array('email', 'email'),
+                array('question_id', 'numerical', 'integerOnly'=>true),
                 array('fio', 'length', 'max'=>255),
                 array('email', 'length', 'max'=>128),
                 array('phone', 'length', 'max'=>32),
+                array('text', 'length', 'max'=>1000),
             
                 // search
                     array('id, fio, email, phone, user_id, date_create, question_id, text', 'safe', 'on'=>'search'),
@@ -45,8 +47,8 @@ class Feedback extends CActiveRecord
 	public function relations()
 	{
             return array(
-//                    'user' => array(self::BELONGS_TO, 'User', 'user_id'),
-//                    'question' => array(self::BELONGS_TO, 'FeedbackQuestions', 'question_id'),
+                    'user' => array(self::BELONGS_TO, 'User', 'user_id'),
+                    'question' => array(self::BELONGS_TO, 'FeedbackQuestion', 'question_id'),
             );
 	}
 
@@ -55,13 +57,13 @@ class Feedback extends CActiveRecord
 	{
             return array(
                 'id' => 'ID',
-                'fio' => 'Fio',
-                'email' => 'Email',
-                'phone' => 'Phone',
-                'user_id' => 'User',
-                'date_create' => 'Date Create',
-                'question_id' => 'Question',
-                'text' => 'Text',
+                'fio' => 'ФИО',
+                'email' => 'E-mail',
+                'phone' => 'Телефон',
+                'user_id' => 'Пользователь',
+                'date_create' => 'Дата создания',
+                'question_id' => 'Тема вопроса',
+                'text' => 'Вопрос',
             );
 	}
 
@@ -77,7 +79,7 @@ class Feedback extends CActiveRecord
             $criteria->compare('user_id',$this->user_id);         
             $criteria->compare('date_create',$this->date_create);         
             $criteria->compare('question_id',$this->question_id);         
-            $criteria->compare('text',$this->text,true);         
+            $criteria->compare('`text`',$this->text,true);         
 
             $dataProvider = new CActiveDataProvider($this, array(
                 'criteria'=>$criteria,
@@ -98,5 +100,38 @@ class Feedback extends CActiveRecord
 	}
         
         
+        public function get_user()
+        {
+            if ( $this->user_id!==null ) {
+                $role = User::model()->findByPk(Yii::app()->user->id)->_role;       //  todo
+                if ( $role->opt_user_read ) {
+                    return CHtml::link($this->user->login, array('/cabinet/user/view', 'id'=>$this->user_id), array('target'=>'_blank'));
+                } else {
+                    return $this->user->login;
+                }
+            } else {
+                return null;
+            }
+        }
         
+        
+        public function preSave()
+        {
+            if ( $this->isNewRecord ) {
+                $this->date_create = time();
+                if ( !Yii::app()->user->isGuest ) {
+                    $this->user_id = Yii::app()->user->id;
+                }
+            } else {
+                
+            }
+            
+            
+
+            if ( $this->save(false) ) {
+                return true;
+            } else {
+                return false;
+            }
+        }
 }

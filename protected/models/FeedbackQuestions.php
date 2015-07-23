@@ -57,7 +57,7 @@ class FeedbackQuestions extends CActiveRecord
 
             $criteria->compare('id',$this->id);         
             $criteria->compare('zIndex',$this->zIndex,true);         
-            $criteria->compare('text',$this->text,true);         
+            $criteria->compare('`text`',$this->text,true);         
 
             $dataProvider = new CActiveDataProvider($this, array(
                 'criteria'=>$criteria,

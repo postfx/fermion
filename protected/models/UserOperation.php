@@ -63,8 +63,8 @@ class UserOperation extends CActiveRecord
             $criteria->compare('id',$this->id);         
             $criteria->compare('user_id',$this->user_id);         
             $criteria->compare('date_create',$this->date_create);         
-            $criteria->compare('sum',$this->sum);         
-            $criteria->compare('text',$this->text,true);         
+            $criteria->compare('`sum`',$this->sum);         
+            $criteria->compare('`text`',$this->text,true);         
 
             $dataProvider = new CActiveDataProvider($this, array(
                 'criteria'=>$criteria,

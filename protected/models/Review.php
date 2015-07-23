@@ -82,18 +82,18 @@ class Review extends CActiveRecord
             $criteria=new CDbCriteria;
 
             $criteria->compare('id',$this->id);         
-            $criteria->compare('keys',$this->keys,true);         
+            $criteria->compare('`keys`',$this->keys,true);         
             $criteria->compare('date_create',$this->date_create);         
             $criteria->compare('ratingValue',$this->ratingValue);         
             $criteria->compare('ratingCount',$this->ratingCount);         
-            $criteria->compare('type',$this->type);         
+            $criteria->compare('`type`',$this->type);         
             $criteria->compare('title',$this->title,true);         
             $criteria->compare('user_id',$this->user_id);         
             $criteria->compare('product_id',$this->product_id);         
             $criteria->compare('category_id',$this->category_id);         
             $criteria->compare('text',$this->text,true);         
             $criteria->compare('video',$this->video,true);         
-            $criteria->compare('active',$this->active);         
+            $criteria->compare('`active`',$this->active);         
 
             $dataProvider = new CActiveDataProvider($this, array(
                 'criteria'=>$criteria,

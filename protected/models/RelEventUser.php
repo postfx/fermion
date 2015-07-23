@@ -83,10 +83,10 @@ class RelEventUser extends CActiveRecord
             $criteria->compare('surname',$this->surname,true);         
             $criteria->compare('name',$this->name,true);         
             $criteria->compare('patronymic',$this->patronymic,true);         
-            $criteria->compare('code',$this->code,true);         
+            $criteria->compare('`code`',$this->code,true);         
             $criteria->compare('date_create',$this->date_create);         
             $criteria->compare('author_id',$this->author_id);         
-            $criteria->compare('active',$this->active);         
+            $criteria->compare('`active`',$this->active);         
 
             $dataProvider = new CActiveDataProvider($this, array(
                 'criteria'=>$criteria,

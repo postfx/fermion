@@ -21,6 +21,10 @@ $(document).ready(function(){
     });
     
     /* fa TOP */
+    
+    /* fa basket */
+    process_basket();
+    /**/
 
     if($('#calendar').length){
         function renderCalendar() {
@@ -101,7 +105,7 @@ $(document).ready(function(){
         $('.changes-list-wrap').scrollbar();
     }
 
-    if($('#unit-time-start').length){
+    /*if($('#unit-time-start').length){
         $('#unit-time-start').timepicker();
         $('#unit-time-start').on('changeTime', function() {
 
@@ -111,46 +115,11 @@ $(document).ready(function(){
         $('#unit-time-end').on('changeTime', function() {
 
         });
-    }
+    }*/
 
     $('.list-link').on('click', function(){
         $(this).siblings('.changes-log').toggleClass('active');
     });
-
-    if($('.option-radio-wrap').length){
-        $('.option-radio-wrap input').styler();
-
-        $('.option-radio-wrap input.option-radio[type="radio"]').each(function(){
-            if($(this).parents('.jq-radio').hasClass('checked')){
-                $(this).parents('.jq-radio.checked').parents('.option-radio-wrap').addClass('active');
-            }
-        });
-
-
-        $('body').on("change", '.option-radio-wrap input.option-radio[type="radio"]', function(){
-             $(this).parents('.function-options-section').find('.option-radio-wrap').removeClass('active');
-             $(this).parents('.jq-radio.checked').parents('.option-radio-wrap').addClass('active');
-        });
-
-        $('.option-radio-wrap input.option-radio[type="checkbox"]').each(function(){
-            if($(this).parents('.jq-checkbox').hasClass('checked')){
-                $(this).parents('.jq-checkbox.checked').parents('.option-radio-wrap').addClass('active');
-            }
-        });
-
-
-        $('body').on("change", '.option-radio-wrap input.option-radio[type="checkbox"]', function(){
-            if($(this).parents('.jq-checkbox').hasClass('checked')){
-                $(this).parents('.jq-checkbox.checked').parents('.option-radio-wrap').addClass('active');
-            }else{
-                $(this).parents('.jq-checkbox').parents('.option-radio-wrap').removeClass('active');
-            }
-
-
-        });
-    }
-
-
 
 //    if($('#table-logs').length){
 //        oTable = $('#table-logs').dataTable({
@@ -792,7 +761,7 @@ $(document).ready(function(){
         $(this).parents('.faq-item').removeClass('current');
     });
 
-    $('.order-view-filter a').on('click', function () {
+    /*$('.order-view-filter a').on('click', function () {
 
         if(!$(this).hasClass('active')){
             $('.order-view-filter a').removeClass('active');
@@ -805,7 +774,7 @@ $(document).ready(function(){
             }
             $(this).addClass('active');
         }
-    });
+    });*/
 
     /*$('.checkout-step').on('click', function () {
         if($(this).hasClass('enable-nav')){
@@ -908,6 +877,7 @@ $(document).ready(function(){
     });
 
     $('.select-wrap select').styler();
+    //$('tr.filters select').styler();
 
     if($('.input-file-wrap').length){
         $('.input-file-wrap input').styler();
@@ -1053,35 +1023,63 @@ $(window).scroll(function(){
 
 function count_sum(){
 
-    if($('.basket-table-wrap').length){
+    if ( $('.basket-table-wrap').length ) {
         $('.product-td-price').each(function(){
-            console.log(1);
             var count = $(this).siblings('td').find('input[name="count"]').val();
             var price = $('span', $(this)).text();
             $(this).siblings('.product-td-price-rez').find('span').text(count * price);
         });
-
     }
 
 }
 
-ymaps.ready(init);
+//ymaps.ready(init);
+//
+//var myMap,
+//    myPlacemark;
+//
+//function init(){
+//    myMap = new ymaps.Map("map", {
+//        center: [50.2591,28.6544],
+//        zoom: 14,
+//        controls: []
+//    });
+//
+//    myPlacemark_1 = new ymaps.Placemark([50.2591,28.6544], { balloonContent: 'Тестовый пункт выдачи.' });
+//
+//    myMap.geoObjects.add(myPlacemark_1);
+//    myMap.behaviors.disable("scrollZoom");
+//    myMap.controls.add('zoomControl');
+//}
 
-var myMap,
-    myPlacemark;
 
-function init(){
-    myMap = new ymaps.Map("map", {
-        center: [50.2591,28.6544],
-        zoom: 14,
-        controls: []
+function process_basket()
+{
+    $('.add-basket').click(function(){
+        if ( isGuest ) {
+            $('a[href="#modal-basket-add-false"]').click();
+        } else {
+            if ( $(this).hasClass('fa_added') ) {
+                return false;
+            }
+            var _this = $(this);
+            $.ajax({
+                url: '/basket/_ajax?action=addProduct',
+                type: 'POST',
+                data: {
+                    product_id: $(this).attr('data-id'),
+                    count: $(this).prev().find('input[name="count"]').val()
+                },
+                success: function(data) {
+                    _this.addClass('fa_added').attr('data-prev', _this.html()).text('Добавлено');
+                    setTimeout(function(){
+                        _this.removeClass('fa_added').html(_this.attr('data-prev'));
+                    }, 2000);
+                    //console.log(data);
+                }
+            });
+        }
+        
+        return false;
     });
-
-    myPlacemark_1 = new ymaps.Placemark([50.2591,28.6544], { balloonContent: 'Тестовый пункт выдачи.' });
-
-    myMap.geoObjects.add(myPlacemark_1);
-    myMap.behaviors.disable("scrollZoom");
-    myMap.controls.add('zoomControl');
 }
-
-

@@ -26,6 +26,9 @@
  * @property integer $checkStockStatus
  * @property integer $reviews
  * @property integer $referralSystem
+ * @property integer $eventCalendar
+ * @property string $content_index_1
+ * @property string $content_index_2
  */
 class Config extends CActiveRecord
 {
@@ -40,10 +43,10 @@ class Config extends CActiveRecord
 	public function rules()
 	{
             return array(
-                array('recoveryPassPhone, recoveryPassEmail, paymentPoints, relatedNews, checkStockStatus, reviews, referralSystem', 'numerical', 'integerOnly'=>true),
+                array('recoveryPassPhone, recoveryPassEmail, paymentPoints, relatedNews, checkStockStatus, reviews, referralSystem, eventCalendar', 'numerical', 'integerOnly'=>true),
                 array('phone', 'length', 'max'=>16),
                 array('phoneInfo, addressInfo, social_twitter, social_facebook, social_google, social_pinterest, social_tumblr, social_instagram, adminEmail, metaTitle', 'length', 'max'=>255),
-                array('about, metaKeys, metaDesc', 'safe'),
+                array('about, metaKeys, metaDesc, content_index_1, content_index_2', 'safe'),
             
                 // search
                     array('id, about, phone, phoneInfo, addressInfo, social_twitter, social_facebook, social_google, social_pinterest, social_tumblr, social_instagram, adminEmail, metaTitle, metaKeys, metaDesc, recoveryPassPhone, recoveryPassEmail, paymentPoints, relatedNews, checkStockStatus, reviews, referralSystem', 'safe', 'on'=>'search'),
@@ -62,7 +65,7 @@ class Config extends CActiveRecord
 	{
             return array(
                 'id' => 'ID',
-                'about' => 'About',
+                'about' => 'Страница "О системе"',
                 'phone' => 'Phone',
                 'phoneInfo' => 'Phone Info',
                 'addressInfo' => 'Address Info',
@@ -83,6 +86,9 @@ class Config extends CActiveRecord
                 'checkStockStatus' => 'Check Stock Status',
                 'reviews' => 'Reviews',
                 'referralSystem' => 'Referral System',
+                'eventCalendar'=>'eventCalendar',
+                'content_index_1'=>'Информация на главной (блок слева под слайдером)',
+                'content_index_2'=>'Информация на главной (блок слева под кнопкой "Регистрация в системе")',
             );
 	}
 
@@ -91,28 +97,28 @@ class Config extends CActiveRecord
 	{
             $criteria=new CDbCriteria;
 
-            $criteria->compare('id',$this->id);         
-            $criteria->compare('about',$this->about,true);         
-            $criteria->compare('phone',$this->phone,true);         
-            $criteria->compare('phoneInfo',$this->phoneInfo,true);         
-            $criteria->compare('addressInfo',$this->addressInfo,true);         
-            $criteria->compare('social_twitter',$this->social_twitter,true);         
-            $criteria->compare('social_facebook',$this->social_facebook,true);         
-            $criteria->compare('social_google',$this->social_google,true);         
-            $criteria->compare('social_pinterest',$this->social_pinterest,true);         
-            $criteria->compare('social_tumblr',$this->social_tumblr,true);         
-            $criteria->compare('social_instagram',$this->social_instagram,true);         
-            $criteria->compare('adminEmail',$this->adminEmail,true);         
-            $criteria->compare('metaTitle',$this->metaTitle,true);         
-            $criteria->compare('metaKeys',$this->metaKeys,true);         
-            $criteria->compare('metaDesc',$this->metaDesc,true);         
-            $criteria->compare('recoveryPassPhone',$this->recoveryPassPhone);         
-            $criteria->compare('recoveryPassEmail',$this->recoveryPassEmail);         
-            $criteria->compare('paymentPoints',$this->paymentPoints);         
-            $criteria->compare('relatedNews',$this->relatedNews);         
-            $criteria->compare('checkStockStatus',$this->checkStockStatus);         
-            $criteria->compare('reviews',$this->reviews);         
-            $criteria->compare('referralSystem',$this->referralSystem);         
+//            $criteria->compare('id',$this->id);         
+//            $criteria->compare('about',$this->about,true);         
+//            $criteria->compare('phone',$this->phone,true);         
+//            $criteria->compare('phoneInfo',$this->phoneInfo,true);         
+//            $criteria->compare('addressInfo',$this->addressInfo,true);         
+//            $criteria->compare('social_twitter',$this->social_twitter,true);         
+//            $criteria->compare('social_facebook',$this->social_facebook,true);         
+//            $criteria->compare('social_google',$this->social_google,true);         
+//            $criteria->compare('social_pinterest',$this->social_pinterest,true);         
+//            $criteria->compare('social_tumblr',$this->social_tumblr,true);         
+//            $criteria->compare('social_instagram',$this->social_instagram,true);         
+//            $criteria->compare('adminEmail',$this->adminEmail,true);         
+//            $criteria->compare('metaTitle',$this->metaTitle,true);         
+//            $criteria->compare('metaKeys',$this->metaKeys,true);         
+//            $criteria->compare('metaDesc',$this->metaDesc,true);         
+//            $criteria->compare('recoveryPassPhone',$this->recoveryPassPhone);         
+//            $criteria->compare('recoveryPassEmail',$this->recoveryPassEmail);         
+//            $criteria->compare('paymentPoints',$this->paymentPoints);         
+//            $criteria->compare('relatedNews',$this->relatedNews);         
+//            $criteria->compare('checkStockStatus',$this->checkStockStatus);         
+//            $criteria->compare('reviews',$this->reviews);         
+//            $criteria->compare('referralSystem',$this->referralSystem);         
 
             $dataProvider = new CActiveDataProvider($this, array(
                 'criteria'=>$criteria,

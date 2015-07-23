@@ -1,4 +1,9 @@
 <?php
+
+    $config = $this->config;
+    if ( !$config['eventCalendar'] ) {
+        return false;
+    }
     
 ?>
 

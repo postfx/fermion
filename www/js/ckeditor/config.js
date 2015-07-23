@@ -23,4 +23,5 @@ CKEDITOR.editorConfig = function( config ) {
             { name: 'colors', items : [ 'TextColor','BGColor' ] }
         ];
         config.filebrowserUploadUrl = '/js/ckeditor/upload.php';
+        config.tabSpaces = 4;
 };
