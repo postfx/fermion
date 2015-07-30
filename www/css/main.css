@@ -9912,3 +9912,6 @@ table.ta td {
 .basket-table table tr{
     background: none !important;
 }
+.success label {
+    color: rgb(65, 120, 36);
+}

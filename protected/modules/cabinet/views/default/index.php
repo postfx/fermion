@@ -29,55 +29,63 @@
         <div class="page-content-wrap pl0 fa_user-menu">
             <div class="user-menu-row">
                 
-                <!-- todo -->
+                <?php if ( $role->blockEvent ): ?>
                     <div class="user-menu-section">
                         <div class="user-menu-header">
-                            События ( ТЕСТ )
+                            События
                         </div>
                         <div class="user-menu-list">
-                            <a href="javascript:void(0)" class="user-menu-item clearfix">
-                                <div class="user-menu-img">
-                                    <img src="/images/icons/event-ico-create.png">
-                                </div>
-                                <div class="user-menu-title-wrap">
-                                    <div class="user-menu-title">
-                                        создать событие
+                            <?php if ( $role->opt_event_create ): ?>
+                                <a href="<?= $this->createUrl('/cabinet/event/create') ?>" class="user-menu-item clearfix">
+                                    <div class="user-menu-img">
+                                        <img src="/images/icons/event-ico-create.png">
                                     </div>
-                                </div>
-                            </a>
-                            <a href="javascript:void(0)" class="user-menu-item clearfix">
-                                <div class="user-menu-img">
-                                    <img src="/images/icons/cat-ico.png">
-                                </div>
-                                <div class="user-menu-title-wrap">
-                                    <div class="user-menu-title">
-                                        создать категорию событий
+                                    <div class="user-menu-title-wrap">
+                                        <div class="user-menu-title">
+                                            создать событие
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
-                            <a href="javascript:void(0)" class="user-menu-item clearfix">
-                                <div class="user-menu-img">
-                                    <img src="/images/icons/eye-ico-2.png">
-                                </div>
-                                <div class="user-menu-title-wrap">
-                                    <div class="user-menu-title">
-                                        просмотр событий
+                                </a>
+                            <?php endif; ?>
+                            <?php if ( $role->opt_eventCategory_create ): ?>
+                                <a href="<?= $this->createUrl('/cabinet/eventCategory/create') ?>" class="user-menu-item clearfix">
+                                    <div class="user-menu-img">
+                                        <img src="/images/icons/cat-ico.png">
                                     </div>
-                                </div>
-                            </a>
-                            <a href="javascript:void(0)" class="user-menu-item clearfix">
-                                <div class="user-menu-img">
-                                    <img src="/images/icons/cat-eye-ico.png">
-                                </div>
-                                <div class="user-menu-title-wrap">
-                                    <div class="user-menu-title">
-                                        просмотр категорий событий
+                                    <div class="user-menu-title-wrap">
+                                        <div class="user-menu-title">
+                                            создать категорию событий
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
+                                </a>
+                            <?php endif; ?>
+                            <?php if ( $role->opt_eventCategory_create ): ?>
+                                <a href="<?= $this->createUrl('/cabinet/event/index') ?>" class="user-menu-item clearfix">
+                                    <div class="user-menu-img">
+                                        <img src="/images/icons/eye-ico-2.png">
+                                    </div>
+                                    <div class="user-menu-title-wrap">
+                                        <div class="user-menu-title">
+                                            просмотр событий
+                                        </div>
+                                    </div>
+                                </a>
+                            <?php endif; ?>
+                            <?php if ( $role->opt_eventCategory_create ): ?>
+                                <a href="<?= $this->createUrl('/cabinet/eventCategory/index') ?>" class="user-menu-item clearfix">
+                                    <div class="user-menu-img">
+                                        <img src="/images/icons/cat-eye-ico.png">
+                                    </div>
+                                    <div class="user-menu-title-wrap">
+                                        <div class="user-menu-title">
+                                            просмотр категорий событий
+                                        </div>
+                                    </div>
+                                </a>
+                            <?php endif; ?>
                         </div>
                     </div>
-                <!-- -->
+                <?php endif; ?>
 
                 <?php if ( $role->blockNews ): ?>
                     <div class="user-menu-section">

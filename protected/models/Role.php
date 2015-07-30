@@ -39,6 +39,16 @@ class Role extends CActiveRecord
                 array('desc, date_create', 'safe'),
                 array(''
                     
+                    . 'opt_event_create,'
+                    . 'opt_event_read,'
+                    . 'opt_event_update,'
+                    . 'opt_event_delete,'
+                    
+                    . 'opt_eventCategory_create,'
+                    . 'opt_eventCategory_read,'
+                    . 'opt_eventCategory_update,'
+                    . 'opt_eventCategory_delete,'
+                    
                     . 'opt_feedback,'
                     
                     . 'opt_office_create,'
@@ -175,6 +185,12 @@ class Role extends CActiveRecord
             return (   $this->opt_feedback
                     );
         }
+        public function getBlockEvent()
+        {
+            return (   $this->opt_event_create || $this->opt_event_read || $this->opt_event_update || $this->opt_event_delete
+                    || $this->opt_eventCategory_create || $this->opt_eventCategory_read || $this->opt_eventCategory_update || $this->opt_eventCategory_delete
+                    );
+        }
         
         
         public function get_active()
@@ -228,6 +244,14 @@ class Role extends CActiveRecord
                     'type'=>'1',
                     'data'=>'feedback',
                     'name'=>'управление',
+                ),
+                'Категории событий'=>array(
+                    'type'=>'0',
+                    'data'=>'eventCategory',
+                ),
+                'События'=>array(
+                    'type'=>'0',
+                    'data'=>'event',
                 ),
             );
             

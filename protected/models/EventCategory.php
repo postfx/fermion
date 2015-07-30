@@ -9,6 +9,7 @@
  * @property string $name
  * @property string $desc
  * @property string $color
+ * @property integer $date_create
  *
  * The followings are the available model relations:
  * @property Event[] $events
@@ -30,7 +31,7 @@ class EventCategory extends CActiveRecord
                 array('name, color', 'required'),
                 array('zIndex', 'numerical', 'integerOnly'=>true),
                 array('name', 'length', 'max'=>128),
-                array('color', 'length', 'max'=>6),
+                array('color', 'length', 'max'=>7),
                 array('desc', 'safe'),
             
                 // search
@@ -52,10 +53,11 @@ class EventCategory extends CActiveRecord
 	{
             return array(
                 'id' => 'ID',
-                'zIndex' => 'Z Index',
-                'name' => 'Name',
-                'desc' => 'Desc',
-                'color' => 'Color',
+                'zIndex' => 'Порядок',
+                'name' => 'Название',
+                'desc' => 'Описание',
+                'color' => 'Маркер',
+                'date_create'=>'Дата создания'
             );
 	}
 
@@ -77,7 +79,7 @@ class EventCategory extends CActiveRecord
                 ),
             ));
 
-            $dataProvider->sort->defaultOrder = '`id` DESC';
+            $dataProvider->sort->defaultOrder = '`zIndex` ASC, `id` ASC';
 
             return $dataProvider;
 	}
@@ -89,5 +91,65 @@ class EventCategory extends CActiveRecord
 	}
         
         
+        public function preUpdate()
+        {
+            
+        }
         
+        
+        public function preSave()
+        {
+            if ( $this->isNewRecord ) {
+                $this->date_create = time();
+            } else {
+                
+            }
+            
+//            if ( strlen($this->passport_date)!=0 ) {
+//                $this->passport_date    =   strtotime($this->passport_date);
+//            }
+
+            if ( $this->save(false) ) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        
+        
+        public static function items()
+        {
+            $result = array(
+                //''=>'',
+            );
+            $criteria = new CDbCriteria;
+            $criteria->order = '`zIndex` ASC, `id` ASC';
+            $values = self::model()->findAll($criteria);
+            
+            foreach ( $values as $value ) {
+                //$result[$value->id] = $value->name;
+                $result[] = array(
+                    'id'=>$value->id,
+                    'value'=>$value->name,
+                );
+            }
+            
+            return $result;
+        }
+        
+        
+        public function get_desc()
+        {
+            if ( strlen(strip_tags($this->desc))>100 ) {
+                return mb_substr(strip_tags($this->desc), 0, 100).'...';
+            } else {
+                return strip_tags($this->desc);
+            }
+        }
+        
+        
+        public function get_color()
+        {
+            return '<div style="background: '.$this->color.';" class="color-marker"></div>';
+        }
 }
